@@ -7,6 +7,18 @@ const passport = require('passport');
 
 const users = require("./routes/api/users");
 
+//HEROKU DEPLOYMENT CODE
+const path = require('path');
+
+//tell our server to load static build folder in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
+//HEROKU DEPLOYMENT CODE
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))

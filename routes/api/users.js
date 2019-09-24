@@ -14,7 +14,8 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.json({
       id: req.user.id,
-      handle: req.user.handle,
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
       email: req.user.email
     });
   })
@@ -32,7 +33,8 @@ router.post('/register', (req, res) => {
           return res.status(400).json({email: "A user has already registered with this address"})
         } else {
           const newUser = new User({
-            handle: req.body.handle,
+            firstName: req.user.firstName,
+            lastName: req.user.lastName,
             email: req.body.email,
             password: req.body.password
           })
