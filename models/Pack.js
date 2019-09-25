@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Schedule = require('./Schedule');
+const Payment = require('./Payment');
+
 
 const PackSchema = new Schema({
   packLeader: {
@@ -20,8 +23,15 @@ const PackSchema = new Schema({
     type: [{ type: Schema.Types.ObjectId, ref: 'users'}],
     default: []
   },
+  schedules: {
+    type: [Schedule]
+  },
+  payments: {
+    type: [Payment]
+  },
   startDate: {
     type: Date,
+    default: Date.now,
     required: true
   },
   endDate: {
