@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Schedule = require('./Schedule');
-const Payment = require('./Payment');
+// const Payment = require('./Payment');
 
 
 const PackSchema = new Schema({
@@ -24,11 +24,11 @@ const PackSchema = new Schema({
     default: []
   },
   schedules: {
-    type: [Schedule]
+    type: [Schedule.schema]
   },
-  payments: {
-    type: [Payment]
-  },
+  // payments: {
+  //   type: [Payment]
+  // },
   startDate: {
     type: Date,
     default: Date.now,

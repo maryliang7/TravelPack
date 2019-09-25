@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const validatePackInput = require('../../validation/packs')
 const Pack = require('../../models/Pack');
-
+const passport = require('passport');
 router.get('/', (req, res) => {
   Pack.find({ name: req.body.name })
     .then(pack => res.json(pack))
@@ -44,7 +44,7 @@ router.delete('/:id', (req, res) => {
 
 
 router.post('/',
-  passport.authenticate('jwt', { session: false }),
+  // passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validatePackInput(req.body);
 
