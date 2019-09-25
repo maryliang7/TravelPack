@@ -1,27 +1,31 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Event = require('./Event');
 
 const ScheduleSchema = new Schema({ 
-    packId = {
-        type: Number,
-        required: true
-    },
-    title = {
+    title: {
         type: String,
         required: true
     },
-    description = {
+    description: {
         type: String,
         required: true
     },
-    events = {
-        type: [Event],
-        required: true
+    events: {
+        type: [Event]
     },
-    date = {
+    startDate: {
         type: Date,
-        default: Date.now
-    }
+        default: Date.now,
+        required: true
+    },
+    endDate: {
+        type: Date,
+        required: true
+    },
+},
+    {
+        timestamps: true
 })
 
 

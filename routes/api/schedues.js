@@ -18,16 +18,35 @@ router.post("/new", (req, res) => {
     Schedule.findOne({title: req.body.title})
         .then(schedule => {
             if (schedule) {
-                return res.status(400).json({schedule: "A schedule with this title already exists for this pack"})
+                return res.status(400).json({schedule: "Error. A schedule with this title already exists for this pack"})
             } else {
                 const newSchedule = new Schedule({
-                    packId: req.body.packId,
                     title: req.body.title,
                     description: req.body.description,
                     events: req.body.events,
-                    date: req.body.date
+                    startDate: req.body.date,
+                    endDate: req.body.date
                 })
                 newSchedule.save();
+            }
+        })
+    })
+
+router.post("/update", (req, res) => {
+    Schedule.findOne({title: req.body.title})
+        .then(schedule => {
+            if (schedule) {
+                const newSchedule = new Schedule({
+                    title: req.body.title,
+                    description: req.body.description,
+                    events: req.body.events,
+                    startDate: req.body.date,
+                    endDate: req.body.date
+                })
+                newSchedule.save();
+                } else {
+                    return res.status(400).json({schedule: "Error. No schedule with this title exists to update."
+                })
             }
         })
     })
