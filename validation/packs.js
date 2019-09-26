@@ -6,8 +6,8 @@ module.exports = function validatePackInput(data) {
 
   data.name = validText(data.name) ? data.name : '';
   data.password = validText(data.password) ? data.password : '';
-  data.startDate = validText(data.startDate) ? data.startDate : '';
-  data.endDate = validText(data.endDate) ? data.endDate : '';
+  // data.startDate = validText(data.startDate) ? data.startDate : '';
+  // data.endDate = validText(data.endDate) ? data.endDate : '';
 
   if (!Validator.isLength(data.name, { min: 2})) {
     errors.handle = 'Pack name must be at least 2 characters';
@@ -25,13 +25,13 @@ module.exports = function validatePackInput(data) {
     errors.password = 'Password must be at least 6 characters';
   }
 
-  if (Validator.isEmpty(data.startDate)) {
-    errors.startDate = 'Start date is required';
-  }
+  // if (Validator.isEmpty(data.startDate)) {
+  //   errors.startDate = 'Start date is required';
+  // }
 
-  if (Validator.isEmpty(data.endDate)) {
-    errors.endDate = 'End date is required';
-  }
+  // if (Validator.isEmpty(data.endDate)) {
+  //   errors.endDate = 'End date is required';
+  // }
 
   return {
     errors,

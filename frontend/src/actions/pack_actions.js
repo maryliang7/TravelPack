@@ -49,7 +49,7 @@ export const updatePack = (data) => (dispatch) => (
     .catch(err => console.log(err))
 )
 
-export const removePack = (id) => (dispatch) => (
+export const deletePack = (id) => (dispatch) => (
   APIUtil.updatePack(id)
     .then(packId => dispatch(removePack(packId)))
     .catch(err => console.log(err))
