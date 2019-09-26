@@ -8,6 +8,7 @@ const passport = require('passport');
 const users = require("./routes/api/users");
 const schedules = require("./routes/api/schedules");
 const packs = require("./routes/api/packs");
+const payments = require("./routes/api/payments");
 
 //HEROKU DEPLOYMENT CODE
 const path = require('path');
@@ -37,7 +38,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/packs", packs);
 app.use("/api/packs/:packId/schedules", schedules);
-// app.use("/api/packs", schedules);
+app.use("/api/packs/:packId/payments", payments);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

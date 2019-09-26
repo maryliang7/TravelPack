@@ -6,26 +6,24 @@ const PaymentSchema = new Schema({
     type: String,
     required: true
   },
-  packId: {
-    type: Integer,
-    required: true
-  },
   spotterId: {
-    type: Integer,
-    required: true
+    type: Schema.Types.ObjectId,
+    ref: 'users'
   },
   chargeeIds: {
-    type: Array,
+    type: [{ type: Schema.Types.ObjectId, ref: 'users' }],
+    default: []
+  },
+  amount: {
+    type: Number,
     required: true
   },
   category: {
     type: String,
     required: true
-  },
-  amount: {
-    type: Double,
-    required: true
-  },
+  }
+}, {
+  timestamps: true
 });
 
-module.exports = Payment = mongoose.model('users', PaymentSchema);
+module.exports = Payment = mongoose.model('payments', PaymentSchema);
