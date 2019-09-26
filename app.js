@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 
 const users = require("./routes/api/users");
-const schedules = require("./routes/api/schedues");
+const schedules = require("./routes/api/schedules");
 const packs = require("./routes/api/packs");
 
 //HEROKU DEPLOYMENT CODE
@@ -26,7 +26,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send("Suhh duu"));
+app.get("/", (req, res) => res.send("Suhh"));
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
@@ -37,6 +37,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/packs", packs);
 app.use("/api/packs/:packId/schedules", schedules);
+// app.use("/api/packs", schedules);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
