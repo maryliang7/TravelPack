@@ -11,18 +11,6 @@ const parseURL = (baseUrl) => {
   return urlArr[3];
 };
 
-
-// router.post("/new", (req, res) => {
-//   const newPayment = new Payment({
-//     title: req.body.title,
-//     spotterId: req.user.id,
-//     chargeeIds: req.body.chargeeIds,
-//     amount: req.body.amount,
-//     category: req.body.category
-//   });
-//   newPayment.save();
-// });
-
 router.post("/new", (req, res) => {
 
   const newPayment = new Payment({
@@ -32,7 +20,6 @@ router.post("/new", (req, res) => {
     amount: req.body.amount,
     category: req.body.category
   });
-  // newPayment.save();
   
   let parsed = parseURL(req.baseUrl);
   Pack.updateOne(
@@ -42,24 +29,28 @@ router.post("/new", (req, res) => {
 });
 
 router.put("/update", (req, res) => {
-  Payment.findOne({ title: req.body.title })
-    .then(payment => {
-      if (payment) {
-        const newPayment = new Payment({
-          title: req.body.title,
-          spotterId: req.body.spotterId,
-          chargeeIds: req.body.chargeeIds,
-          amount: req.body.amount,
-          category: req.body.category
-        });
-        newPayment.save()
-          .then(payment => res.json(payment));
-      } else {
-        return res.status(400).json({
-          payment: "Error. No payment with this title exists to update."
-      });
-    }
-  });
+  let parsed = parseURL(req.baseUrl);
+
+  Pack.updateOne(
+    { _id: parsed, "payments._id": req.body.id },
+    // { $set: { "payments.$.title": req.body.title, "payments.$.description": req.body.description } }
+    { $set: 
+      { 
+        "payments.$.title": req.body.title,
+        "payments.$.amount": req.body.amount,
+        "payments.$.category": req.body.category,
+        "payments.$.chargeeIds": req.body.chargeeIds
+      }
+    }).then((response) => res.json(response));
 });
+
+router.delete("/delete", (req, res) => {
+  let parsed = parseURL(req.baseUrl);
+
+  Pack.updateOne(
+    { _id: parsed },
+    { $pull: { payments: { _id: req.body.id } } }
+  ).then((response) => res.json(response));
+});  
 
 module.exports = router;

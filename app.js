@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 
 const users = require("./routes/api/users");
-const schedules = require("./routes/api/schedules");
 const packs = require("./routes/api/packs");
+const schedules = require("./routes/api/schedules");
 const payments = require("./routes/api/payments");
 
 //HEROKU DEPLOYMENT CODE
