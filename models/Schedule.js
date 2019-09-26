@@ -12,7 +12,7 @@ const ScheduleSchema = new Schema({
         required: true
     },
     events: {
-        type: [Event]
+        type: [Event.schema]
     },
     startDate: {
         type: Date,

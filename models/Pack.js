@@ -24,10 +24,10 @@ const PackSchema = new Schema({
     default: []
   },
   schedules: {
-    type: [Schedule]
+    type: [Schedule.schema]
   },
   payments: {
-    type: [Payment]
+    type: [Payment.schema]
   },
   startDate: {
     type: Date,
