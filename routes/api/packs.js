@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const validatePackInput = require('../../validation/packs')
 const Pack = require('../../models/Pack');
-
+const passport = require('passport');
 router.get('/', (req, res) => {
   Pack.find({ name: req.body.name })
     .then(pack => res.json(pack))
@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Pack.findByIdAndUpdate({id: req.params.id}, req.body)
+  Pack.findByIdAndUpdate({_id: req.params.id}, req.body)
     .then(() => Pack.findById(req.params.id).then(pack => res.json(pack)))
     .catch(err =>
       res.status(404).json({ nopackfound: 'No pack found with that ID' })
