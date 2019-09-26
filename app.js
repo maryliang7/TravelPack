@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/packs", packs);
 app.use("/api/packs/:packId/schedules", schedules);
-// app.use("/api/packs", schedules);
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
