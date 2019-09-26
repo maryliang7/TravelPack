@@ -44,7 +44,7 @@ router.delete('/:id', (req, res) => {
 
 
 router.post('/',
-  // passport.authenticate('jwt', { session: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validatePackInput(req.body);
 
