@@ -20,32 +20,21 @@ const parseURL = (baseUrl) => {
 //3. Schedule has at least one Event. If no event --> Render error requiring at least one Event object in the array.
 //4. Schedules need a range of dates. If no range of date is given --> render error saying that dates need to be selected
 router.post("/new", (req, res) => {
-    // Schedule.findOne({title: req.body.title})
-    //     .then(schedule => {
-    //         if (schedule) {
-    //             return res.status(400).json({schedule: "Error. A schedule with this title already exists for this pack"})
-    //         } else {
+    const newSchedule = new Schedule({
+        title: req.body.title,
+        description: req.body.description,
+        events: req.body.events,
+        startDate: req.body.date,
+        endDate: req.body.date
+    })
+    let parsed = parseURL(req.baseUrl);
+    newSchedule.save();
 
-
-                const newSchedule = new Schedule({
-                    title: req.body.title,
-                    description: req.body.description,
-                    events: req.body.events,
-                    startDate: req.body.date,
-                    endDate: req.body.date
-                })
-                let parsed = parseURL(req.baseUrl);
-                newSchedule.save()//.then(schedule => res.json(schedule));
-
-                // const pack = Pack.find(parsed);
-                Pack.updateOne(
-                    {_id: parsed},
-                    { $push: {schedules:  newSchedule }}
-                ).then(schedule => res.json(schedule));
-                // Pack.update({_id: parsed}, {schedules: {[schedules.newSchedule.id]: newSchedule} })
-            // }
-        })
-    // })
+    Pack.updateOne(
+        {_id: parsed},
+        { $push: {schedules:  newSchedule }}
+    ).then(schedule => res.json(schedule));
+})
 
 router.put("/update", (req, res) => {
     Schedule.findOne({title: req.body.title})
