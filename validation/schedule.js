@@ -5,7 +5,6 @@ module.exports = function validateScheduleInput(data) {
     let errors = {};
     
     data.title = validText(data.title) ? data.title: '';
-    data.description = validText(data.description) ? data.description: '';
     data.startDate = validText(data.startDate) ? data.startDate: '';
     data.endDate = validText(data.endDate) ? data.endDate: '';
 

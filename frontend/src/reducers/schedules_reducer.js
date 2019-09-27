@@ -7,6 +7,8 @@ const SchedulesReducer = (state = {}, action) => {
     Object.freeze(state);
     
     switch(action.type) {
+        case RECEIVE_PACK: 
+            return Object.assign({}, state, action.pack.schedules)
         case RECEIVE_SCHEDULE: 
             return Object.assign({}, state, {[action.schedule.id]: action.schedule})
         case REMOVE_SCHEDULE:

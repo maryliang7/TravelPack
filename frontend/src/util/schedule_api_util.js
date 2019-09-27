@@ -9,7 +9,7 @@ export const getSchedule = data => {
 }
 
 export const createSchedule = data => {
-    return axios.post(`api/packs/${data.packId}/schedules/`)
+    return axios.post(`api/packs/${data.packId}/schedules/`, data)
 }
 
 export const updateSchedule = data => {
@@ -17,5 +17,5 @@ export const updateSchedule = data => {
 }
 
 export const deleteSchedule = data => {
-    return axios.delete(`api/packs/${data.packId}/schedules/${data.scheduleId}`)
+    return axios.delete(`api/packs/${data.packId}/schedules/${data.scheduleId}`, data)
 }

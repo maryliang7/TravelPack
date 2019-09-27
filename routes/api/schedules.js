@@ -20,7 +20,6 @@ router.get('/:scheduleId', (req, res) => {
 router.post("/new", (req, res) => {
     const newSchedule = new Schedule({
         title: req.body.title,
-        description: req.body.description,
         events: req.body.events,
         startDate: req.body.date,
         endDate: req.body.date
@@ -39,7 +38,7 @@ router.put("/update/:scheduleId", (req, res) => {
 
     Pack.updateOne(
         { _id: parsed, "schedules._id": req.body.id },
-        { $set: {"schedules.$.title": req.body.title, "schedules.$.description": req.body.description} }
+        { $set: {"schedules.$.title": req.body.title} }
         ).then((pls) => res.json(pls));
 })    
 

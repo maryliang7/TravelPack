@@ -7,13 +7,9 @@ const ScheduleSchema = new Schema({
         type: String,
         required: true
     },
-    description: {
-        type: String,
-        required: true
+    events: {
+        type: [Event.schema]
     },
-    // events: {
-    //     type: [Event.schema]
-    // },
     startDate: {
         type: Date,
         default: Date.now,
