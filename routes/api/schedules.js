@@ -11,6 +11,12 @@ const parseURL = (baseUrl) => {
     return urlArr[3];
 }
 
+router.get('/:scheduleId', (req, res) => {
+    Schedule.find({ _id: req.body.id })
+        .then(schedule => res.json(schedule))
+        .catch(err => res.status(404).json({ noschedulefound: 'No schedule found' }));
+})
+
 router.post("/new", (req, res) => {
     const newSchedule = new Schedule({
         title: req.body.title,
@@ -18,8 +24,7 @@ router.post("/new", (req, res) => {
         events: req.body.events,
         startDate: req.body.date,
         endDate: req.body.date
-        }
-        )
+    })
 
     let parsed = parseURL(req.baseUrl);
 
@@ -29,8 +34,7 @@ router.post("/new", (req, res) => {
     ).then(() => res.json(newSchedule));
 })
 
-
-router.put("/update", (req, res) => {
+router.put("/update/:scheduleId", (req, res) => {
     let parsed = parseURL(req.baseUrl);
 
     Pack.updateOne(
@@ -39,7 +43,7 @@ router.put("/update", (req, res) => {
         ).then((pls) => res.json(pls));
 })    
 
-router.delete("/delete", (req, res) => {
+router.delete("/delete/:scheduleId", (req, res) => {
     let parsed = parseURL(req.baseUrl);
 
     Pack.updateOne(
