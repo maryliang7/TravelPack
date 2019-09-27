@@ -1,16 +1,43 @@
 import React from 'react';
+import './main_page.css'
+import { Link } from 'react-router-dom'
+import logo from './logo.png';
+// import PacksContainer from '../packs/packs_container'
+
 
 class MainPage extends React.Component {
-
   render() {
-    return (
-      <div>
-        <p>TravelPack</p>
-        <footer>
-          Copyright &copy; 2019 TravelPack
-        </footer>
-      </div>
-    );
+    let { loggedIn } = this.props;
+
+    if (!loggedIn) {
+      return (
+        <div className="splash">
+          <div className="splash-logo">
+            <img src={logo} alt="logo"/>
+          </div>
+          <div className="splash-signup">
+            <Link to={'/signup'}><button>Signup</button></Link>
+            <Link to={'/login'}><button>Login</button></Link>
+          </div>
+          <div className="splash-text">
+            <h1>TravelPack</h1>
+            <p> Create. Collaborate. Travel.</p>
+          </div>
+          <footer>
+            Copyright &copy; 2019 TravelPack
+          </footer>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          {/* <PacksContainer /> */}
+          <footer>
+            Copyright &copy; 2019 TravelPack
+          </footer>
+        </div>
+      )
+    }
   }
 }
 
