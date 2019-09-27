@@ -60,7 +60,7 @@ router.delete('/:id', (req, res) => {
 
 
 router.post('/new',
-  // passport.authenticate('jwt', { session: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validatePackInput(req.body);
 
@@ -69,8 +69,8 @@ router.post('/new',
     }
 
     const newPack = new Pack({
-      // packLeader: req.user.id,
-      packLeader: req.body.packLeader,
+      packLeader: req.user.id,
+      // packLeader: req.body.packLeader,
       name: req.body.name,
       password: req.body.password,
       members: req.body.members,
