@@ -4,6 +4,7 @@ const Schedule = require('./Schedule');
 const Payment = require('./Payment');
 const Photo = require('./Photo');
 
+
 const PackSchema = new Schema({
   packLeader: {
     type: Schema.Types.ObjectId,
@@ -29,14 +30,17 @@ const PackSchema = new Schema({
   payments: {
     type: [Payment.schema]
   },
+  // photos: {
+  //   type: [Photo.schema]
+  // },
   startDate: {
     type: Date,
     default: Date.now,
-    required: true
+    // required: true
   },
   endDate: {
     type: Date,
-    required: true
+    // required: true
   }
 }, {
   timestamps: true

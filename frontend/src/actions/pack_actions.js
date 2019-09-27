@@ -50,7 +50,7 @@ export const updatePack = (data) => (dispatch) => (
 )
 
 export const deletePack = (id) => (dispatch) => (
-  APIUtil.updatePack(id)
+  APIUtil.deletePack(id)
     .then(packId => dispatch(removePack(packId)))
     .catch(err => console.log(err))
 )

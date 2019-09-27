@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 const validatePackInput = require('../../validation/packs')
 const Pack = require('../../models/Pack');
 const passport = require('passport');
+
 router.get('/', (req, res) => {
-  Pack.find({ name: req.body.name })
+  Pack.findOne({ name: req.body.name })
     .then(pack => res.json(pack))
     .catch(err => res.status(404).json({ notpacksfound: 'No packs found' }));
 
@@ -28,9 +29,24 @@ router.get('/:id', (req, res) => {
     );
 });
 
-router.put('/:id', (req, res) => {
-  Pack.findByIdAndUpdate({_id: req.params.id}, req.body)
-    .then(() => Pack.findById(req.params.id).then(pack => res.json(pack)))
+router.put('/:id/update', (req, res) => {
+  Pack.findById(req.params.id)
+    .then(pack => {
+      pack.name = req.body.name;
+      pack.startDate = req.body.startDate;
+      pack.endDate = req.body.endDate;
+      pack.save().then( () => {
+        if (req.body.members) {
+          Pack.updateOne(
+            { _id: pack.id },
+            { $push: { members: req.body.members } }
+          ).then(() => res.json(pack));
+        } else {
+          return res.json(pack);
+        }
+
+      });
+    })
     .catch(err =>
       res.status(404).json({ nopackfound: 'No pack found with that ID' })
     );
@@ -43,7 +59,7 @@ router.delete('/:id', (req, res) => {
 })
 
 
-router.post('/',
+router.post('/new',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validatePackInput(req.body);
@@ -54,8 +70,10 @@ router.post('/',
 
     const newPack = new Pack({
       packLeader: req.user.id,
+      // packLeader: req.body.packLeader,
       name: req.body.name,
       password: req.body.password,
+      members: req.body.members,
       startDate: req.body.startDate,
       endDate: req.body.endDate
     });
