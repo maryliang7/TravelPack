@@ -1,0 +1,66 @@
+.splash {
+  font-family: 'Montserrat', sans-serif;
+  background-image: url('./moutain.jpg');
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-width: 1000px;
+  min-height: 100vh;
+  color: white;
+}
+
+.splash-logo,
+.splash-logo img {
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.splash-logo {
+  margin: 10px;
+}
+
+.splash-signup {
+  position: absolute;  
+  top: 40px;
+  right: 50px;
+}
+
+.splash-signup button {
+  color: white;
+  border: 3px solid white;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 5px 7px;
+  padding: 5px 9px;
+  border-radius: 1px;
+}
+
+.splash-signup button:hover {
+  color: rgb(178, 195, 236);
+  background: white;
+
+}
+
+
+.splash-text {
+  margin: 150px 30px;
+}
+
+.splash-text h1 {
+  font-size: 54px;
+}
+
+.splash-text p {
+  font-size: 20px;
+}
+
+.splash footer {
+  position: absolute;
+  bottom: 20px;
+  left: 650px;
+  font-size: 12px;
+}
