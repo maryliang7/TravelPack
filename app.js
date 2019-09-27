@@ -8,6 +8,7 @@ const passport = require('passport');
 const users = require("./routes/api/users");
 const schedules = require("./routes/api/schedules");
 const packs = require("./routes/api/packs");
+const events = require("./routes/api/events");
 
 //HEROKU DEPLOYMENT CODE
 const path = require('path');
@@ -37,6 +38,8 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/packs", packs);
 app.use("/api/packs/:packId/schedules", schedules);
+app.use("/api/events", events); //delete later, this is for testing
+app.use("/api/packs/:packId/schedules/events", events);
 
 
 const port = process.env.PORT || 5000;
