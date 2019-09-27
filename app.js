@@ -13,10 +13,14 @@ const aws = require('aws-sdk');
 
 const users = require("./routes/api/users");
 const packs = require("./routes/api/packs");
+
+const events = require("./routes/api/events");
+
 const schedules = require("./routes/api/schedules");
 const payments = require("./routes/api/payments");
 
 app.use(cors());
+
 
 
 //HEROKU DEPLOYMENT CODE
@@ -74,7 +78,12 @@ app.use(function(err, req, res, next) {
 app.use("/api/users", users);
 app.use("/api/packs", packs);
 app.use("/api/packs/:packId/schedules", schedules);
+
+app.use("/api/events", events); //delete later, this is for testing
+app.use("/api/packs/:packId/schedules/events", events);
+
 app.use("/api/packs/:packId/payments", payments);
+
 
 
 const port = process.env.PORT || 5000;
