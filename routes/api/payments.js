@@ -28,12 +28,11 @@ router.post("/new", (req, res) => {
   ).then(() => res.json(newPayment));
 });
 
-router.put("/update", (req, res) => {
+router.put("/update/:paymentId", (req, res) => {
   let parsed = parseURL(req.baseUrl);
 
   Pack.updateOne(
     { _id: parsed, "payments._id": req.body.id },
-    // { $set: { "payments.$.title": req.body.title, "payments.$.description": req.body.description } }
     { $set: 
       { 
         "payments.$.title": req.body.title,
@@ -44,7 +43,7 @@ router.put("/update", (req, res) => {
     }).then((response) => res.json(response));
 });
 
-router.delete("/delete", (req, res) => {
+router.delete("/delete/:paymentId", (req, res) => {
   let parsed = parseURL(req.baseUrl);
 
   Pack.updateOne(
