@@ -10,7 +10,7 @@ module.exports = function validatePackInput(data) {
   data.endDate = validText(data.endDate) ? data.endDate : '';
 
   if (!Validator.isLength(data.name, { min: 2})) {
-    errors.handle = 'Pack name must be at least 2 characters';
+    errors.name = 'Pack name must be at least 2 characters';
   }
 
   if (Validator.isEmpty(data.name)) {
