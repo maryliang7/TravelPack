@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Schedule = require('./Schedule');
 const Payment = require('./Payment');
-
+const Photo = require('./Photo');
 
 const PackSchema = new Schema({
   packLeader: {

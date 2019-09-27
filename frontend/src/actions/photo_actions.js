@@ -37,6 +37,11 @@ export const createPhoto = photo => dispatch => (
   .catch(err => console.log(err))  
 )
 
+export const uploadPhoto = photo => dispatch => (
+  PhotoAPIUtil.uploadPhoto(photo)
+  //.then(photo => dispatch(receivePhoto(photo)))
+)
+
 export const deletePhoto = id => dispatch => (
   PhotoAPIUtil.deletePhoto(id).then(photo => dispatch(removePhoto(photo)))
   .catch(err => console.log(err))
