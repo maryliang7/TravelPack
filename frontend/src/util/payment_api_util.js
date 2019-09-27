@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getPayments = (packId) => {
-  return axios.get(`/api/packs/${packId}`)
+  return axios.get(`/api/packs/${packId}/payments`)
 };
 
 export const createPayment = (packId, payment) => {
@@ -13,5 +13,5 @@ export const updatePayment = (packId, payment) => {
 };
 
 export const deletePayment = (packId, paymentId) => {
-  return axios.delete(`/api/packs/${packId}/payments/${paymentId}`, paymentId)
+  return axios.delete(`/api/packs/${packId}/payments/${paymentId}`)
 };
