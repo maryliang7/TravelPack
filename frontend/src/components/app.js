@@ -9,7 +9,7 @@ import MainPageContainer from './main/main_page_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import PhotoUploadContainer from './photos/photo_upload_container';
-
+import ScheduleContainer from './schedule/schedule_container';
 
 const App = () => (
   <div>
@@ -22,6 +22,7 @@ const App = () => (
       <ProtectedRoute exact path="/packs/:packId" component={PackShowContainer} />
       {/* <ProtectedRoute path="/upload" component={PhotoUploadContainer} /> */}
       <Route path="/upload" component={PhotoUploadContainer} />
+      <Route path="/schedules" component={ScheduleContainer} />
 
     </Switch>
   </div>

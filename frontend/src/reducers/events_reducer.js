@@ -9,6 +9,8 @@ const EventsReducer = (state = {}, action) => {
     switch(action.type) {
         case RECEIVE_EVENT:
             return Object.assign({}, state, {[action.event.id]: action.event})
+        case RECEIVE_SCHEDULE:
+            return Object.assign({}, state, action.schedule.event)
         case REMOVE_EVENT:
             let newState = Object.assign({}, state);
             delete newState[action.eventId];
