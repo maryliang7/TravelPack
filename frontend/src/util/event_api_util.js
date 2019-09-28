@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getEvent = data => {
+export const getEvents = data => {
     return axios.get(`api/packs/${data.packId}/schedules/${data.scheduleId}/events`)
 }
 

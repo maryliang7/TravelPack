@@ -32,6 +32,7 @@ class MainPage extends React.Component {
       return (
         <div>
           {/* <PacksContainer /> */}
+          hello
           <footer>
             Copyright &copy; 2019 TravelPack
           </footer>

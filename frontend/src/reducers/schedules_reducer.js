@@ -3,6 +3,9 @@ import {
     REMOVE_SCHEDULE
 } from '../actions/schedule_actions';
 
+import {RECEIVE_PACK} from '../actions/pack_actions';
+
+
 const SchedulesReducer = (state = {}, action) => {
     Object.freeze(state);
     

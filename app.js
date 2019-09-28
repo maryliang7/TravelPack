@@ -41,7 +41,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send("Suhh"));
+app.get("/", (req, res) => res.send("SSSS"));
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
@@ -74,6 +74,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.status(err.status || 500);
   res.render("error");
+
 });
 
 app.use("/api/users", users);

@@ -13,11 +13,11 @@ const ScheduleSchema = new Schema({
     startDate: {
         type: Date,
         default: Date.now,
-        required: true
+        // required: true
     },
     endDate: {
         type: Date,
-        required: true
+        // required: true
     },
 },
     {

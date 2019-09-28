@@ -11,6 +11,17 @@ const validateLoginInput = require('../../validation/login');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
+
+router.get('/', (req, res) => {
+  // debugger
+  User.find({ _id: { $in: req.body.members.split(",") } })
+  // User.find({ _id: req.body.members })
+    .then(users => res.json(users))
+    .catch(err =>
+      res.status(400).json({ nousersfound: 'No users found with those IDs' })
+    );
+})
+
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.json({
       id: req.user.id,
@@ -74,7 +85,7 @@ router.post('/register', (req, res) => {
         bcrypt.compare(password, user.password)
         .then(isMatch => {
             if (isMatch) {
-            const payload = {id: user.id, email: user.email};
+            const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName};
 
             jwt.sign(
                 payload,
