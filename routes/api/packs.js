@@ -7,8 +7,13 @@ const passport = require('passport');
 
 router.get('/', (req, res) => {
   Pack.findOne({ name: req.body.name })
-    .then(pack => res.json(pack))
-    .catch(err => res.status(404).json({ notpacksfound: 'No packs found' }));
+    .then(pack => {
+      if(req.body.password === pack.password) {
+        return res.json(pack.id)
+      } 
+      return res.status(400).json({nopackfound: 'Please check the pack name and password combination' });
+    })
+    .catch(err => res.status(404).json({ nopackfound: 'No packs found' }));
 
 });
 
@@ -32,9 +37,9 @@ router.get('/:id', (req, res) => {
 router.put('/:id/update', (req, res) => {
   Pack.findById(req.params.id)
     .then(pack => {
-      pack.name = req.body.name;
-      pack.startDate = req.body.startDate;
-      pack.endDate = req.body.endDate;
+      pack.name = req.body.name || pack.name;
+      pack.startDate = req.body.startDate || pack.startDate;
+      pack.endDate = req.body.endDate || pack.endDate;
       pack.save().then( () => {
         if (req.body.members) {
           Pack.updateOne(

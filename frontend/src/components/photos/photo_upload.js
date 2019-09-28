@@ -1,5 +1,5 @@
 import React from 'react';
-import PhotoIndexContainer from './photo_index_container';
+// import PhotoIndexContainer from './photo_index_container';
 import FormData from 'form-data';
 
 class PhotoUpload extends React.Component {
