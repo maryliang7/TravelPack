@@ -1,4 +1,4 @@
-import * as eventAPIutil from '../util/event_api_util.js';
+import * as eventAPIUtil from '../util/event_api_util.js';
 
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
 export const REMOVE_EVENT = "REMOVE_EVENT";
