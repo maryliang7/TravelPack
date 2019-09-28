@@ -1,12 +1,17 @@
 import * as schedAPIUtil from '../util/schedule_api_util';
 
-export const RECEIVE_SCHEDUELS = "RECEIVE_SCHEDULES";
+export const RECEIVE_SCHEDULES = "RECEIVE_SCHEDULES";
 export const RECEIVE_SCHEDULE = "RECEIVE_SCHEDULE";
 export const REMOVE_SCHEDULE = "REMOVE_SCHEDULE";
 
 export const receiveSchedule = (schedule) => ({
     type: RECEIVE_SCHEDULE,
     schedule
+})
+
+export const receiveSchedules = (schedules) => ({
+    type: RECEIVE_SCHEDULES,
+    schedules
 })
 
 export const removeSchedule = (scheduleId) => ({
@@ -21,7 +26,7 @@ export const getSchedule = (data) => (dispatch) => (
 )
 
 export const getSchedules = (packId) => (dispatch) => (
-    schedAPIUtil.getSchedule(data)
+    schedAPIUtil.getSchedule(packId)
         .then(schedule => dispatch(receiveSchedules()))
         .catch(err => console.log(err))
 )
