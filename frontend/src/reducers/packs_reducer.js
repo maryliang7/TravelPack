@@ -5,7 +5,7 @@ const PacksReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_PACK:
-      return Object.assign({}, state, {[action.pack.id]: action.pack})
+      return Object.assign({}, state, {[action.pack._id]: action.pack})
     case RECEIVE_USER_PACKS:
       return Object.assign({}, action.packs)
     case REMOVE_PACK:

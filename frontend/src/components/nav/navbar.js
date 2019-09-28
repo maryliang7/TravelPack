@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import './navbar.css'
 
 class NavBar extends React.Component {
@@ -24,8 +24,8 @@ class NavBar extends React.Component {
       } else {
         return (
             <div className="nav-signup">
-                <Link to={'/signup'}>Signup</Link>
-                <Link to={'/login'}>Login</Link>
+                {/* <Link to={'/signup'}>Signup</Link>
+                <Link to={'/login'}>Login</Link> */}
             </div>
         );
       }
