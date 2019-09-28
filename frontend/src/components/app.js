@@ -5,6 +5,8 @@ import { Route, Switch } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 // import PacksContainer from './pack/pack_container';
 import PackShowContainer from './pack/pack_show_container';
+import PackAddContainer from './pack/pack_add_container';
+import PackFormContainer from './pack/pack_form_container';
 import MainPageContainer from './main/main_page_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
@@ -19,6 +21,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       {/* <ProtectedRoute exact path="/packs" component={PacksContainer} /> */}
+      <ProtectedRoute exact path="/packs/new" component={PackFormContainer} />
+      <ProtectedRoute exact path="/packs/add" component={PackAddContainer} />
       <ProtectedRoute exact path="/packs/:packId" component={PackShowContainer} />
       {/* <ProtectedRoute path="/upload" component={PhotoUploadContainer} /> */}
       <Route path="/upload" component={PhotoUploadContainer} />

@@ -3,7 +3,7 @@ import PackShow from './pack_show';
 import { getUserPacks, getPack, updatePack } from '../../actions/pack_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+  // debugger
   return ({
     currentUser: state.entities.users[state.session.user],
     pack: state.entities.packs[ownProps.match.params.packId]

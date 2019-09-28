@@ -25,6 +25,6 @@ export const getPayments = (packId, payments) => (dispatch) => APIUtil.getPaymen
 export const updatePayment = (packId, payment) => (dispatch) => APIUtil.updatePayment(packId, payment)
   .then(payment => dispatch(receivePayment(payment)));
 
-export const removePayment = (packId, paymentId) => (dispatch) => APIUtil.getPayments(packId, paymentId)
+export const deletePayment = (packId, paymentId) => (dispatch) => APIUtil.deletePayment(packId, paymentId)
   .then(paymentId => dispatch(removePayment(paymentId)));
 
