@@ -1,11 +1,11 @@
 import * as APIUtil from '../util/payment_api_util';
 
-export const RECEIVE_PAYMENTS = "RECEIVE_PAYMENTS";
+export const RECEIVE_PACK = "RECEIVE_PACK";
 export const RECEIVE_PAYMENT = "RECEIVE_PAYMENT";
 export const REMOVE_PAYMENT = "REMOVE_PAYMENT";
 
 const receivePayments = (payments) => ({
-  type: RECEIVE_PAYMENTS,
+  type: RECEIVE_PACK,
   payments
 });
 
