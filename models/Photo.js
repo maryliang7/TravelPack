@@ -5,10 +5,6 @@ const PhotoSchema = new Schema({
   title: {
     type: String
   },
-  // author_id: {
-  //   type: Number,
-  //   required: true
-  // },
   attachedPhoto: {
     type: String
   },

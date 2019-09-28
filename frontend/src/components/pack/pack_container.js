@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import Pack from './pack';
 import { getUserPacks } from '../../actions/pack_actions';
 
-const mapStateToProps = (state) => ({
-  currentUser = state.entities.users[entities.session.user]
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.entities.users[state.session.user]
 });
 
 

@@ -6,12 +6,12 @@ export const RECEIVE_USER_PACKS = "RECEIVE_USER_PACKS";
 
 export const receiveUserPacks = (packs) => ({
   type: RECEIVE_USER_PACKS,
-  packs
+  packs: packs.data
 })
 
 export const receivePack = (pack) => ({
   type: RECEIVE_PACK,
-  pack
+  pack: pack.data
 })
 
 export const removePack = (packId) => ({
