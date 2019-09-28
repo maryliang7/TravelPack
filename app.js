@@ -18,6 +18,7 @@ const events = require("./routes/api/events");
 
 const schedules = require("./routes/api/schedules");
 const payments = require("./routes/api/payments");
+const photos = require("./routes/api/photos");
 
 app.use(cors());
 
@@ -57,7 +58,7 @@ app.use(express.static(path.join(__dirname, "build")));
 app.use("/api/document", fileUploadRoutes);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function(err, req, res, next) {
   var err = new Error("Not Found");
   err.status = 404;
   next(err);
@@ -84,7 +85,7 @@ app.use("/api/packs/:packId/schedules/events", events);
 
 app.use("/api/packs/:packId/payments", payments);
 
-
+app.use("/api/packs/:packId/photos", photos);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

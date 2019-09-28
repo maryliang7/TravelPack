@@ -7,11 +7,17 @@ const multer = require("multer");
 var AWS = require("aws-sdk");
 const keys = require('../config/keys');
 const Photo = require('../models/Photo');
+// import { createPhoto } from '../frontend/src/actions/photo_actions';
 
 // Multer ships with storage engines DiskStorage and MemoryStorage
 // And Multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
 var storage = multer.memoryStorage();
 var upload = multer({ storage: storage });
+
+const parseURL = (baseUrl) => {
+  let urlArr = baseUrl.split('/');
+  return urlArr[3];
+}
 
 // Get all Documents s Routes
 router.route("/").get((req, res, next) => {
@@ -31,14 +37,14 @@ router.route("/").get((req, res, next) => {
 });
 
 // Route to get a single existing GO data (needed for the Edit functionality)
-router.route("/:id").get((req, res, next) => {
-  DOCUMENT.findById(req.params.id, (err, go) => {
-    if (err) {
-      return next(err);
-    }
-    res.json(go);
-  });
-});
+// router.route("/:id").get((req, res, next) => {
+//   DOCUMENT.findById(req.params.id, (err, go) => {
+//     if (err) {
+//       return next(err);
+//     }
+//     res.json(go);
+//   });
+// });
 
 // route to upload a pdf document file
 // In upload.single("file") - the name inside the single-quote is the name of the field that is going to be uploaded.
@@ -81,11 +87,12 @@ router.post("/upload", upload.single("file"), function(req, res) {
           throw error;
         }
       });
-      const newPhoto = new Photo({
-        title: file.originalname,
-        attachedPhoto: s3FileURL + file.originalname,
-      })
-      newPhoto.save();
+      // const newPhoto = new Photo({
+      //   title: file.originalname,
+      //   attachedPhoto: s3FileURL + file.originalname,
+      // })
+      // newPhoto.save();
+      
     }
   });
 
@@ -93,19 +100,19 @@ router.post("/upload", upload.single("file"), function(req, res) {
 
 // Route to edit existing record's description field
 // Here, I am updating only the description in this mongo record. Hence using the "$set" parameter
-router.route("/edit/:id").put((req, res, next) => {
-  DOCUMENT.findByIdAndUpdate(
-    req.params.id,
-    { $set: { description: Object.keys(req.body)[0] } },
-    { new: true },
-    (err, updateDoc) => {
-      if (err) {
-        return next(err);
-      }
-      res.status(200).send(updateDoc);
-    }
-  );
-});
+// router.route("/edit/:id").put((req, res, next) => {
+//   DOCUMENT.findByIdAndUpdate(
+//     req.params.id,
+//     { $set: { description: Object.keys(req.body)[0] } },
+//     { new: true },
+//     (err, updateDoc) => {
+//       if (err) {
+//         return next(err);
+//       }
+//       res.status(200).send(updateDoc);
+//     }
+//   );
+// });
 
 // Router to delete a DOCUMENT file
 router.route("/:id").delete((req, res, next) => {
@@ -116,13 +123,13 @@ router.route("/:id").delete((req, res, next) => {
     //Now Delete the file from AWS-S3
     // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#deleteObject-property
     let s3bucket = new AWS.S3({
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      region: process.env.AWS_REGION
+      accessKeyId: keys.AWS_ACCESS_KEY_ID,
+      secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+      region: keys.AWS_REGION
     });
 
     let params = {
-      Bucket: process.env.AWS_BUCKET_NAME,
+      Bucket: keys.AWS_BUCKET_NAME,
       Key: result.s3_key
     };
 

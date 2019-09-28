@@ -1,15 +1,18 @@
 import React from 'react';
 import PhotoIndexContainer from './photo_index_container';
 import FormData from 'form-data';
+import merge from 'lodash/merge';
 
 class PhotoUpload extends React.Component {
   constructor(props){
     super(props);
+    console.log(this.props.match);
     this.state = {
       title: '',
       photo: null,
       photoFile: null,
       loading: false
+      
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -24,6 +27,8 @@ class PhotoUpload extends React.Component {
     //can also have this.state.title.length !== 0 &&
     if (this.state.photoFile !== null){
       this.setState({ loading: true});
+      const photo = merge({}, this.state);
+      this.props.createPhoto(photo);
       this.props.uploadPhoto(formData)
       .then(
         () => {
@@ -36,6 +41,8 @@ class PhotoUpload extends React.Component {
       console.log("Upload unsuccessful");
     }
   }
+
+  
 
   update(field) {
     return e => this.setState({
@@ -71,10 +78,10 @@ class PhotoUpload extends React.Component {
           <input type="file" accept="image/png, image/jpeg" onChange={this.updatePhoto} />
           {uploadButton}
         </form>
-        {/* <PhotoIndexContainer /> */}
+        <PhotoIndexContainer />
       </div>
     );
   }
 }
 
-export default PhotoUpload
+export default PhotoUpload;

@@ -8,6 +8,7 @@ import MainPageContainer from './main/main_page_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import PhotoUploadContainer from './photos/photo_upload_container';
+import PhotoShowContainer from './photos/photo_show_container';
 
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
       {/* <ProtectedRoute exact path="/packs/:packId" component={PacksIndexContainer} /> */}
       {/* <ProtectedRoute path="/upload" component={PhotoUploadContainer} /> */}
       <Route path="/upload" component={PhotoUploadContainer} />
+      <Route path="/photo/:photoId" component={PhotoShowContainer} />
 
     </Switch>
   </div>

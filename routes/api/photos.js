@@ -3,22 +3,33 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Photo = require('../../models/Photo');
 
-router.post("/uploadphoto", (req, res) => {
-  console.log("hi");
-  // console.log(req);
-  console.log(req.body);
-  console.log(req.body.title);
-  console.log(req.body.photo);
+const parseURL = (baseUrl) => {
+  let urlArr = baseUrl.split('/');
+  return urlArr[3];
+}
 
-  // const newPhoto = new Photo({
-  //   title: req.body.title,
-  //   // author_id: req.body.author_id,
-  //   attachedPhoto: req.body.attachedPhoto
-  //   // startDate: req.body.date,
-  //   // endDate: req.body.date
-  // })
-  // newPhoto.save().then(photo => res.json(photo))
-  // .catch(err => console.log(err));
+router.get("/all", (req, res) => {
+  Photo.find().then( photos => res.json(photos));
+});
+
+router.post("/new", (req, res) => {
+  const s3FileURL = keys.AWS_Uploaded_File_URL_LINK;
+  const file = req.photoFile;
+
+  console.log("NEW PHOTO");
+  console.log(req);
+
+  const newPhoto = new Photo({
+    title: req.body.title,
+    attachedPhoto: s3FileURL + file.originalname
+  })
+
+  let parsed = parseURL(req.baseUrl);
+
+  Photo.updateOne(
+      {_id: parsed},
+      { $push: {photos: req }}
+  ).then(() => res.json(req));
 })
 
 module.exports = router;
