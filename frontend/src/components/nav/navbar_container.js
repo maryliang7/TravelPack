@@ -14,11 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
-<<<<<<< HEAD
-  getUserPacks
-=======
   getUserPacks: (userId) => dispatch(getUserPacks(userId))
->>>>>>> 42df2479291900322383274ff71c5a8b49c2831c
 })
 
 export default connect(
