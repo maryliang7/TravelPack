@@ -11,7 +11,7 @@
   color: white;
 }
 
-.splash-logo,
+
 .splash-logo img {
   height: 100px;
   width: 100px;
@@ -20,7 +20,15 @@
 
 .splash-logo {
   margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+
+.splash-logo p {
+  font-size: 24px;
+}
+
 
 .splash-signup {
   position: absolute;  
@@ -51,16 +59,16 @@
 }
 
 .splash-text h1 {
-  font-size: 54px;
+  font-size: 60px;
 }
 
 .splash-text p {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .splash footer {
   position: absolute;
   bottom: 20px;
-  left: 650px;
+  left: 45%;
   font-size: 12px;
 }
