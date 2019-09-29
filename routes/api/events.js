@@ -7,9 +7,12 @@ const Event = require('../../models/Event')
 
 router.get("/test", (req, res) => res.json({msg: "This is the events route"}));
 
-//WRITE FUNCTIONS TO GET PACKID AND SCHEDULEID
+//helper function
+const parseURL = baseUrl => {
+  let urlArr = baseUrl.split("/");
 
-//
+  return [urlArr[3], urlArr[5]]
+};
 
 router.get("/:eventId", (req, res) => {
     Event.find({ _id: req.body.id })
@@ -25,10 +28,13 @@ router.post("/new", (req, res) => {
         cost: req.body.cost,
         time: req.body.time
     })
-
-    //Need to parse for packId and then scheduleId...
-    //api/packs/:packId/schedules/:scheduleId/events/:eventId
-    //very nested...
+    
+    const [packId, scheduleId] = parseURL(req.baseUrl);
+    debugger
+    Pack.updateOne(
+        { _id: packId, "schedules._id": scheduleId },
+        { $push: {"schedules.$.events": newEvent }}
+    ).then(() => res.json(newEvent));
 });
 
 router.put("./update/:eventId", (req, res) => {

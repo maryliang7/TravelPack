@@ -21,16 +21,16 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
+      <ProtectedRoute path="/packs/:packId" component={PackShowContainer} />
       <AuthRoute exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       {/* <ProtectedRoute exact path="/packs" component={PacksContainer} /> */}
       <ProtectedRoute exact path="/packs/new" component={PackFormContainer} />
       <ProtectedRoute exact path="/packs/add" component={PackAddContainer} />
-      <ProtectedRoute exact path="/packs/:packId" component={PackShowContainer} />
       {/* <ProtectedRoute path="/upload" component={PhotoUploadContainer} /> */}
       <Route path="/upload" component={PhotoUploadContainer} />
-      <Route path="/schedules" component={ScheduleContainer} />
+      <Route path="/packs/:packId/schedules/:scheduleId" component={ScheduleContainer} />
 
     </Switch>
   </div>

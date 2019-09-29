@@ -4,12 +4,15 @@ import ScheduleContainer from '../schedule/schedule_container';
 import ScheduleFormCreateContainer from '../schedule/schedule_form_create_container';
 
 export default class PackShow extends React.Component {
+  constructor(props){
+    super(props)
+  }
 
   componentDidMount() {
     this.props.getPack(this.props.match.params.packId);
   }
   render() {
-    debugger
+    // debugger
     let { pack } = this.props;
 
     if (!pack) {
@@ -24,7 +27,8 @@ export default class PackShow extends React.Component {
           <Switch>
             <Route
               path="/packs/:packId/schedules/:scheduleId"
-              render={(props) => <ScheduleContainer props={props} packId={pack.id} schedules={pack.schedules} />}
+              // path="/packs/:packId/schedules/"
+              render={(props) => <ScheduleContainer props={props} pack={pack} />}
             />
             {/* <Route
               path="/packs/:packId/schedules/new"

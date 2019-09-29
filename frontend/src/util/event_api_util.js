@@ -9,7 +9,7 @@ export const getEvent = data => {
 }
 
 export const createEvent = data => {
-    return axios.post(`api/packs/${data.packId}/schdules/${data.scheduleId}/events`)
+    return axios.post(`api/packs/${data.packId}/schedules/${data.scheduleId}/events`)
 }
 
 export const updateEvent = data => {

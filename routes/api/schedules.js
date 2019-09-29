@@ -11,6 +11,13 @@ const parseURL = (baseUrl) => {
     return urlArr[3];
 }
 
+router.get('/', (req, res) => {
+    let parsed = parseURL(req.baseUrl);
+    Pack.findOne({ _id: parsed})
+        .then(pack => res.json(pack.schedules))
+        .catch(err => res.status(404).json({ noschedulefound: 'Schedules not found' }));
+})
+
 router.get('/:scheduleId', (req, res) => {
     Schedule.find({ _id: req.body.id })
         .then(schedule => res.json(schedule))

@@ -1,0 +1,23 @@
+.schedule-and-event *{
+  border: .3px solid blue;
+}
+
+.schedule-and-event{
+  border-left: 1px solid black;
+  position: absolute;
+  left: 250px;
+  /* margin-left: 250px; */
+  width: calc(100% - 250px);
+  display: flex;
+  
+}
+
+.schedule-pane-35{
+  width: 35%;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.event-pane-65{
+  width:65%;
+}
