@@ -13,7 +13,7 @@ class MainPage extends React.Component {
       return (
         <div className="splash">
           <div className="splash-logo">
-            <img src={logo} alt="logo"/>
+            <Link to="/"><img src={logo} alt="logo" /></Link>
           </div>
           <div className="splash-signup">
             <Link to={'/signup'}><button>Signup</button></Link>
@@ -32,7 +32,7 @@ class MainPage extends React.Component {
       return (
         <div>
           {/* <PacksContainer /> */}
-          hello
+          hello from main page
           <footer>
             Copyright &copy; 2019 TravelPack
           </footer>

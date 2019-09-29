@@ -1,0 +1,74 @@
+.login-page {
+  position: relative;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.login-modal {
+  position: absolute;
+  top: 200px;
+  left: 41%;
+  height: 300px;
+  width: 300px;
+  background: rgba(41, 63, 109, 0.4);
+  border: 1px solid rgba(178, 195, 236, 0.8);
+  z-index: 1;
+}
+
+.login-form-text,
+.signup-form-text {
+  padding: 30px;
+}
+
+.login-form-text p {
+  margin: 20px 0px 20px 40px;
+  font-size: 20px;
+}
+
+.signup-form-text p {
+  margin: 20px 0px 20px 30px;
+  font-size: 20px;
+}
+
+.login-form-text input,
+.signup-form-text input {
+  width: 230px;
+  color: gray;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 7px 5px;
+  margin-top: 13px;
+  font-size: 12px;
+}
+
+.login-form-text input[type='submit'],
+.signup-form-text input[type="submit"] {
+  width: 50px;
+  text-align: center;
+  margin-left: 180px;
+  margin-top: 35px;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(105, 117, 172, 0.8);
+  border-radius: 2px;
+}
+
+.login-errors {
+  font-size: 10px;
+}
+
+.signup-errors {
+  font-size: 10px;
+  min-height: 30px;
+}
+
+.signup-modal {
+  position: absolute;
+  top: 150px;
+  left: 41%;
+  height: 450px;
+  width: 300px;
+  background: rgba(41, 63, 109, 0.35);
+  border: 1px solid rgba(178, 195, 236, 0.8);
+  z-index: 1;
+}
+
