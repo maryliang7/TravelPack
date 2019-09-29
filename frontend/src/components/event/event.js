@@ -10,10 +10,12 @@ export default class Event extends React.Component {
 
     return (
       <div className="event">
-        <div>{this.props.event.title}</div>
-        <div>{this.props.event.description}</div>
-        <div>{this.props.event.address}</div>
-        <div>{this.props.event.cost}</div>
+        <div className="event-details">
+          <div className="event-detail">{this.props.event.title}</div>
+          <div className="event-detail">{this.props.event.description}</div>
+          <div className="event-detail">{this.props.event.address}</div>
+          <div className="event-detail">{this.props.event.cost}</div>
+        </div>
       </div>
     );
   }

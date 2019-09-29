@@ -30,7 +30,7 @@ const App = () => (
       <ProtectedRoute exact path="/packs/add" component={PackAddContainer} />
       {/* <ProtectedRoute path="/upload" component={PhotoUploadContainer} /> */}
       <Route path="/upload" component={PhotoUploadContainer} />
-      <Route path="/packs/:packId/schedules/:scheduleId" component={ScheduleContainer} />
+      {/* <Route path="/packs/:packId/schedules/:scheduleId" component={ScheduleContainer} /> */}
 
     </Switch>
   </div>

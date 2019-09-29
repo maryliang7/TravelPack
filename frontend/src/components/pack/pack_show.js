@@ -27,7 +27,6 @@ export default class PackShow extends React.Component {
           <Switch>
             <Route
               path="/packs/:packId/schedules/:scheduleId"
-              // path="/packs/:packId/schedules/"
               render={(props) => <ScheduleContainer props={props} pack={pack} />}
             />
             {/* <Route

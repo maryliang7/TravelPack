@@ -5,8 +5,8 @@
 }
 
 .schedule-and-event{
-  border-left: 1px solid black;
   position: absolute;
+  top: 0;
   left: 250px;
   width: calc(100% - 250px);
   display: flex;
@@ -23,7 +23,30 @@
   width:65%;
 }
 
+.schedule-title{
+  margin-left: 10px;
+}
+
 .schedule-item{
   height: 75px;
   font-size: 14px;
+  background-color: rgba(221, 162, 246, .2);
+  display: flex;
+  border: 1px solid purple;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.event {
+  background-color: #857B93;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+}
+
+.event-details{
+}
+
+.event-detail {
+  margin-left: 10px;
 }
