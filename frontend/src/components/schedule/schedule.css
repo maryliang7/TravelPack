@@ -1,12 +1,13 @@
 .schedule-and-event *{
-  border: .3px solid blue;
+  /* border: .3px solid blue; */
+  font-family: 'Montserrat', sans-serif;
+  
 }
 
 .schedule-and-event{
   border-left: 1px solid black;
   position: absolute;
   left: 250px;
-  /* margin-left: 250px; */
   width: calc(100% - 250px);
   display: flex;
   
@@ -20,4 +21,9 @@
 
 .event-pane-65{
   width:65%;
+}
+
+.schedule-item{
+  height: 75px;
+  font-size: 14px;
 }

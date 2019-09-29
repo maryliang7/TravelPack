@@ -14,6 +14,12 @@ const parseURL = baseUrl => {
   return [urlArr[3], urlArr[5]]
 };
 
+router.get("/", (req, res) => {
+    Event.find({ _id: req.body.id })
+        .then(event => res.json(event))
+        .catch(err => res.status(404).json({ noeventfound: 'No event found' }));
+})
+
 router.get("/:eventId", (req, res) => {
     Event.find({ _id: req.body.id })
         .then(event => res.json(event))
@@ -30,7 +36,6 @@ router.post("/new", (req, res) => {
     })
     
     const [packId, scheduleId] = parseURL(req.baseUrl);
-    debugger
     Pack.updateOne(
         { _id: packId, "schedules._id": scheduleId },
         { $push: {"schedules.$.events": newEvent }}

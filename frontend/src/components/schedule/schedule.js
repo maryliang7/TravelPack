@@ -50,8 +50,8 @@ class Schedule extends React.Component{
                 <div className="schedule-pane-35">
                     <div>
                         <ul>
-                            <li className="schedule-item">
                                 {Object.values(this.props.pack.schedules).map(schedule => (
+                            <li className="schedule-item">
                                     <ScheduleIndexItem
                                     key={schedule.id}
                                     packId={this.props.pack._id}
@@ -59,8 +59,8 @@ class Schedule extends React.Component{
                                     events={schedule.events}
                                     handleDelete={this.handleDeleteSchedule}
                                     />
-                                ))}
                             </li>
+                                ))}
                         </ul>
                     </div>                   
                 </div>
