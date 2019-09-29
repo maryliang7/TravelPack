@@ -56,6 +56,7 @@ class Schedule extends React.Component{
                                     key={schedule.id}
                                     packId={this.props.pack._id}
                                     schedule={schedule}
+                                    members={this.props.members}
                                     events={schedule.events}
                                     handleDelete={this.handleDeleteSchedule}
                                     />

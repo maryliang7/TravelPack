@@ -14,13 +14,12 @@ export default class PackShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getPack(this.props.match.params.packId);
+    this.props.getPack(this.props.match.params.packId).then( pack => {
+      this.props.getMembers(pack.members.join(""))
+      }
+    );
   }
   render() {
-<<<<<<< HEAD
-    // debugger
-=======
->>>>>>> 42df2479291900322383274ff71c5a8b49c2831c
     let { pack } = this.props;
 
     if (!pack) {
@@ -36,7 +35,7 @@ export default class PackShow extends React.Component {
 
             <Route
               path="/packs/:packId/schedules/:scheduleId"
-              render={(props) => <ScheduleContainer props={props} pack={pack} />}
+              render={(props) => <ScheduleContainer props={props} pack={pack} members={members} />}
             />
             <Route
               path="/packs/:packId/schedules/new"

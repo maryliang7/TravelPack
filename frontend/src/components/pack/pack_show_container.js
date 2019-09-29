@@ -7,7 +7,6 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: state.entities.users[state.session.user],
     pack: state.entities.packs[ownProps.match.params.packId]
-    
   })
 };
 
@@ -15,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   getUserPacks: (user) => dispatch(getUserPacks(user)),
   getPack: (id) => dispatch(getPack(id)),
-  updatePack: (data) => dispatch(updatePack(data))
+  updatePack: (data) => dispatch(updatePack(data)),
+  getMembers: (members) => dispatch(getMembers(members))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PackShow)
