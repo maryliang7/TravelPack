@@ -1,5 +1,8 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import logo from '../main/logo.png';
+import '../main/main_page.css';
+import './session.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -54,26 +57,45 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <br/>
+      <div className="login-page">
+        <div className="login-modal">
+          <form className="login-form" onSubmit={this.handleSubmit}>
+            <div className="login-form-text">
+              <p>Welcome Back</p>
+              <div className="login-errors">
+                {this.renderErrors()}
+              </div>
+              <br />
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="Email"
               />
-            <br/>
+              <br />
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="Password"
               />
-            <br/>
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+              <br />
+              <input type="submit" value="Log In" />
+            </div>
+          </form>
+        </div>
+
+        <div className="splash">
+          <div className="splash-logo">
+            <Link to="/"><img src={logo} alt="logo" /></Link>
+            <p>TravelPack</p>
           </div>
-        </form>
+          <div className="splash-signup">
+            <Link to={'/signup'}><button>Signup</button></Link>
+          </div>
+          <footer>
+            Copyright &copy; 2019 TravelPack
+          </footer>
+        </div>
+        
       </div>
     );
   }

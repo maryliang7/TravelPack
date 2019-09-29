@@ -7,7 +7,11 @@ const PacksReducer = (state = {}, action) => {
     case RECEIVE_PACK:
       return Object.assign({}, state, {[action.pack._id]: action.pack})
     case RECEIVE_USER_PACKS:
-      return Object.assign({}, action.packs)
+      let newPacks = {};
+      action.packs.map(pack => {
+        newPacks[pack._id] = pack;
+      })
+      return Object.assign({}, newPacks);
     case REMOVE_PACK:
       let newState = Object.assign({}, state);
       delete newState[action.packId];
