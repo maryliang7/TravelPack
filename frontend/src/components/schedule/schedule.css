@@ -1,0 +1,66 @@
+.schedule-and-event *{
+  /* border: .3px solid blue; */
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+.schedule-and-event{
+  position: absolute;
+  top: 80px;
+  left: 250px;
+  width: calc(100% - 250px);
+  display: flex;
+  
+}
+
+.schedule-pane-35{
+  width: 35%;
+  min-width: 250px;
+  max-width: 400px;
+  margin-left: 20px;
+}
+
+.event-pane-65{
+  width:65%;
+}
+
+.schedule-detail{
+  margin-left: 10px;
+  height:100%;
+  width:100%;
+}
+
+.schedule-item{
+  height: 75px;
+  max-height: 87px;
+  font-size: 14px;
+  background-color: rgba(221, 162, 246, .2);
+  display: flex;
+  border: 1px solid purple;
+  align-items: center;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  padding: 5px 0;
+}
+
+.event {
+  background-color: rgb(142,221,251);
+  border: 1px solid rgb(49, 150, 190);
+  border-radius: 3px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+}
+
+.event-details{
+  height:75px;
+  padding: 5px 0;
+}
+
+.event-detail {
+  margin-left: 10px;
+}
+
+.schedule-title{
+  font-size: 17px;
+  font-weight: bolder;
+}

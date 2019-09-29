@@ -9,9 +9,15 @@ import PhotoUploadContainer from '../photos/photo_upload_container';
 
 import './pack_show.css';
 export default class PackShow extends React.Component {
+  constructor(props){
+    super(props)
+  }
 
   componentDidMount() {
-    this.props.getPack(this.props.match.params.packId);
+    this.props.getPack(this.props.match.params.packId).then( pack => {
+      this.props.getMembers(pack.members.join(""))
+      }
+    );
   }
   render() {
     let { pack, schedules } = this.props;
@@ -35,7 +41,7 @@ export default class PackShow extends React.Component {
 
             <Route
               path="/packs/:packId/schedules/:scheduleId"
-              render={(props) => <ScheduleContainer props={props} pack={pack} />}
+              render={(props) => <ScheduleContainer props={props} pack={pack} members={members} />}
             />
             <Route
               path="/packs/:packId/schedules/new"

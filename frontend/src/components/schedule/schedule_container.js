@@ -1,20 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getSchedule, createSchedule, updateSchedule, deleteSchedule } from '../../actions/schedule_actions';
-import { getPack } from '../../actions/pack_actions';
+import { getSchedules, updateSchedule, deleteSchedule } from '../../actions/schedule_actions';
 import Schedule from './schedule';
 
-const mapStateToProps = (state, ownProps) => ({
-    pack: state.entities.packs[ownProps.match.params.id],
-    schedules: state.entities.schedules,
-    events: state.entities.events,
-    packId: ownProps.match.params.packId, //packs/:packId/schedules
-    scheduleId: ownProps.match.params.scheduleId
-})
+const mapStateToProps = (state, ownProps) => {
+    return{ 
+    //   schedule: state.entities.schedules[ownProps.match.params.id],
+    //   events: state.entities.events
+    }
+}
 
 const mapDispatchToProps = (dispatch) => ({
-    // getPack: (packId) => dispatch(getPack(packId)),
-    // getSchedules: (id) => dispatch(getSchedules()),
+    getSchedules: (packId) => dispatch(getSchedules(packId)),
     updateSchedule: (schedule) => dispatch(updateSchedule(schedule)),
     deleteSchedule: (id) => dispatch(deleteSchedule(id))
 })
