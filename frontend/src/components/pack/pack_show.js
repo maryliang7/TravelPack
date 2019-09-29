@@ -14,16 +14,22 @@ export default class PackShow extends React.Component {
     this.props.getPack(this.props.match.params.packId);
   }
   render() {
-    let { pack } = this.props;
+    let { pack, schedules } = this.props;
 
     if (!pack) {
       return null;
     }
+
+    let redirect = (schedules) ? (
+      this.props.history.push(`/packs/${pack._id}/schedules/${schedules[0]._id}`) 
+    ) : (
+      this.props.history.push(`/packs/${pack._id}/schedules/new`) 
+    )
     return(
       <div>
-        {/* <div className="pack-show">
-          hello
-        </div> */}
+        <div className="pack-show">
+          {redirect}
+        </div>
         <div>
           <Switch>
 
