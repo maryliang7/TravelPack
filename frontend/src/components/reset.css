@@ -36,6 +36,7 @@ button {
   appearance: none;
 }
 
+button,
 input[type="submit"] {
   cursor: pointer;
 }
