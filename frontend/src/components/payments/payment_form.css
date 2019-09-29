@@ -1,0 +1,53 @@
+.payment-form-header {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+
+.payment-form-container {
+  background-color: lightblue;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  border: 1px solid purple;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.payment-form-container > .create-expense-button {
+  margin: 25px 0px;
+}
+
+.payment-field-label {
+  margin-top: 25px;
+  background-color: lightgreen;
+}
+
+.payment-input {
+  margin-top: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 16px;
+  background-color: lightcoral;
+}
+
+.category-dropdown {
+  margin-top: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background-color: orange;
+}
+
+.payment-checkbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment-checkbox-item {
+  margin-top: 25px;
+  background-color: lightsalmon;
+}

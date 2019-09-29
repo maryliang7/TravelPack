@@ -22,9 +22,13 @@ const removePayment = (paymentId) => ({
 export const getPayments = (packId, payments) => (dispatch) => APIUtil.getPayments(packId, payments)
   .then(payments => dispatch(receivePayments(payments)));
 
+export const createPayment = (packId, payment) => (dispatch) => APIUtil.createPayment(packId, payment)
+  .then(payment => dispatch(receivePayment(payment)));
+
 export const updatePayment = (packId, payment) => (dispatch) => APIUtil.updatePayment(packId, payment)
   .then(payment => dispatch(receivePayment(payment)));
 
 export const deletePayment = (packId, paymentId) => (dispatch) => APIUtil.deletePayment(packId, paymentId)
-  .then(paymentId => dispatch(removePayment(paymentId)));
+  .then(paymentId => dispatch(removePayment(paymentId)))
+  .catch(err => console.log(err))
 
