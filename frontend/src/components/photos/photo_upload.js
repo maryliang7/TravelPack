@@ -2,21 +2,28 @@ import React from 'react';
 // import PhotoIndexContainer from './photo_index_container';
 import FormData from 'form-data';
 import merge from 'lodash/merge';
+import { fileURLToPath } from 'url';
 
 class PhotoUpload extends React.Component {
   constructor(props){
     super(props);
-    console.log(this.props.match);
+    
     this.state = {
       title: '',
       photo: null,
       photoFile: null,
-      loading: false
-      
+      loading: false,
+      packId: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.updatePhoto = this.updatePhoto.bind(this);
+  }
+
+  componentDidMount(){
+    this.setState({
+      packId: this.props.props.match.params.packId,
+    });
   }
 
   handleSubmit(e){
@@ -24,7 +31,18 @@ class PhotoUpload extends React.Component {
     const formData = new FormData();
     formData.append('file', this.state.photoFile);
     
-    //can also have this.state.title.length !== 0 &&
+    //EXTRACT JUST THE FILL NAME FROM THE FILE INPUT//
+    let fullPath = document.getElementById('upload').value;
+    let filename;
+    if (fullPath) {
+        let startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        filename = fullPath.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+            filename = filename.substring(1);
+        }
+    }
+    this.state.title = filename;
+    
     if (this.state.photoFile !== null){
       this.setState({ loading: true});
       const photo = merge({}, this.state);
@@ -34,7 +52,7 @@ class PhotoUpload extends React.Component {
         () => {
           console.log(formData);
           this.setState({ loading: false });
-          this.props.history.push('/');
+          this.props.props.history.push('/');
         },
       )
     } else {
@@ -75,10 +93,10 @@ class PhotoUpload extends React.Component {
         upload form
         <form>
           {/* <input type="text" placeholder="Photo Title" onChange={this.update('title')} /> */}
-          <input type="file" accept="image/png, image/jpeg" onChange={this.updatePhoto} />
+          <input type="file" accept="image/png, image/jpeg" onChange={this.updatePhoto} id="upload" / >
           {uploadButton}
         </form>
-        <PhotoIndexContainer />
+        {/* <PhotoIndexContainer /> */}
       </div>
     );
   }

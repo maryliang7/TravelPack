@@ -28,10 +28,10 @@ const App = () => (
       {/* <ProtectedRoute exact path="/packs" component={PacksContainer} /> */}
       <ProtectedRoute exact path="/packs/new" component={PackFormContainer} />
       <ProtectedRoute exact path="/packs/add" component={PackAddContainer} />
-      <ProtectedRoute exact path="/packs/:packId" component={PackShowContainer} />
+      <ProtectedRoute path="/packs/:packId" component={PackShowContainer} />
       {/* <ProtectedRoute path="/upload" component={PhotoUploadContainer} /> */}
-      <Route path="/upload" component={PhotoUploadContainer} />
-      <Route path="/photo/:photoId" component={PhotoShowContainer} />
+      {/* <Route path="/packs/:packId/photos/upload" component={PhotoUploadContainer} />
+      <Route path="/packs/:packId/photos/:photoId" component={PhotoShowContainer} /> */}
       <Route path="/schedules" component={ScheduleContainer} />
 
     </Switch>
