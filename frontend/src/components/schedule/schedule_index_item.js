@@ -8,11 +8,14 @@ class ScheduleIndexItem extends React.Component {
 
   render() {
     return (
-     <div>
-       <Link to={`/packs/${this.props.packId}/schedules/${this.props.scheduleId}`}>
-       </Link>
-     </div> 
-    )
+      <Link
+        to={`/packs/${this.props.packId}/schedules/${this.props.schedule._id}`} className="schedule-detail">
+        <div className="schedule-title">{this.props.schedule.title}</div>
+        <div className="schedule-members">{this.props.members}</div>
+        <div className="schedule-date">{this.props.schedule.startDate} - {this.props.schedule.endDate}</div>
+
+      </Link>
+    );
   }
 }
 
