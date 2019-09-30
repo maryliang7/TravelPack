@@ -7,23 +7,37 @@
 }
 
 .payment-form-container {
-  background-color: lightblue;
+  background-color: #B2C3EC;
   display: flex;
-  margin: auto;
+  margin: 20px auto;
   flex-direction: column;
   align-items: center;
   width: 350px;
-  border: 1px solid purple;
+  border: 1px solid #8EACF1;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.payment-form-container > .create-expense-button {
+.create-payment-button {
   margin: 25px 0px;
+  background-color: #B2C3EC;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.create-payment-button:hover {
+  margin: 25px 0px;
+  background-color: white;
+  color: #B2C3EC;
 }
 
 .payment-field-label {
   margin-top: 25px;
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
 }
 
 .payment-input {
@@ -31,14 +45,14 @@
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 16px;
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 }
 
 .category-dropdown {
   margin-top: 25px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  background-color: orange;
+  /* background-color: orange; */
 }
 
 .payment-checkbox-container {
@@ -49,5 +63,5 @@
 
 .payment-checkbox-item {
   margin-top: 25px;
-  background-color: lightsalmon;
+  /* background-color: lightsalmon; */
 }
