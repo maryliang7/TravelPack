@@ -18,19 +18,19 @@ export const removeSchedule = (scheduleId) => ({
     type: REMOVE_SCHEDULE,
     scheduleId
 })
-////////////////////NOT USED/////////////////////
 export const getSchedule = (data) => (dispatch) => (
     schedAPIUtil.getSchedule(data)
         .then(schedule => dispatch(receiveSchedule(schedule)))
         .catch(err => console.log(err))
 )
 
-export const getSchedules = (packId) => (dispatch) => (
-    schedAPIUtil.getSchedule(packId)
-        .then(schedule => dispatch(receiveSchedules()))
+export const getSchedules = (packId) => (dispatch) => {
+    return(
+    schedAPIUtil.getSchedules(packId)
+        .then(schedules => dispatch(receiveSchedules(schedules)))
         .catch(err => console.log(err))
-)
-//////////////////////////////////////////////////
+)}
+
 export const createSchedule = (data) => (dispatch) => (
     schedAPIUtil.createSchedule(data)
         .then(schedule => dispatch(receiveSchedule(schedule)))
