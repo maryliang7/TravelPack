@@ -19,7 +19,6 @@ export default class PackShow extends React.Component {
   componentDidMount() {
     this.props.getPack(this.props.match.params.packId).then( () => {
       if (this.props.pack && Object.values(this.props.pack).length) {
-        debugger
         this.props.getMembers({ members: this.props.pack.members.join("")})
       }
     });
@@ -31,14 +30,14 @@ export default class PackShow extends React.Component {
       return null;
     }
     let redirect;
-    // debugger
-    // if (this.props.history.location && !this.props.history.location.pathname.includes("schedules")) {
-    //   redirect = (schedule.length) ? (
-    //     this.props.history.push(`/packs/${pack._id}/schedules/${schedule[0]._id}`) 
-    //   ) : (
-    //     this.props.history.push(`/packs/${pack._id}/schedules/new`) 
-    //   )
-    // }
+
+    if (this.props.history.location && (this.props.history.location.pathname.split("/").length <= 3)) {
+      redirect = (schedule.length) ? (
+        this.props.history.push(`/packs/${pack._id}/schedules/${schedule[0]._id}`) 
+      ) : (
+        this.props.history.push(`/packs/${pack._id}/schedules/new`) 
+      )
+    }
 
     return(
       <div>

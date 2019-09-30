@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 //OH MY GOD THIS WORKS
 router.get('/:scheduleId', (req, res) => {
     let packId = parseURL(req.baseUrl);
-    debugger
+    // debugger
     Pack.find({_id: packId, "schedules._id": req.params.scheduleId},
     { "schedules.$": 1})
       .then(schedule => res.json(schedule))
@@ -53,7 +53,7 @@ router.post("/new", (req, res) => {
 //I can update a schedule
 router.put("/:scheduleId", (req, res) => {
     let packId = parseURL(req.baseUrl);
-    debugger;
+    // debugger;
     Pack.updateOne(
         { _id: packId, "schedules._id": req.params.scheduleId },
         { $set: {"schedules.$.title": req.body.title} }
