@@ -25,7 +25,7 @@
 }
 
 .create-expense-button {
-  background-color: #B9BDD7;
+  background-color: #B2C3EC;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -34,7 +34,16 @@
 }
 
 .create-expense-button:hover {
-  background-color: #7D789C;
+  background-color: #8EACF1;
+}
+
+.subheader {
+  padding: 10px 20px;
+}
+
+.subheader:hover {
+  background-color: #8EACF1;
+  color: white;
 }
 
 .subheaders-container {
@@ -48,7 +57,7 @@
 .payments-index-container {
   /* background-color: lightblue; */
   height: calc(100vh - 250px);
-  margin: 15px 25px;
+  margin: 15px 25px 0px;
   border-top: 1px solid #B9BDD7;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -70,18 +79,27 @@
   text-align: center;
 }
 
+.payments-index-item:last-of-type {
+  margin-bottom: 25px;
+}
+
 .payments-index-item li:first-of-type {
   margin-top: 10px;
 }
 
 .fa-trash-alt {
   font-size: 20px;
-  background-color: #B9BDD7;
+  background-color: #B2C3EC;
   color: white;
   padding: 5px 7.5px;
   border-radius: 5px;
 }
 
 .fa-trash-alt:hover {
-  background-color: #7D789C;
+  background-color: #8EACF1;
+}
+
+.fa-plus {
+  font-size: 10px;
+  padding-right: 5px;
 }

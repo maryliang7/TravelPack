@@ -6,6 +6,8 @@ import PaymentsIndexContainer from '../payments/payments_index_container';
 import CreatePaymentFormContainer from '../payments/create_payment_form_container';
 import PhotoIndexContainer from '../photos/photo_index_container';
 import PhotoUploadContainer from '../photos/photo_upload_container'; 
+import PaymentBreakdown from '../payments/payment_breakdown';
+import InnerNavBar from '../nav/inner_navbar';
 
 import './pack_show.css';
 export default class PackShow extends React.Component {
@@ -42,6 +44,11 @@ export default class PackShow extends React.Component {
         <div className="pack-show">
           {redirect}
         </div>
+        <Route
+          path="/packs/:packId"
+          render={() => <InnerNavBar pack={pack} />}
+        />
+        {/* {<InnerNavBar />} */}
         <div>
           <Switch>
 
@@ -52,6 +59,10 @@ export default class PackShow extends React.Component {
             <Route
               path="/packs/:packId/schedules/new"
               render={(props) => <ScheduleFormCreateContainer props={props} pack={pack} />}
+            />
+            <Route
+              exact path="/packs/:packId/payments/details"
+              render={() => <PaymentBreakdown pack={pack} payments={pack.payments} />}
             />
             <Route
               exact path="/packs/:packId/payments"
@@ -76,3 +87,5 @@ export default class PackShow extends React.Component {
     )
   }
 }
+
+
