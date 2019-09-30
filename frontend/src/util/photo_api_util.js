@@ -16,6 +16,8 @@ export const uploadPhoto = data => {
   return axios.post(`/api/document/upload`, data);
 };
 
+
+
 export const deletePhoto = id => {
   return axios.delete(`/api/document/${id}`);
 };

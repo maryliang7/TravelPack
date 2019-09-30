@@ -6,6 +6,7 @@ import PaymentsIndexContainer from '../payments/payments_index_container';
 import CreatePaymentFormContainer from '../payments/create_payment_form_container';
 import PhotoIndexContainer from '../photos/photo_index_container';
 import PhotoUploadContainer from '../photos/photo_upload_container'; 
+import PhotoShowContainer from '../photos/photo_show_container'; 
 
 import './pack_show.css';
 export default class PackShow extends React.Component {
@@ -50,6 +51,10 @@ export default class PackShow extends React.Component {
             <Route
               path="/packs/:packId/photos/upload"
               render={(props) => <PhotoUploadContainer props={props} packId={pack.id} photos={pack.photos} />}
+            /> 
+            <Route
+              path="/packs/:packId/photos/:photoId"
+              render={(props) => <PhotoShowContainer props={props} packId={pack.id} photos={pack.photos} />}
             /> 
           </Switch>
         </div>

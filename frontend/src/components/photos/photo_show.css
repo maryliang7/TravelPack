@@ -1,0 +1,10 @@
+.photo-show-wrapper {
+  top: 80px;
+  left: 270px;
+  position: absolute;
+}
+
+.photo-show-button {
+  border: solid 1px black;
+  margin: 10px;
+}

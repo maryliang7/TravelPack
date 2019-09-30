@@ -1,8 +1,8 @@
 import React from 'react';
-// import PhotoIndexContainer from './photo_index_container';
 import FormData from 'form-data';
 import merge from 'lodash/merge';
 import { fileURLToPath } from 'url';
+import './photo_upload.css'
 
 class PhotoUpload extends React.Component {
   constructor(props){
@@ -32,7 +32,7 @@ class PhotoUpload extends React.Component {
     formData.append('file', this.state.photoFile);
     
     //EXTRACT JUST THE FILL NAME FROM THE FILE INPUT//
-    let fullPath = document.getElementById('upload').value;
+    let fullPath = document.getElementById('photo-input').value;
     let filename;
     if (fullPath) {
         let startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
@@ -52,7 +52,7 @@ class PhotoUpload extends React.Component {
         () => {
           console.log(formData);
           this.setState({ loading: false });
-          this.props.props.history.push('/');
+          this.props.props.history.push(`/packs/${this.state.packId}/photos/all`);
         },
       )
     } else {
@@ -82,21 +82,26 @@ class PhotoUpload extends React.Component {
   render() {
     let uploadButton = this.state.loading ?
     <button className="loading-button" onClick={this.handleSubmit} disabled >
-      Uploading
+      <div className="loader"></div>
     </button> :
     <button className="upload-button" onClick={this.handleSubmit} >
       Post
     </button>;
 
     return(
-      <div>
-        upload form
+      <div className="photo-upload-outer-wrapper">
         <form>
-          {/* <input type="text" placeholder="Photo Title" onChange={this.update('title')} /> */}
-          <input type="file" accept="image/png, image/jpeg" onChange={this.updatePhoto} id="upload" / >
+
+          <div className="input-upload">
+            <label htmlFor="photo-input">
+              <i class="fas fa-file-image fa-6x"></i>
+            </label>
+            <div className="upload-text">Select Photo to Upload</div>
+            <input className="inputfile" id="photo-input" type="file" accept="image/png, image/jpeg" onChange={this.updatePhoto} / >
+          </div>
+          
           {uploadButton}
         </form>
-        {/* <PhotoIndexContainer /> */}
       </div>
     );
   }

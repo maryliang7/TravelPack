@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import { fetchPhotos } from '../../actions/photo_actions';
 import PhotoIndex from './photo_index';
 
-const mapStateToProps = state => {
-  // console.log(state.entities.photos);
+const mapStateToProps = (state, ownProps) => {
   return {
-  photos: Object.values(state.entities.photos)
-}};
+    photos: ownProps.photos
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchPhotos: () => dispatch(fetchPhotos()),
