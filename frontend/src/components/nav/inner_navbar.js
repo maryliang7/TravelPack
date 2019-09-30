@@ -15,7 +15,7 @@ const InnerNavBar = ({ pack }) => {
             Expenses
           </div>
         </Link>
-        <Link to={`/packs/${pack._id}/photos`}>
+        <Link to={`/packs/${pack._id}/photos/all`}>
           <div>
             Photos
           </div>

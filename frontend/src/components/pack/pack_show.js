@@ -32,13 +32,13 @@ export default class PackShow extends React.Component {
     }
     let redirect;
     // debugger
-    if (this.props.history.location && !this.props.history.location.pathname.includes("schedules")) {
-      redirect = (schedule.length) ? (
-        this.props.history.push(`/packs/${pack._id}/schedules/${schedule[0]._id}`) 
-      ) : (
-        this.props.history.push(`/packs/${pack._id}/schedules/new`) 
-      )
-    }
+    // if (this.props.history.location && !this.props.history.location.pathname.includes("schedules")) {
+    //   redirect = (schedule.length) ? (
+    //     this.props.history.push(`/packs/${pack._id}/schedules/${schedule[0]._id}`) 
+    //   ) : (
+    //     this.props.history.push(`/packs/${pack._id}/schedules/new`) 
+    //   )
+    // }
 
     return(
       <div>
