@@ -16,22 +16,34 @@ export default class PackShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getPack(this.props.match.params.packId).then( pack => {
-      this.props.getMembers(pack.members.join(""))
+    this.props.getPack(this.props.match.params.packId).then( () => {
+      if (this.props.pack && Object.values(this.props.pack).length) {
+        debugger
+        this.props.getMembers({ members: this.props.pack.members.join("")})
       }
-    );
+    });
   }
   render() {
-    let { pack } = this.props;
+    let { pack, schedule, members } = this.props;
 
     if (!pack) {
       return null;
     }
+    let redirect;
+    // debugger
+    if (this.props.history.location && !this.props.history.location.pathname.includes("schedules")) {
+      redirect = (schedule.length) ? (
+        this.props.history.push(`/packs/${pack._id}/schedules/${schedule[0]._id}`) 
+      ) : (
+        this.props.history.push(`/packs/${pack._id}/schedules/new`) 
+      )
+    }
+
     return(
       <div>
-        {/* <div className="pack-show">
-          hello
-        </div> */}
+        <div className="pack-show">
+          {redirect}
+        </div>
         <Route
           path="/packs/:packId"
           render={() => <InnerNavBar pack={pack} />}
