@@ -45,6 +45,9 @@ class Schedule extends React.Component{
 
     render() {
         let currentSchedule = this.getCurrentSchedule(this.props.props.match.params.scheduleId);
+        if (!currentSchedule) {
+            return null;
+        }
         return(
             <div className="schedule-and-event">
                 <div className="schedule-pane-35">
