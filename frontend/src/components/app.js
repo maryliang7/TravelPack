@@ -11,6 +11,7 @@ import MainPageContainer from './main/main_page_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import PhotoUploadContainer from './photos/photo_upload_container';
+import PhotoShowContainer from './photos/photo_show_container';
 import ScheduleContainer from './schedule/schedule_container';
 
 import './reset.css';

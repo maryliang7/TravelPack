@@ -18,6 +18,7 @@ const events = require("./routes/api/events");
 
 const schedules = require("./routes/api/schedules");
 const payments = require("./routes/api/payments");
+const photos = require("./routes/api/photos");
 
 app.use(cors());
 
@@ -85,7 +86,7 @@ app.use("/api/packs/:packId/schedules/", schedules);
 
 app.use("/api/packs/:packId/payments", payments);
 
-
+app.use("/api/packs/:packId/photos", photos);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
