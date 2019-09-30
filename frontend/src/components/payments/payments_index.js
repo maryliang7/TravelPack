@@ -20,24 +20,27 @@ class PaymentsIndex extends React.Component {
             </div>
             <Link to={`/packs/${this.props.pack._id}/payments/new`}>
               <button className="create-expense-button">
-                Add an Expense
+                <i class="fas fa-plus"></i> Add an Expense
               </button>
             </Link>
           </div>
           <div className="subheaders-container">
-            <div className="subheader">
-              Expenses
-            </div>
-            <div className="subheader">
-              Breakdown 
-            </div>
+            <Link to={`/packs/${this.props.pack._id}/payments/`}>
+              <div className="subheader" >
+                Feed
+              </div>
+            </Link>
+            <Link to={`/packs/${this.props.pack._id}/payments/details`}>
+              <div className="subheader" >
+                Trip Breakdown 
+              </div>
+            </Link>
           </div>
         </div>
         <div className="payments-index-container">
           {
             this.props.payments.map((payment) => {
               for (let i = 0; i < payment.chargeeIds.length; i++) {
-                debugger
                 return (
                   <ul className="payments-index-item">
                     <li className="payment-title">

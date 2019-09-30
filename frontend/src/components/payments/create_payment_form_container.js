@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createPayment: (packId, paymentId) => dispatch(createPayment(packId, paymentId))
+  createPayment: (packId, payment) => dispatch(createPayment(packId, payment))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePaymentForm)

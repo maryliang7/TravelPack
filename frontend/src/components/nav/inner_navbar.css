@@ -1,0 +1,12 @@
+.inner-nav-container {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 0px;
+  left: 252px;
+  width: calc(100% - 250px);
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 25px 0px;
+}
+
