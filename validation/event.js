@@ -18,9 +18,9 @@ module.exports = function validateEventInput(data){
         errors.cost = 'Event cost is required';
     }
 
-    if (Validator.isEmpty(data.time)) {
-        errors.time = 'Event time is required';
-    }
+    // if (Validator.isEmpty(data.time)) {
+    //     errors.time = 'Event time is required';
+    // }
 
     return {
         errors,

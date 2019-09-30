@@ -18,6 +18,7 @@ const events = require("./routes/api/events");
 
 const schedules = require("./routes/api/schedules");
 const payments = require("./routes/api/payments");
+const photos = require("./routes/api/photos");
 
 app.use(cors());
 
@@ -40,7 +41,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send("Suhh"));
+app.get("/", (req, res) => res.send("SSSS"));
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
@@ -57,7 +58,7 @@ app.use(express.static(path.join(__dirname, "build")));
 app.use("/api/document", fileUploadRoutes);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function(err, req, res, next) {
   var err = new Error("Not Found");
   err.status = 404;
   next(err);
@@ -73,18 +74,19 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.status(err.status || 500);
   res.render("error");
+
 });
 
 app.use("/api/users", users);
 app.use("/api/packs", packs);
-app.use("/api/packs/:packId/schedules", schedules);
+app.use("/api/packs/:packId/schedules/:scheduleId/events", events);
+// app.use("/api/packs/:packId/schedules/:scheduleId", schedules);
+app.use("/api/packs/:packId/schedules/", schedules);
 
-app.use("/api/events", events); //delete later, this is for testing
-app.use("/api/packs/:packId/schedules/events", events);
 
 app.use("/api/packs/:packId/payments", payments);
 
-
+app.use("/api/packs/:packId/photos", photos);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

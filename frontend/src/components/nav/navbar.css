@@ -1,25 +1,61 @@
-.NavBar {
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  min-height: 600px;
+  border: 1px solid rgb(142, 172, 241);
+  list-style: none;
+  /* background-color: #7D789C; */
+  background-color: rgb(178, 195, 236);
+  /* background-color: rgb(142, 172, 241); */
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  position: relative;
+}
+
+.sidebar img {
+  height: 75px;
+  width: 75px;
+  cursor: pointer;
+  margin: 5px;
+  margin-right: 10px;
+}
+
+.side-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
 }
 
-.NavBar button {
-  height: 20px;
+.side-packs {
+  margin-top: 30px;
 }
 
-.Links1 {
-  width: 100px;
-  display: flex;
-  justify-content: space-between;
+.side-packs li {
+  padding: 5px 10px;
+  color: black;
 }
 
-.Links2 {
-  width: 400px;
-  display: flex;
-  justify-content: space-between;
+.side-packs li:hover {
+  background-color: rgb(142, 172, 241);
+
 }
 
-h1 {
-  /* font-size: 12px; */
+.side-logout {
+  position: absolute;
+  bottom: 100px;
+  margin-left: 80px; 
+}
+
+.side-logout button {
+  font-size: 16px;
+  color: white;
+  border: 1px solid white;
+  margin: 5px 7px;
+  padding: 5px 9px;
+  border-radius: 1px;
+}
+
+.side-logout button:hover {
+  color: #7D789C;
+  background-color: white;
 }

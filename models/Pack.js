@@ -30,9 +30,9 @@ const PackSchema = new Schema({
   payments: {
     type: [Payment.schema]
   },
-  // photos: {
-  //   type: [Photo.schema]
-  // },
+  photos: {
+    type: [Photo.schema]
+  },
   startDate: {
     type: Date,
     default: Date.now,

@@ -11,12 +11,29 @@ const parseURL = (baseUrl) => {
     return urlArr[3];
 }
 
-router.get('/:scheduleId', (req, res) => {
-    Schedule.find({ _id: req.body.id })
-        .then(schedule => res.json(schedule))
-        .catch(err => res.status(404).json({ noschedulefound: 'No schedule found' }));
+//I am able to find all Schedules for a Pack
+router.get('/', (req, res) => {
+    let packId = parseURL(req.baseUrl);
+    Pack.findOne({ _id: packId})
+        .then(pack => res.json(pack.schedules))
+        .catch(err => res.status(404).json({ noschedulefound: 'Schedules not found' }));
 })
 
+//OH MY GOD THIS WORKS
+router.get('/:scheduleId', (req, res) => {
+    let packId = parseURL(req.baseUrl);
+    // debugger
+    Pack.find({_id: packId, "schedules._id": req.params.scheduleId},
+    { "schedules.$": 1})
+      .then(schedule => res.json(schedule))
+      .catch(err =>
+        res
+          .status(404)
+          .json({ noschedulefound: "No schedule found with that id" })
+      );
+})
+
+//I can make a new schedule
 router.post("/new", (req, res) => {
     const newSchedule = new Schedule({
         title: req.body.title,
@@ -25,29 +42,31 @@ router.post("/new", (req, res) => {
         endDate: req.body.date
     })
 
-    let parsed = parseURL(req.baseUrl);
+    let packId = parseURL(req.baseUrl);
 
     Pack.updateOne(
-        {_id: parsed},
+        {_id: packId},
         { $push: {schedules:  newSchedule }}
     ).then(() => res.json(newSchedule));
 })
 
-router.put("/update/:scheduleId", (req, res) => {
-    let parsed = parseURL(req.baseUrl);
-
+//I can update a schedule
+router.put("/:scheduleId", (req, res) => {
+    let packId = parseURL(req.baseUrl);
+    // debugger;
     Pack.updateOne(
-        { _id: parsed, "schedules._id": req.body.id },
+        { _id: packId, "schedules._id": req.params.scheduleId },
         { $set: {"schedules.$.title": req.body.title} }
         ).then((pls) => res.json(pls));
 })    
 
-router.delete("/delete/:scheduleId", (req, res) => {
-    let parsed = parseURL(req.baseUrl);
+//I can delete a schedule
+router.delete("/:scheduleId", (req, res) => {
+    let packId = parseURL(req.baseUrl);
 
     Pack.updateOne(
-        { _id: parsed },
-        { $pull: { schedules: {_id: req.body.id}} }
+        { _id: packId },
+        { $pull: { schedules: {_id: req.params.scheduleId}} }
     ).then((pls) => res.json(pls));
 })    
 

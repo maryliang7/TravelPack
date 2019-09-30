@@ -1,0 +1,29 @@
+.photo-index-outer-wrapper{
+  top: 80px;
+  left: 270px;
+  position: absolute;
+}
+
+.photos-header {
+  color: rgb(178, 195, 236);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  padding: 10px;
+  margin-left: 10px; 
+}
+
+.photo-upload-link {
+  color: rgb(178, 195, 236);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  margin: 10px;
+  margin-left: 20px;
+  width: 104px;
+}
+
+.photo-index-inner-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}

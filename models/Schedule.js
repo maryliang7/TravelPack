@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// const Event = require('./Event');
+const Event = require('./Event');
 
 const ScheduleSchema = new Schema({ 
     title: {
@@ -8,16 +8,18 @@ const ScheduleSchema = new Schema({
         required: true
     },
     events: {
-        type: [Event.schema]
+        type: [Event.schema],
+        default: [],
+        required: true
     },
     startDate: {
         type: Date,
         default: Date.now,
-        required: true
+        // required: true
     },
     endDate: {
         type: Date,
-        required: true
+        // required: true
     },
 },
     {
