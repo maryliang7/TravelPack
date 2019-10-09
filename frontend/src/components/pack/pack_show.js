@@ -55,24 +55,24 @@ export default class PackShow extends React.Component {
           <Switch>
 
             <Route
-              path="/packs/:packId/schedules/:scheduleId"
-              render={(props) => <ScheduleContainer props={props} pack={pack} />}
+              path="/packs/:packId/schedules/new"
+              render={(props) => <ScheduleFormCreateContainer props={props} pack={pack} members={members}/>}
             />
             <Route
-              path="/packs/:packId/schedules/new"
-              render={(props) => <ScheduleFormCreateContainer props={props} pack={pack} />}
+              path="/packs/:packId/schedules/:scheduleId"
+              render={(props) => <ScheduleContainer props={props} pack={pack} members={members} />}
             />
             <Route
               exact path="/packs/:packId/payments/details"
-              render={() => <PaymentBreakdown pack={pack} payments={pack.payments} />}
+              render={() => <PaymentBreakdown pack={pack} payments={pack.payments} members={members}/>}
             />
             <Route
               exact path="/packs/:packId/payments"
-              render={() => <PaymentsIndexContainer pack={pack} payments={pack.payments} />}
+              render={() => <PaymentsIndexContainer pack={pack} payments={pack.payments} members={members}/>}
             />
             <Route
               exact path="/packs/:packId/payments/new"
-              render={() => <CreatePaymentFormContainer pack={pack} />}
+              render={() => <CreatePaymentFormContainer pack={pack} members={members}/>}
             />
             <Route
               path="/packs/:packId/photos/all"

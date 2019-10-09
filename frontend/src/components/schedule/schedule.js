@@ -19,7 +19,7 @@ class Schedule extends React.Component{
         }
         this.handleDeleteSchedule = this.handleDeleteSchedule.bind(this);
         this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
-        // this.getCurrentSchedule = this.getCurrentSchedule.bind(this);
+        this.getCurrentSchedule = this.getCurrentSchedule.bind(this);
     }
 
     componentDidMount() {
@@ -53,33 +53,33 @@ class Schedule extends React.Component{
                 <div className="schedule-pane-35">
                     <div>
                         <ul>
-                                {Object.values(this.props.pack.schedules).map(schedule => (
-                            <li className="schedule-item">
-                                    <ScheduleIndexItem
-                                    key={schedule.id}
-                                    packId={this.props.pack._id}
-                                    schedule={schedule}
-                                    members={this.props.members}
-                                    events={schedule.events}
-                                    handleDelete={this.handleDeleteSchedule}
-                                    />
-                            </li>
-                                ))}
+                            {Object.values(this.props.pack.schedules).map(schedule => (
+                              <li className="schedule-item">
+                                  <ScheduleIndexItem
+                                  key={schedule.id}
+                                  packId={this.props.pack._id}
+                                  schedule={schedule}
+                                  members={this.props.members}
+                                  events={schedule.events}
+                                  handleDelete={this.handleDeleteSchedule}
+                                  />
+                              </li>
+                            ))}
                         </ul>
                     </div>                   
                 </div>
 
-                <div className="event-pane-65">
-                    <div className="event-container">
-                        {Object.values(currentSchedule.events).map(event => (
-                            <Event
-                            key={event.id}
-                            event={event}
-                            handleDelete={this.handleDeleteEvent}
-                            />
-                        ))}
-                    </div>
+              <div className="event-pane-65">
+                <div className="event-container">
+                  {Object.values(currentSchedule.events).map(event => (
+                    <Event
+                    key={event.id}
+                    event={event}
+                    handleDelete={this.handleDeleteEvent}
+                    />
+                  ))}
                 </div>
+              </div>
             </div>
         )
     }
