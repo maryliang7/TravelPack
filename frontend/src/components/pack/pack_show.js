@@ -19,10 +19,12 @@ export default class PackShow extends React.Component {
   componentDidMount() {
     this.props.getPack(this.props.match.params.packId).then( () => {
       if (this.props.pack && Object.values(this.props.pack).length) {
-        this.props.getMembers({ members: this.props.pack.members.join("")})
+        this.props.getMembers({ members: this.props.pack.members.join(",")})
       }
     });
   }
+
+
   render() {
     let { pack, schedule, members } = this.props;
 
@@ -54,7 +56,7 @@ export default class PackShow extends React.Component {
 
             <Route
               path="/packs/:packId/schedules/:scheduleId"
-              render={(props) => <ScheduleContainer props={props} pack={pack} members={members} />}
+              render={(props) => <ScheduleContainer props={props} pack={pack} />}
             />
             <Route
               path="/packs/:packId/schedules/new"
