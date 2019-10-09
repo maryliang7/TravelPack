@@ -16,6 +16,7 @@ export const login = (userData) => {
   return axios.post('/api/users/login', userData);
 };
 
-export const getMembers = (members) => {
-  return axios.get('/api/users/', members) 
+export const getMembers = (data) => {
+  // debugger;
+  return axios.post('/api/users/search', data) 
 }

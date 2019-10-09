@@ -19,8 +19,8 @@ export const removePhoto = photo => ({
   photoId: photo.id
 });
 
-export const fetchPhotos = () => dispatch => (
-  PhotoAPIUtil.fetchPhotos()
+export const fetchPhotos = (packId) => dispatch => (
+  PhotoAPIUtil.fetchPhotos(packId)
   .then(photos => dispatch(receiveAllPhotos(photos)))
   .catch(err => console.log(err))
 )

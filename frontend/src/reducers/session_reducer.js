@@ -1,7 +1,7 @@
 import { RECEIVE_CURRENT_USER, 
   RECEIVE_USER_LOGOUT, 
-  RECEIVE_USER_SIGN_IN,
-  RECEIVE_USERS } from '../actions/session_actions';
+  RECEIVE_USER_SIGN_IN
+} from '../actions/session_actions';
 
 const initialState = {
 isAuthenticated: false,
@@ -26,12 +26,7 @@ switch (action.type) {
     ...state,
     isSignedIn: true
     }
-  case RECEIVE_USERS:
-    return {
-      ...state,
-      users: action.users
-    };
   default:
-  return state;
+    return state;
   }
 }

@@ -8,6 +8,9 @@ const PhotoSchema = new Schema({
   attachedPhoto: {
     type: String
   },
+  packId: {
+    type: String
+  },
   date: {
     type: Date,
     default: Date.now

@@ -11,6 +11,7 @@ import MainPageContainer from './main/main_page_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import PhotoUploadContainer from './photos/photo_upload_container';
+import PhotoShowContainer from './photos/photo_show_container';
 import ScheduleContainer from './schedule/schedule_container';
 
 import './reset.css';
@@ -19,7 +20,7 @@ const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
-      <ProtectedRoute path="/packs/:packId" component={PackShowContainer} />
+      {/* <ProtectedRoute path="/packs/:packId" component={PackShowContainer} /> */}
       <AuthRoute exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

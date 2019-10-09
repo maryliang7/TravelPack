@@ -5,10 +5,16 @@ import { getMembers } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   // debugger
-  return ({
-    currentUser: state.entities.users[state.session.user],
-    pack: state.entities.packs[ownProps.match.params.packId]
-  })
+  let schedule;
+  let currentUser = state.entities.users[state.session.user];
+  let pack = state.entities.packs[ownProps.match.params.packId];
+  let members = state.entities.users
+  // debugger
+  if (pack) {
+    schedule = Object.values(state.entities.packs[ownProps.match.params.packId].schedules)
+  }
+  
+  return { currentUser, pack, schedule, members}
 };
 
 

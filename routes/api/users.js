@@ -12,10 +12,8 @@ const validateLoginInput = require('../../validation/login');
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 
-router.get('/', (req, res) => {
-  // debugger
+router.post('/search', (req, res) => {
   User.find({ _id: { $in: req.body.members.split(",") } })
-  // User.find({ _id: req.body.members })
     .then(users => res.json(users))
     .catch(err =>
       res.status(400).json({ nousersfound: 'No users found with those IDs' })

@@ -57,6 +57,6 @@ export const logout = () => dispatch => {
     dispatch(logoutUser())
 };
 
-export const getMembers = (members) => dispatch => {
-    APIUtil.getMembers(members).then(members => dispatch(receiveUsers))
-}
+export const getMembers = (members) => dispatch => (
+    APIUtil.getMembers(members).then(members => dispatch(receiveUsers(members)))
+)
