@@ -1,4 +1,4 @@
-import { RECEIVE_PACK, RECEIVE_USER_PACKS, REMOVE_PACK } from '../actions/pack_actions';
+import { RECEIVE_PACK, RECEIVE_USER_PACKS, REMOVE_PACK, REMOVE_PACKS } from '../actions/pack_actions';
 
 const PacksReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -16,6 +16,8 @@ const PacksReducer = (state = {}, action) => {
       let newState = Object.assign({}, state);
       delete newState[action.packId];
       return newState;
+    case REMOVE_PACKS:
+      return {};
     default:
       return state;
   }

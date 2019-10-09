@@ -3,6 +3,7 @@ import * as APIUtil from '../util/pack_api_util';
 export const RECEIVE_PACK = "RECEIVE_PACK";
 export const REMOVE_PACK = "REMOVE_PACK";
 export const RECEIVE_USER_PACKS = "RECEIVE_USER_PACKS";
+export const REMOVE_PACKS = "REMOVE_PACKS";
 
 export const receiveUserPacks = (packs) => ({
   type: RECEIVE_USER_PACKS,
@@ -17,6 +18,10 @@ export const receivePack = (pack) => ({
 export const removePack = (packId) => ({
   type: REMOVE_PACK,
   packId
+})
+
+export const removePacks = () => ({
+  type: REMOVE_PACKS
 })
 
 export const getPacks = (data) => (dispatch) => (

@@ -16,6 +16,16 @@ class NavBar extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if ((!prevProps.loggedIn && this.props.loggedIn) || (prevProps.loggedIn && !this.props.loggedIn)) {
+      if (this.props.currentUser) {
+        this.props.getUserPacks(this.props.currentUser.id)
+      } else {
+        this.props.removePacks();
+      }
+    }
+  }
+
   logoutUser(e) {
     e.preventDefault();
     this.props.logout();
@@ -36,7 +46,7 @@ class NavBar extends React.Component {
             </p>
           </div>
           <div className="side-packs">
-            {this.props.packs.map(pack => <Link to={`/packs/${pack._id}`}><li key={pack._id}>{pack.name}</li></Link>)}
+            {this.props.packs.map(pack => <Link key={pack._id} to={`/packs/${pack._id}`}><li key={pack._id}>{pack.name}</li></Link>)}
           </div>
           <div className="side-logout">
             <button onClick={this.logoutUser}>Logout</button>
