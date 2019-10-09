@@ -13,6 +13,7 @@ import SignupFormContainer from './session/signup_form_container';
 import PhotoUploadContainer from './photos/photo_upload_container';
 import PhotoShowContainer from './photos/photo_show_container';
 import ScheduleContainer from './schedule/schedule_container';
+import ScheduleFormCreateContainer from './schedule/schedule_form_create_container'
 
 import './reset.css';
 
@@ -28,7 +29,7 @@ const App = () => (
       <ProtectedRoute exact path="/packs/new" component={PackFormContainer} />
       <ProtectedRoute exact path="/packs/add" component={PackAddContainer} />
       <ProtectedRoute path="/packs/:packId" component={PackShowContainer} />
-
+      <ProtectedRoute exact path="/packs/:packId/schedules/new" component={ScheduleFormCreateContainer} />
     </Switch>
   </div>
 );

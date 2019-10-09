@@ -1,7 +1,6 @@
 .schedule-and-event *{
   /* border: .3px solid blue; */
   font-family: 'Montserrat', sans-serif;
-  
 }
 
 .schedule-and-event{
@@ -63,4 +62,32 @@
 .schedule-title{
   font-size: 17px;
   font-weight: bolder;
+}
+
+.schedule-form-container {
+  font-family: 'Montserrat', 'sans-serif';
+  border: 1px solid rgb(142, 172, 241);
+  border-radius: 3px;
+  position: absolute;
+  top: 80px;
+  left: 300px;
+}
+
+.schedule-form {
+  border: 1px solid black;
+}
+
+.title-input {
+  font-size: 25px;
+}
+
+.start-date {
+  font-size:16px;
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+.end-date {
+  font-size:16px;
+  font-family: 'Montserrat', 'sans-serif';
+
 }

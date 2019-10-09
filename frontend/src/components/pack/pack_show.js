@@ -19,7 +19,7 @@ export default class PackShow extends React.Component {
   componentDidMount() {
     this.props.getPack(this.props.match.params.packId).then( () => {
       if (this.props.pack && Object.values(this.props.pack).length) {
-        this.props.getMembers({ members: this.props.pack.members.join("")})
+        this.props.getMembers({ members: this.props.pack.members.join(",")})
       }
     });
   }
@@ -53,12 +53,13 @@ export default class PackShow extends React.Component {
           <Switch>
 
             <Route
-              path="/packs/:packId/schedules/:scheduleId"
-              render={(props) => <ScheduleContainer props={props} pack={pack} members={members} />}
-            />
-            <Route
               path="/packs/:packId/schedules/new"
               render={(props) => <ScheduleFormCreateContainer props={props} pack={pack} />}
+            />
+            <Route
+              path="/packs/:packId/schedules/:scheduleId"
+              // render={(props) => <ScheduleContainer props={props} pack={pack} members={members} />}
+              render={(props) => <ScheduleContainer props={props} pack={pack} />}
             />
             <Route
               exact path="/packs/:packId/payments/details"
