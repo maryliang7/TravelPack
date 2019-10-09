@@ -20,14 +20,14 @@ class ScheduleForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
     let schedule = {
       title: this.state.title,
       startDate: this.state.startDate,
-      endDate: this.state.endDate
+      endDate: this.state.endDate,
+      packId: this.props.pack._id
     };
-
+    debugger
     this.props.createSchedule(schedule);
   }
 
