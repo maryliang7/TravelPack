@@ -1,10 +1,27 @@
 .photo-show-wrapper {
-  top: 80px;
+  top: 120px;
   left: 270px;
   position: absolute;
+  width: 100%;
+}
+
+.inner-photo-show-wrapper {
+  width: 60%;
+  margin: auto;
+}
+
+.photo-show {
+  width: 60%;
+  border: solid 4px rgb(178, 195, 236);
 }
 
 .photo-show-button {
-  border: solid 1px black;
-  margin: 10px;
+  color: rgb(178, 195, 236);
+  border: solid 2px rgb(178, 195, 236);
+  width: 15%;
+  margin-top: 10px;
+  margin-left: 8%;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
 }

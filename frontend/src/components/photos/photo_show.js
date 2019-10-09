@@ -45,9 +45,12 @@ class PhotoIndex extends React.Component {
 
     return (
     <div className="photo-show-wrapper">
-      <img src={this.state.photo.attachedPhoto} alt="TravelPack Thumbnail" />
-      <button className="photo-show-button" onClick={this.handleGoBack}>Back to Photos</button> 
-      <button className="photo-show-button" onClick={this.handleDelete}>Delete</button> 
+      <div className="inner-photo-show-wrapper">
+        <img src={this.state.photo.attachedPhoto} alt="TravelPack Thumbnail" className="photo-show"/>
+        <button className="photo-show-button" onClick={this.handleGoBack}>BACK TO PHOTOS</button> 
+        <button className="photo-show-button" onClick={this.handleDelete}>DELETE</button> 
+      </div>
+      
     </div>);
   }
 }
