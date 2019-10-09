@@ -35,7 +35,8 @@ export default class PackShow extends React.Component {
 
             <Route
               path="/packs/:packId/schedules/:scheduleId"
-              render={(props) => <ScheduleContainer props={props} pack={pack} members={members} />}
+              // render={(props) => <ScheduleContainer props={props} pack={pack} members={members} />}
+              render={(props) => <ScheduleContainer props={props} pack={pack} />}
             />
             <Route
               path="/packs/:packId/schedules/new"

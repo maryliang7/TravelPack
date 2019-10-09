@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PackShow from './pack_show';
 import { getUserPacks, getPack, updatePack } from '../../actions/pack_actions';
+import { getMembers } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   // debugger
