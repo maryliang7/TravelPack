@@ -9,7 +9,7 @@ export const getSchedule = data => {
 }
 
 export const createSchedule = data => {
-    return axios.post(`api/packs/${data.packId}/schedules`, data)
+    return axios.post(`api/packs/${data.packId}/schedules/new`, data)
 }
 
 export const updateSchedule = data => {

@@ -7,7 +7,9 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
     case RECEIVE_USERS:
-      return Object.assign({}, action.users.data)
+      let newState = {}
+      action.users.forEach(user => newState[user._id] = user)
+      return newState;
     default:
       return state;
   }

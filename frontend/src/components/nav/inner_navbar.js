@@ -5,7 +5,7 @@ import './inner_navbar.css';
 const InnerNavBar = ({ pack }) => {
   return (
       <nav className="inner-nav-container">
-        <Link to={`/packs/${pack._id}/schedules`}>
+        <Link to={`/packs/${pack._id}`}>
           <div>
             Schedules
           </div>
