@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ScheduleForm from './schedule_form';
 import { createSchedule } from '../../actions/schedule_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     errors: state.errors
   }

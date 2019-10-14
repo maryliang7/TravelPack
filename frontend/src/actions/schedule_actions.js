@@ -6,17 +6,17 @@ export const REMOVE_SCHEDULE = "REMOVE_SCHEDULE";
 
 export const receiveSchedule = (schedule) => ({
     type: RECEIVE_SCHEDULE,
-    schedule
+    schedule: schedule.data
 })
 
 export const receiveSchedules = (schedules) => ({
     type: RECEIVE_SCHEDULES,
-    schedules
+    schedules: schedules.data
 })
 
 export const removeSchedule = (scheduleId) => ({
     type: REMOVE_SCHEDULE,
-    scheduleId
+    scheduleId: scheduleId.data
 })
 export const getSchedule = (data) => (dispatch) => (
     schedAPIUtil.getSchedule(data)
@@ -43,8 +43,9 @@ export const updateSchedule = (data) => (dispatch) => (
         .catch(err => console.log(err))
 )
 
-export const deleteSchedule = (id) => (dispatch) => (
-    schedAPIUtil.deleteSchedule(id)
+export const deleteSchedule = (data) => (dispatch) => {
+  return(
+    schedAPIUtil.deleteSchedule(data)
         .then(scheduleId => dispatch(removeSchedule(scheduleId)))
         .catch(err => console.log(err))
-)
+)}
