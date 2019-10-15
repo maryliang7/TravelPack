@@ -25,14 +25,16 @@ class PhotoIndex extends React.Component {
     
 
     return (
-      <div className="photo-index-outer-wrapper">
-        <div className="photos-header">Photos</div>
-        <Link to={`/packs/${this.props.pack._id}/photos/upload`} style={{ textDecoration: 'none' }}><div className="photo-upload-link">Upload Photo</div></Link>
-
+      <section className="photo-index">
         <div>
+          <div className="photos-header">Photos</div>
+          <Link to={`/packs/${this.props.pack._id}/photos/upload`} style={{ textDecoration: 'none' }}><div className="photo-upload-link">Upload Photo</div></Link>
+        </div>
+
+        <div className="photo-index-outer-wrapper">
           <div className="photo-index-inner-wrapper">{this.state.photos}</div>
         </div>
-      </div>
+      </section>
     );
   }
 }
