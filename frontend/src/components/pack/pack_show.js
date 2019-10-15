@@ -24,7 +24,6 @@ export default class PackShow extends React.Component {
     });
   }
 
-
   render() {
     let { pack, schedule, members } = this.props;
 

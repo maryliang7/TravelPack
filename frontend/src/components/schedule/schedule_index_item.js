@@ -19,10 +19,10 @@ class ScheduleIndexItem extends React.Component {
         </Link>
         <div className="schedule-change-buttons">
           <button className="change-button" onClick={() => this.props.handleEditSchedule({packId: this.props.packId, scheduleId: this.props.schedule._id})}>
-            <i class="far fa-edit"></i>
+            <i className="far fa-edit"></i>
           </button>
           <button className="change-button" onClick={() => this.props.handleDeleteSchedule({packId: this.props.packId, scheduleId: this.props.schedule._id})}>
-            <i class="fas fa-trash-alt"></i>
+            <i className="fas fa-trash-alt"></i>
           </button>
         </div>
       </div>
