@@ -3,7 +3,7 @@ import PackAdd from './pack_add';
 import { updatePack } from '../../actions/pack_actions';
 
 const mapStateToProps = (state) => ({
-  currentUser: state.entities.users[state.session.user]
+  currentUser: state.session.user
 });
 
 

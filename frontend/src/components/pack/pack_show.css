@@ -1,0 +1,85 @@
+.pack-forms {
+  position: absolute;
+  top: 0px;
+  left: 252px;
+  width: calc(100% - 292px);
+  height: calc(100vh - 37px);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.pack-forms h3 {
+  margin-top: 15px;
+}
+
+.pack-create-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  height: 350px;
+  width: 300px;
+  margin: 50px;
+  padding: 20px;
+  margin-left: 30%;
+  background-color: rgb(228, 231, 236);
+}
+
+.pack-create-form h3 {
+  margin-left: 50px;
+}
+
+.pack-create-form label {
+  font-size: 14px;
+}
+
+.pack-create-form input,
+.pack-add-form input {
+  height: 25px;
+  padding: 3px 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+#form-submit,
+#form-add-submit {
+  width: 75px;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 215px;
+  background-color: rgb(180, 195, 232);
+  color: white;
+}
+
+
+#form-add-submit {
+  height: 25px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+
+.pack-add-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  height: 200px;
+  width: 300px;
+  margin-left: 50px;
+  padding: 20px;
+  margin-left: 30%;
+  background-color: rgb(228, 231, 236);
+}
+
+.pack-add-form h3 {
+  margin-left: 70px;
+}

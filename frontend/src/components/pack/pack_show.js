@@ -10,11 +10,7 @@ import PhotoShowContainer from '../photos/photo_show_container';
 import PaymentBreakdown from '../payments/payment_breakdown';
 import InnerNavBar from '../nav/inner_navbar';
 
-import './pack_show.css';
 export default class PackShow extends React.Component {
-  constructor(props){
-    super(props)
-  }
 
   componentDidMount() {
     this.props.getPack(this.props.match.params.packId).then( () => {
@@ -23,6 +19,17 @@ export default class PackShow extends React.Component {
       }
     });
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.packId !== this.props.match.params.packId) {
+      this.props.getPack(this.props.match.params.packId).then( () => {
+        if (this.props.pack && Object.values(this.props.pack).length) {
+          this.props.getMembers({ members: this.props.pack.members.join(",")})
+        }
+      });
+    }
+  }
+
 
   render() {
     let { pack, schedule, members } = this.props;
