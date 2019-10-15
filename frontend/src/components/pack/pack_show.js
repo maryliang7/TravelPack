@@ -37,7 +37,7 @@ export default class PackShow extends React.Component {
       redirect = (schedule.length) ? (
         this.props.history.push(`/packs/${pack._id}/schedules/${schedule[0]._id}`) 
       ) : (
-        this.props.history.push(`/packs/${pack._id}/schedules/new`) 
+        this.props.history.push(`/packs/${pack._id}/schedules`) 
       )
     }
 

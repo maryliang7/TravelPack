@@ -12,9 +12,11 @@ const SchedulesReducer = (state = {}, action) => {
     
     switch(action.type) {
         case RECEIVE_PACK: 
-            return Object.assign({}, state, action.pack.schedules)
+          let newSched = {}
+          action.pack.schedules.forEach(schedule => newSched[schedule._id] = schedule)
+          return newSched;
         case RECEIVE_SCHEDULE: 
-            return Object.assign({}, state, {[action.schedule.id]: action.schedule})
+            return Object.assign({}, state, {[action.schedule._id]: action.schedule})
         case RECEIVE_SCHEDULES: 
             return Object.assign({}, state, action.schedules)
         case REMOVE_SCHEDULE:
