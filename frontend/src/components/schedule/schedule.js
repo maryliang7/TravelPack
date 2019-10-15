@@ -125,7 +125,7 @@ class Schedule extends React.Component{
                                   />
                               </li>
                             ))}
-                            {(this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton())}
+                            {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}
                             {/* <div className="new-schedule-button">
                               <Link className="new-schedule-link" to={`/packs/${this.props.pack._id}/schedules/new`}>
                                 <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
