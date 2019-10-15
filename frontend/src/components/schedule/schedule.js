@@ -54,7 +54,7 @@ class Schedule extends React.Component{
                     <div>
                         <ul>
                             {Object.values(this.props.pack.schedules).map(schedule => (
-                              <li className="schedule-item">
+                              <li className="schedule-item" key={schedule._id}>
                                   <ScheduleIndexItem
                                   key={schedule.id}
                                   packId={this.props.pack._id}
