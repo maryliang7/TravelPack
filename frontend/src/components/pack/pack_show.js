@@ -10,11 +10,7 @@ import PhotoShowContainer from '../photos/photo_show_container';
 import PaymentBreakdown from '../payments/payment_breakdown';
 import InnerNavBar from '../nav/inner_navbar';
 
-import './pack_show.css';
 export default class PackShow extends React.Component {
-  constructor(props){
-    super(props)
-  }
 
   componentDidMount() {
     this.props.getPack(this.props.match.params.packId).then( () => {

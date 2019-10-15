@@ -6,7 +6,7 @@ import { getMembers } from '../../actions/session_actions';
 const mapStateToProps = (state, ownProps) => {
   // debugger
   let schedule;
-  let currentUser = state.entities.users[state.session.user];
+  let currentUser = state.session.user;
   let pack = state.entities.packs[ownProps.match.params.packId];
   let members = state.entities.users
   // debugger

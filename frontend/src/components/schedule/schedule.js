@@ -113,7 +113,11 @@ class Schedule extends React.Component{
                         {/* <i class="fas fa-calendar-plus"></i> */}
                       </div>
                         <ul>
+<<<<<<< HEAD
+                            {Object.values(this.props.pack.schedules).map(schedule => (
+=======
                             {Object.values(this.props.schedules).map(schedule => (
+>>>>>>> 4f60a1e75bf7ebffbb8226851f14b34b9bb0a6b8
                               <li className="schedule-item" key={schedule._id}>
                                   <ScheduleIndexItem
                                   packId={this.props.pack._id}

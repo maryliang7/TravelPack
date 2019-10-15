@@ -3,7 +3,7 @@ import PackForm from './pack_form';
 import { createPack } from '../../actions/pack_actions';
 
 const mapStateToProps = (state) => ({
-  currentUser: state.entities.users[state.session.user]
+  currentUser: state.session.user
 });
 
 

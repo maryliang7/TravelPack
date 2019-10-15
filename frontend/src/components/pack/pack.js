@@ -1,13 +1,17 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PackAddContainer from './pack_add_container';
+import PackFormContainer from './pack_form_container';
+import './pack_show.css';
 
 
 export default class Pack extends React.Component {
   
   render() {
     return (
-      <div>
-
+      <div className="pack-forms">
+        <PackFormContainer />
+        <PackAddContainer />
       </div>
     )
   }

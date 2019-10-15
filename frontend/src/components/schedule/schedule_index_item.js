@@ -9,6 +9,14 @@ class ScheduleIndexItem extends React.Component {
   render() {
     // debugger
     return (
+<<<<<<< HEAD
+      <Link
+        to={`/packs/${this.props.packId}/schedules/${this.props.schedule._id}`} className="schedule-detail">
+        <div className="schedule-title">{this.props.schedule.title}</div>
+        {/* <div className="schedule-members">{this.props.members}hello bruv</div> */}
+        <div className="schedule-date">{this.props.schedule.startDate} - {this.props.schedule.endDate}</div>
+      </Link>
+=======
       <div className="schedule-item-div">
         <Link to={`/packs/${this.props.packId}/schedules/${this.props.schedule._id}`} className="schedule-detail">
           <div className="schedule-item-el">
@@ -26,6 +34,7 @@ class ScheduleIndexItem extends React.Component {
           </button>
         </div>
       </div>
+>>>>>>> 4f60a1e75bf7ebffbb8226851f14b34b9bb0a6b8
     );
   }
 }
