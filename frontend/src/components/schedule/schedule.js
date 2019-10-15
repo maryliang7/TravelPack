@@ -101,8 +101,13 @@ class Schedule extends React.Component{
 
     render() {
         let currentSchedule = this.props.schedules[this.props.props.match.params.scheduleId];
+        // debugger
         if (!currentSchedule) {
-            return null;
+            return (
+              <div>
+                {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}
+              </div>
+            );
         }
         // debugger
         return(
