@@ -126,7 +126,13 @@
 
 .new-schedule-button {
   margin-top: 10px;
-  margin-left: 5px;
+  height: 40px;
+  /* width: 100%; */
+  display: flex;
+  padding-left: 15px;
+  /* border: 1px solid purple;
+  background-color: rgba(221, 162, 246, .2); */
+  font-size: 15px;
 }
 
 .new-schedule-link {

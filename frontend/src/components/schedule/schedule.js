@@ -35,14 +35,12 @@ class Schedule extends React.Component{
     }
 
     displayAddScheduleButton() {
-      console.log(this.state.addSchedule);
       return(
-        <div className="new-schedule-button" onClick={() => this.setState({addSchedule: true})}>
+        <div className="new-schedule-button">
           {/* <Link className="new-schedule-link" to={`/packs/${this.props.pack._id}/schedules/new`}> */}
-          <div className="new-schedule-link">
+          <button className="new-schedule-link" onClick={() => this.setState({addSchedule: true})}>
             <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
-            <div>Add a Schedule</div> 
-          </div>
+            </button>
           {/* </Link> */}
         </div>
       )
@@ -68,7 +66,7 @@ class Schedule extends React.Component{
             </div>
             <div>
               <input type="submit" value="Create Schedule" className="new-schedule-submit"/>
-              <button>Cancel</button>
+              <button onClick={() => this.setState({addSchedule: false})}>Cancel</button>
             </div>
           </form>
         </div>
