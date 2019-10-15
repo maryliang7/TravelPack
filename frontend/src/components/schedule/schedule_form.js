@@ -1,5 +1,6 @@
 import React from 'react';
 import { throws } from 'assert';
+import {withRouter} from 'react-router-dom';
 
 class ScheduleForm extends React.Component {
   constructor(props){
@@ -7,7 +8,7 @@ class ScheduleForm extends React.Component {
     this.state = {
       title: '',
       startDate: '',
-      endDate: '',
+      endDate: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,14 +28,20 @@ class ScheduleForm extends React.Component {
       endDate: this.state.endDate,
       packId: this.props.pack._id
     };
-    debugger
-    this.props.createSchedule(schedule);
+
+    if (this.props.createSchedule(schedule)) {
+      console.log("saved success")
+      // debugger;
+      this.props.history.push(`/packs/${this.props.pack._id}`)
+      // this.props.history.push(`/packs/${this.props.pack._id}/schedules/${schedule._id}`)
+    }
+
   }
 
   render() {
     return (
       <div className="schedule-form-container">
-        <h1>HELLO, LETS MAKE A NEW SCHEDULE</h1>
+        <h1></h1>
         <div>
           <form className="schedule-form" onSubmit={this.handleSubmit}>
             <div className="schedule-title-input">
@@ -59,4 +66,4 @@ class ScheduleForm extends React.Component {
   }
 }
 
-export default ScheduleForm;
+export default withRouter(ScheduleForm);

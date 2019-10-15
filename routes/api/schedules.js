@@ -67,7 +67,7 @@ router.delete("/:scheduleId", (req, res) => {
     Pack.updateOne(
         { _id: packId },
         { $pull: { schedules: {_id: req.params.scheduleId}} }
-    ).then((pls) => res.json(pls));
+    ).then(() => res.json(req.params.scheduleId));
 })    
 
 module.exports = router;

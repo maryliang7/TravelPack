@@ -87,7 +87,7 @@
   margin-top: 10px;
 }
 
-.fa-trash-alt {
+.payments-index-container .fa-trash-alt {
   font-size: 20px;
   background-color: #B2C3EC;
   color: white;
@@ -95,7 +95,7 @@
   border-radius: 5px;
 }
 
-.fa-trash-alt:hover {
+.payments-index-container  .fa-trash-alt:hover {
   background-color: #8EACF1;
 }
 
