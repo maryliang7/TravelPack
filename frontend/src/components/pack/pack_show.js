@@ -20,6 +20,16 @@ export default class PackShow extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.packId !== this.props.match.params.packId) {
+      this.props.getPack(this.props.match.params.packId).then( () => {
+        if (this.props.pack && Object.values(this.props.pack).length) {
+          this.props.getMembers({ members: this.props.pack.members.join(",")})
+        }
+      });
+    }
+  }
+
 
   render() {
     let { pack, schedule, members } = this.props;

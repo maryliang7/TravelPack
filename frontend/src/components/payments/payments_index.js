@@ -20,7 +20,7 @@ class PaymentsIndex extends React.Component {
             </div>
             <Link to={`/packs/${this.props.pack._id}/payments/new`}>
               <button className="create-expense-button">
-                <i class="fas fa-plus"></i> Add an Expense
+                <i className="fas fa-plus"></i> Add an Expense
               </button>
             </Link>
           </div>
@@ -43,15 +43,15 @@ class PaymentsIndex extends React.Component {
               for (let i = 0; i < payment.chargeeIds.length; i++) {
                 return (
                   <ul className="payments-index-item">
-                    <li className="payment-title">
+                    <li key={payment.id} className="payment-title">
                       {payment.title}
                     </li>
-                    <li className="payment-amount">
+                    <li key={payment.id} className="payment-amount">
                       You paid
                       <br></br>
                       ${payment.amount}
                     </li>
-                    <li className="charged-amount">
+                    <li key={payment.id} className="charged-amount">
                       {/* {payment.chargeeIds[i]} owes you ${payment.amount / payment.chargeeIds.length} */}
                       Mary owes you 
                       <br></br>
