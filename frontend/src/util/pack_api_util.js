@@ -17,7 +17,6 @@ export const createPack = data => {
 }
 
 export const updatePack = data => {
-  debugger
   return axios.put(`/api/packs/${data.id}/update`, data)
 }
 

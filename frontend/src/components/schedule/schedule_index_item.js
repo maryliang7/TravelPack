@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { formatDate } from '../../util/date_util';
 
 class ScheduleIndexItem extends React.Component {
   constructor(props){
@@ -14,7 +15,7 @@ class ScheduleIndexItem extends React.Component {
           <div className="schedule-item-el">
             <div className="schedule-title">{this.props.schedule.title}</div>
             {/* <div className="schedule-members">{this.props.members}hello bruv</div> */}
-            <div className="schedule-date">{this.props.schedule.startDate} - {this.props.schedule.endDate}</div>
+            <div className="schedule-date">{formatDate(this.props.schedule.startDate)} - {formatDate(this.props.schedule.endDate)}</div>
           </div>
         </Link>
         <div className="schedule-change-buttons">

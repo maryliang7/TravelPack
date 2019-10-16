@@ -38,8 +38,8 @@ router.post("/new", (req, res) => {
     const newSchedule = new Schedule({
         title: req.body.title,
         events: req.body.events,
-        startDate: req.body.date,
-        endDate: req.body.date
+        startDate: req.body.startDate,
+        endDate: req.body.endDate
     })
 
     let packId = parseURL(req.baseUrl);

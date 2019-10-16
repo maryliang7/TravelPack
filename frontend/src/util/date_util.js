@@ -27,7 +27,7 @@ export const formatDate = date => {
   const day = obj.getDate();
   const year = obj.getFullYear();
   const dayOfWeek = daysOfWeek[obj.getDay()];
-  return `${month} ${day} at `;
+  return `${month} ${day}, ${year} `;
 };
 
 export const formatTime = date => {
