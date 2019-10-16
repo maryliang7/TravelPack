@@ -23,6 +23,10 @@ class Schedule extends React.Component{
     }
     this.handleDeleteSchedule = this.handleDeleteSchedule.bind(this);
     this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
+
+    this.handleEditSchedule = this.handleEditSchedule.bind(this);
+    this.handleEditEvent = this.handleEditEvent.bind(this);
+
     this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -30,18 +34,24 @@ class Schedule extends React.Component{
       this.props.deleteSchedule(data)
     }
 
-    handleDeleteEvent(id) {
-      this.props.deleteEvent(id)
+    handleEditSchedule(data) {
+      this.props.editSchedule(data)
+    }
+    
+    handleDeleteEvent(data) {
+      this.props.deleteEvent(data)
+    }
+
+    handleEditEvent(data) {
+      this.props.handleEditEvent(data)
     }
 
     displayAddScheduleButton() {
       return(
         <div className="new-schedule-button">
-          {/* <Link className="new-schedule-link" to={`/packs/${this.props.pack._id}/schedules/new`}> */}
           <button className="new-schedule-link" onClick={() => this.setState({addSchedule: true})}>
             <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
             </button>
-          {/* </Link> */}
         </div>
       )
     }
@@ -100,64 +110,64 @@ class Schedule extends React.Component{
     }
 
     render() {
-        let currentSchedule = this.props.schedules[this.props.props.match.params.scheduleId];
-        // debugger
-        if (!currentSchedule) {
-            return (
+      let currentSchedule = this.props.schedules[this.props.props.match.params.scheduleId];
+      // debugger
+      if (!currentSchedule) {
+        return (
+          <div>
+            {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}
+          </div>
+        );
+      }
+      // debugger
+    return(
+      <div className="schedule-and-event">
+          <div className="schedule-pane-35"> &nbsp;Schedules
+            <div>
               <div>
-                {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}
+                {/* <i class="fas fa-calendar-plus"></i> */}
               </div>
-            );
-        }
-        // debugger
-        return(
-            <div className="schedule-and-event">
-                <div className="schedule-pane-35"> &nbsp;Schedules
-                    <div>
-                      <div>
-                        {/* <i class="fas fa-calendar-plus"></i> */}
-                      </div>
-                        <ul>
-                          {Object.values(this.props.schedules).map(schedule => (
-                            <li className="schedule-item" key={schedule._id}>
-                              <ScheduleIndexItem
-                              packId={this.props.pack._id}
-                              schedule={schedule}
-                              key={schedule._id}
-                              members={this.props.members}
-                              events={schedule.events}
-                              handleDeleteSchedule={this.handleDeleteSchedule}
-                              />
-                            </li>
-                          ))}
-                          {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}                          
-                          {/* <div className="new-schedule-button">
-                            <Link className="new-schedule-link" to={`/packs/${this.props.pack._id}/schedules/new`}>
-                              <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
-                              <div>Add a Schedule</div> 
-                            </Link>
-                        </div> */}
-                        </ul>
-                    </div>                   
-                </div>
-              <div className="event-pane-65"> &nbsp;&nbsp;&nbsp;&nbsp;Events
-                <div className="event-container">
-                  <ul className="event-item">
-                    {Object.values(currentSchedule.events).map(event => (
-                      <li key={event._id}>
-                        <Event
-                        key={event.id}
-                        event={event}
-                        handleDelete={this.handleDeleteEvent}
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-        )
-    }
+              <ul>
+                {Object.values(this.props.schedules).map(schedule => (
+                  <li className="schedule-item" key={schedule._id}>
+                    <ScheduleIndexItem
+                    packId={this.props.pack._id}
+                    schedule={schedule}
+                    key={schedule._id}
+                    members={this.props.members}
+                    events={schedule.events}
+                    handleDeleteSchedule={this.handleDeleteSchedule}
+                    />
+                  </li>
+                ))}
+                {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}                          
+                {/* <div className="new-schedule-button">
+                  <Link className="new-schedule-link" to={`/packs/${this.props.pack._id}/schedules/new`}>
+                    <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
+                    <div>Add a Schedule</div> 
+                  </Link>
+                </div> */}
+              </ul>
+            </div>                   
+          </div>
+        <div className="event-pane-65"> &nbsp;&nbsp;&nbsp;&nbsp;Events
+          <div className="event-container">
+            <ul className="event-item">
+              {Object.values(currentSchedule.events).map(event => (
+                <li key={event._id}>
+                  <Event
+                  key={event.id}
+                  event={event}
+                  handleDelete={this.handleDeleteEvent}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Schedule;

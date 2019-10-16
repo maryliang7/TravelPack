@@ -27,13 +27,20 @@
   width:100%;
 }
 
+.schedule-show-or-edit {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
 .schedule-item{
   height: 75px;
   max-height: 87px;
   font-size: 14px;
-  background-color: rgba(221, 162, 246, .2);
+  background-color: rgba(223, 226, 241, .2);
+  /* background-color: #FFF; */
   display: flex;
-  border: 1px solid purple;
+  border: 1px solid lightgray;
   /* align-items: center; */
   margin-bottom: 5px;
   border-radius: 3px;
@@ -41,7 +48,7 @@
 }
 
 .schedule-item:hover {
-  background-color: rgba(221, 162, 246, .4);
+  background-color: rgba(177, 187, 236, .4);
 }
 
 .schedule-item-el {
@@ -61,11 +68,15 @@
 }
 
 .event {
-  background-color: rgb(142,221,251);
-  border: 1px solid rgb(49, 150, 190);
+  background-color: rgba(232,239,249, .3);
+  border: 1px solid rgb(197, 235, 250);
   border-radius: 3px;
   margin-bottom: 5px;
   margin-left: 15px;
+}
+
+.event:hover {
+  background-color: rgba(198, 216, 241, 0.4);
 }
 
 .event-details{
@@ -112,7 +123,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 90%;
+  height: 100%;
+  width: 100%;
   margin: auto;
 }
 
@@ -121,7 +133,7 @@
 }
 
 .title-input {
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .start-date {
