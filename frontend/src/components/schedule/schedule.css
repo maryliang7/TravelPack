@@ -89,6 +89,19 @@
   border-radius: 3px;
 }
 
+.schedule-form-container-new {
+  position: absolute;
+  top: 80px;
+  left: 250px;
+  margin-left: 25px;
+  margin-top: 10px;
+  font-family: 'Montserrat', 'sans-serif';
+  border: 1px solid rgb(142, 172, 241);
+  background-color: rgb(190, 236, 248);
+  color:rgb(102, 102, 102);
+  border-radius: 3px;
+}
+
 .new-schedule-submit:hover {
   color: rgb(190, 236, 248);
   background-color: rgb(102, 102, 102);
