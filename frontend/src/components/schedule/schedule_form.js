@@ -56,7 +56,9 @@ class ScheduleForm extends React.Component {
                 onChange={this.update('endDate')}/>
             </div>
             <div>
-              <input type="submit" value="Create Schedule" className="new-schedule-submit"/>
+            <button type="submit" className="new-schedule-submit">
+                <i className="fas fa-check"></i>
+              </button>
             </div>
           </form>
         </div>
