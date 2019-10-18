@@ -9,6 +9,7 @@ import PhotoUploadContainer from '../photos/photo_upload_container';
 import PhotoShowContainer from '../photos/photo_show_container'; 
 import PaymentBreakdown from '../payments/payment_breakdown';
 import InnerNavBar from '../nav/inner_navbar';
+import background from './better_image.jpg';
 
 export default class PackShow extends React.Component {
 
@@ -39,19 +40,28 @@ export default class PackShow extends React.Component {
     }
     let redirect;
 
-    if (this.props.history.location && (this.props.history.location.pathname.split("/").length <= 3)) {
-      redirect = (schedule.length) ? (
-        this.props.history.push(`/packs/${pack._id}/schedules/${schedule[0]._id}`) 
-      ) : (
-        this.props.history.push(`/packs/${pack._id}/schedules/new`) 
-      )
-    }
+    // if (this.props.history.location && (this.props.history.location.pathname.split("/").length <= 3)) {
+    //   redirect = (schedule.length) ? (
+    //     this.props.history.push(`/packs/${pack._id}/schedules/${schedule[0]._id}`) 
+    //   ) : (
+    //     this.props.history.push(`/packs/${pack._id}/schedules/new`) 
+    //   )
+    // }
 
     return(
       <div>
-        <div className="pack-show">
-          {redirect}
+        <div className="pack-title">
+          <h3>{pack.name}</h3>
         </div>
+        <div className="pack-show">
+          <div className="pack-image">
+            <img src={background} alt="background" />
+          </div>
+          <div className="pack-info">
+            <p>{pack.startDate} - {pack.endDate}</p>
+          </div>
+        </div>
+
         <Route
           path="/packs/:packId"
           render={() => <InnerNavBar pack={pack} />}

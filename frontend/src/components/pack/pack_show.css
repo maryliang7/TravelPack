@@ -83,3 +83,37 @@ input[type="date"]::-webkit-inner-spin-button {
 .pack-add-form h3 {
   margin-left: 70px;
 }
+
+.pack-show {
+  position: absolute;
+  top: 60px;
+  left: 252px;
+  padding: 10px;
+}
+
+.pack-image {
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  width: calc(100vw - 250px);
+  height: 400px;
+  min-width: 900px;
+  z-index: 0;
+}
+
+.pack-image img {
+  height: 400px;
+  object-fit: cover;
+  z-index: 0;
+}
+
+
+.pack-title h3{
+  z-index: 1;
+  position: absolute;
+  left: 725px;
+  top: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  color: white;
+}
