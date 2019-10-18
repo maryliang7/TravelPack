@@ -22,7 +22,7 @@ export const formatDate = date => {
     5: 'Friday',
     6: 'Saturday',
   };
-  const obj = new Date(date);
+  const obj = new Date(new Date(date).getTime() + 1000*60*60*8);
   const month = months[obj.getMonth()];
   const day = obj.getDate();
   const year = obj.getFullYear();

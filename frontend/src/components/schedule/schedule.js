@@ -30,97 +30,97 @@ class Schedule extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleDeleteSchedule(data) {
-      this.props.deleteSchedule(data)
-    }
+  handleDeleteSchedule(data) {
+    this.props.deleteSchedule(data)
+  }
 
-    handleUpdateSchedule(data) {
-      this.props.updateSchedule(data)
-    }
-    
-    handleDeleteEvent(data) {
-      this.props.deleteEvent(data)
-    }
-
-    handleUpdateEvent(data) {
-      this.props.updateEvent(data)
-    }
-
-    displayAddScheduleButton() {
-      return(
-        <div className="new-schedule-button">
-          <button className="new-schedule-link" onClick={() => this.setState({addSchedule: true})}>
-            <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
-            </button>
-        </div>
-      )
-    }
-
-    displayNewScheduleForm() {
-      return(
-        <div className="schedule-form-container">
-          <form className="schedule-form" onSubmit={this.handleSubmit}>
-            <div>
-              <div className="schedule-title-input">
-                <input type="text" className="title-input" placeholder="Schedule Title"
-                  onChange={this.update('title')}/>
-              </div>
-              <div className="schedule-start-date-input">
-                Start Date: &nbsp;<input type="date" className="start-date"
-                  onChange={this.update('startDate')}/>
-              </div>
-              <div className="schedule-end-date-input">
-                End &nbsp;Date: &nbsp;<input type="date" className="end-date"
-                  onChange={this.update('endDate')}/>
-              </div>
-            </div>
-          <div>
-            <div className="schedule-change-buttons">
-              <button type="submit" className="change-button" onClick={this.handleSubmit}>
-                <i className="fas fa-check"></i>
-              </button>
-              <button className="change-button" onClick={() => this.setState({addSchedule: false})}>
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-      )
-    }
-
-    update(field) {
-      return e => this.setState({
-        [field]: e.currentTarget.value
-      });
-    }
-
-    handleSubmit(e) {
-      e.preventDefault();
-      let schedule = {
-        title: this.state.title,
-        startDate: this.state.startDate,
-        endDate: this.state.endDate,
-        packId: this.props.pack._id
-      };
+  handleUpdateSchedule(data) {
+    this.props.updateSchedule(data)
+  }
   
-      if (this.props.createSchedule(schedule)) {
-        console.log("saved success")
-        this.setState({addSchedule: false})
-      }
-    }
+  handleDeleteEvent(data) {
+    this.props.deleteEvent(data)
+  }
 
-    render() {
-      let currentSchedule = this.props.schedules[this.props.props.match.params.scheduleId];
-      // debugger
-      if (!currentSchedule) {
-        return (
+  handleUpdateEvent(data) {
+    this.props.updateEvent(data)
+  }
+
+  displayAddScheduleButton() {
+    return(
+      <div className="new-schedule-button">
+        <button className="new-schedule-link" onClick={() => this.setState({addSchedule: true})}>
+          <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
+          </button>
+      </div>
+    )
+  }
+  
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+  
+  handleSubmit(e) {
+    e.preventDefault();
+    let schedule = {
+      title: this.state.title,
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+      packId: this.props.pack._id
+    };
+    
+    if (this.props.createSchedule(schedule)) {
+      console.log("saved success")
+      this.setState({addSchedule: false})
+    }
+  }
+  
+  displayNewScheduleForm() {
+    return(
+      <div className="schedule-form-container">
+        <form className="schedule-form" onSubmit={this.handleSubmit}>
           <div>
-            {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}
+            <div className="schedule-title-input">
+              <input type="text" className="title-input" placeholder="Schedule Title"
+                onChange={this.update('title')}/>
+            </div>
+            <div className="schedule-start-date-input">
+              Start Date: &nbsp;<input type="date" className="start-date"
+                onChange={this.update('startDate')}/>
+            </div>
+            <div className="schedule-end-date-input">
+              End &nbsp;Date: &nbsp;<input type="date" className="end-date"
+                onChange={this.update('endDate')}/>
+            </div>
           </div>
-        );
-      }
-      // debugger
+        <div>
+          <div className="schedule-change-buttons">
+            <button type="submit" className="change-button" onClick={this.handleSubmit}>
+              <i className="fas fa-check"></i>
+            </button>
+            <button className="change-button" onClick={() => this.setState({addSchedule: false})}>
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    )
+  }
+
+  render() {
+    let currentSchedule = this.props.schedules[this.props.props.match.params.scheduleId];
+    // debugger
+    if (!currentSchedule) {
+      return (
+        <div>
+          {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}
+        </div>
+      );
+    }
+    // debugger
     return(
       <div className="schedule-and-event">
           <div className="schedule-pane-35"> &nbsp;Schedules

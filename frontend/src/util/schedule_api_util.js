@@ -9,11 +9,12 @@ export const getSchedule = data => {
 }
 
 export const createSchedule = data => {
+  // debugger
   return axios.post(`api/packs/${data.packId}/schedules/new`, data)
 }
 
 export const updateSchedule = data => {
-  debugger
+  // debugger //Hit
   return axios.put(`api/packs/${data.packId}/schedules/${data.scheduleId}`, data)
 }
 

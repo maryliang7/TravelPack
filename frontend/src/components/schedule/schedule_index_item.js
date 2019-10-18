@@ -6,7 +6,6 @@ class ScheduleIndexItem extends React.Component {
   constructor(props){
     super(props)
 
-
     this.state = {
       title: this.props.schedule.title,
       startDate: this.props.schedule.startDate,
@@ -42,13 +41,17 @@ class ScheduleIndexItem extends React.Component {
       startDate: this.state.startDate,
       endDate: this.state.endDate,
       packId: this.props.packId,
-      scheduleId: this.props.schedule._id
+      scheduleId: this.props.schedule._id,
     }
-
-    if (this.props.updateSchedule(schedule)) {
-      console.log("Update Schedule Success");
+    // debugger
+    this.props.updateSchedule(schedule).then(() => {
       this.setState({showSchedule: true})
-    }
+    })
+    
+    // setTimeout(this.setState({showSchedule: true}), 100)
+    // if (this.props.updateSchedule(schedule)) {
+    //   this.setState({showSchedule: true})
+    // }
   }
 
   displayEdit({packId, scheduleId}) {
@@ -76,6 +79,7 @@ class ScheduleIndexItem extends React.Component {
               <button type="submit" className="change-button" onClick={this.handleSubmit}>
                 <i className="fas fa-check"></i>
               </button>
+
               <button className="change-button" onClick={() => this.setState({showSchedule: true})}>
                 <i className="fas fa-times"></i>
               </button>
@@ -100,7 +104,7 @@ class ScheduleIndexItem extends React.Component {
             <i className="far fa-edit"></i>
           </button>
 
-          <button className="change-button" onClick={() => this.props.handleDeleteSchedule({packId: this.props.packId, scheduleId: this.props.schedule._id})}>
+          <button className="change-button" onClick={() => this.props.deleteSchedule({packId: this.props.packId, scheduleId: this.props.schedule._id})}>
             <i className="fas fa-trash-alt"></i>
           </button>
         </div>
