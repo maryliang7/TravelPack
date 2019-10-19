@@ -16,6 +16,12 @@
   margin-top: 15px;
 }
 
+.pack-forms i {
+  /* color: rgb(238, 181, 151); */
+  color: rgb(29, 29, 29);
+}
+
+
 #wolf-crop {
   position: absolute;
   right: 0;
@@ -39,7 +45,7 @@
 }
 
 .pack-create-form h3 {
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .pack-create-form label {
@@ -125,11 +131,12 @@ input[type="date"]::-webkit-inner-spin-button {
   width: calc(100% - 275px);
   position: absolute;
   left: 275px;
-  top: 175px;
+  top: 200px;
   font-family: 'Montserrat', sans-serif;
   font-size: 60px;
   text-align: center;
   color: white;
+  text-shadow: 1px 1px 2px grey;
 }
 
 .pack-countdown {
@@ -138,7 +145,7 @@ input[type="date"]::-webkit-inner-spin-button {
   height: 100px;
   position: absolute;
   left: 275px;
-  top: 270px;
+  top: 300px;
   font-family: 'Montserrat', sans-serif;
   font-size: 46px;
   color: white;
@@ -146,9 +153,11 @@ input[type="date"]::-webkit-inner-spin-button {
   flex-direction: row;
   justify-content: center;
   overflow: hidden;
-  -webkit-backface-visibility: hidden;
+  text-shadow: 1px 1px 2px grey;
+
+  /* -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
-  -webkit-transform: translate3d(0, 0, 0)
+  -webkit-transform: translate3d(0, 0, 0) */
 }
 
 /* .pack-countdown div {
@@ -195,5 +204,59 @@ input[type="date"]::-webkit-inner-spin-button {
 .pack-info {
   margin-top: 425px;
   font-family: 'Montserrat', sans-serif;
-
+  display: flex;
+  flex-direction: row;
+  width: calc(100vw - 275px);
+  min-width: 900px;
 }
+
+.pack-info-about,
+.pack-info-add,
+.pack-info-members {
+  width: 32%;
+  margin-right: 5px;
+  padding: 10px;
+  min-height: 270px;
+}
+
+.pack-info-about,
+.pack-info-add {
+  border-right: 1px solid lightgray;
+}
+
+.pack-info-members {
+  height: 100%;
+  overflow: scroll;
+}
+
+.pack-info-about span,
+.pack-info-add span,
+.pack-info-members span {
+  text-align: center;
+  font-size: 19px;
+  color: rgb(78, 103, 161);
+  font-weight: 900;
+}
+
+.pack-info-about ul,
+.pack-info-add ul,
+.pack-info-members ul {
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+.pack-info-about li,
+.pack-info-add li,
+.pack-info-members li {
+  padding: 10px 5px;
+}
+
+.how-to-add {
+  font-size: 12px;
+  padding: 10px 5px;
+  margin-top: 20%;
+  font-style: italic;
+  color: rgb(180, 195, 232);
+  text-align: center;
+}
+

@@ -44,9 +44,9 @@ export default class PackShow extends React.Component {
 
   calcCountdown() {
     let today = new Date()
-    let time = Math.abs(today - new Date(this.props.pack.startDate))
-    let days = time / (1000 * 60 * 60 * 24);
-    return Math.floor(days);
+    let time = new Date(this.props.pack.startDate) - today;
+    let days = Math.floor(time / (1000 * 60 * 60 * 24));
+    return (days > 0) ? days : 0;
   }
 
   choosePic() {
@@ -74,7 +74,31 @@ export default class PackShow extends React.Component {
               <img src={this.background} alt="background" />
             </div>
             <div className="pack-info">
-              <p>{formatDate(this.props.pack.startDate)} - {formatDate(this.props.pack.endDate)}</p>
+              <div className="pack-info-about">
+                <span><p>Pack Info</p></span>
+                <ul>
+                  <li>Start Date: {formatDate(this.props.pack.startDate)}</li>
+                  <li>End Date: {formatDate(this.props.pack.endDate)}</li>
+                  <li>Pack Size: {this.props.pack.members.length}</li>
+                  <li>Schedules Set: {this.props.pack.schedules.length}</li>
+                </ul>
+              </div>
+              <div className="pack-info-add">
+                <span><p>Pack Code and Password</p></span>
+                <ul>
+                  <li>Pack Code: {this.props.pack._id}</li>
+                  <li>Password: {this.props.pack.password}</li>
+                </ul>
+                <p className="how-to-add">Copy the Pack Code and Password to give to friends to join this pack!</p>
+              </div>
+              <div className="pack-info-members">
+                <span><p>Pack Members</p></span>
+                <ul>
+                  {Object.values(this.props.members).forEach(member => {
+                  return(<li>{member.firstName} {member.lastName}</li>)})}
+                  {/* {Object.values(this.props.members).forEach(member => console.log(member.firstName))} */}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -85,7 +109,7 @@ export default class PackShow extends React.Component {
   render() {
     let { pack, schedule, members } = this.props;
 
-    if (!pack) {
+    if (!pack || !Object.values(members).length) {
       return null;
     }
 
@@ -101,7 +125,6 @@ export default class PackShow extends React.Component {
 
     return(
       <div>
-        
         {this.showPack()}
         <Route
           path="/packs/:packId"
