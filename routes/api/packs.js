@@ -6,7 +6,7 @@ const Pack = require('../../models/Pack');
 const passport = require('passport');
 
 router.post('/join', (req, res) => {
-  Pack.findOne({ name: req.body.name })
+  Pack.findOne({ _id: req.body.id })
     .then(pack => {
       if(req.body.password === pack.password) {
         return res.json(pack._id)

@@ -33,7 +33,7 @@ export default class PackForm extends React.Component {
     return(
       <div className="pack-create">
         <form className="pack-create-form" onSubmit={this.handleSubmit}>
-          <h3>Create a New Pack &nbsp;<i className="fas fa-paw"></i></h3>
+          <h3><i className="fas fa-paw"></i>&nbsp;&nbsp;Create a New Pack &nbsp;<i className="fas fa-paw"></i></h3>
           <input type="text"
             placeholder={name}
             disabled
