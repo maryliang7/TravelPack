@@ -10,6 +10,7 @@ import PhotoShowContainer from '../photos/photo_show_container';
 import PaymentBreakdown from '../payments/payment_breakdown';
 import InnerNavBar from '../nav/inner_navbar';
 import background from './better_image.jpg';
+import { formatDate } from '../../util/date_util';
 
 export default class PackShow extends React.Component {
 
@@ -51,14 +52,14 @@ export default class PackShow extends React.Component {
     return(
       <div>
         <div className="pack-title">
-          <h3>{pack.name}</h3>
+          {pack.name}
         </div>
         <div className="pack-show">
           <div className="pack-image">
             <img src={background} alt="background" />
           </div>
           <div className="pack-info">
-            <p>{pack.startDate} - {pack.endDate}</p>
+            <p>{formatDate(pack.startDate)} - {formatDate(pack.endDate)}</p>
           </div>
         </div>
 

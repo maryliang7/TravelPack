@@ -4,6 +4,7 @@
   left: 252px;
   width: calc(100% - 292px);
   height: calc(100vh - 37px);
+  min-width: 1000px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -12,6 +13,16 @@
 
 .pack-forms h3 {
   margin-top: 15px;
+}
+
+#wolf-crop {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 75vh;
+  width: 25%;
+  min-width: 300px;
+  min-height: 600px;
 }
 
 .pack-create-form {
@@ -108,12 +119,20 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 
-.pack-title h3{
+.pack-title {
   z-index: 1;
+  width: calc(100% - 275px);
   position: absolute;
-  left: 725px;
-  top: 100px;
+  left: 275px;
+  top: 150px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
+  font-size: 50px;
+  text-align: center;
   color: white;
+}
+
+.pack-info {
+  margin-top: 425px;
+  font-family: 'Montserrat', sans-serif;
+
 }
