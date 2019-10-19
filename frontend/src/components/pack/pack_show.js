@@ -9,10 +9,19 @@ import PhotoUploadContainer from '../photos/photo_upload_container';
 import PhotoShowContainer from '../photos/photo_show_container'; 
 import PaymentBreakdown from '../payments/payment_breakdown';
 import InnerNavBar from '../nav/inner_navbar';
-import background from './better_image.jpg';
+import mountain1 from './mountain-1.jpg';
+import mountain2 from './mountain-2.jpg';
+import mountain3 from './mountain-3.jpg';
+import mountain4 from './mountain-4.jpg';
+import mountain5 from './mountain-5.jpg';
 import { formatDate } from '../../util/date_util';
 
 export default class PackShow extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.background = this.choosePic();
+  }
 
   componentDidMount() {
     this.props.getPack(this.props.match.params.packId).then( () => {
@@ -24,6 +33,7 @@ export default class PackShow extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.packId !== this.props.match.params.packId) {
+      this.background = this.choosePic();
       this.props.getPack(this.props.match.params.packId).then( () => {
         if (this.props.pack && Object.values(this.props.pack).length) {
           this.props.getMembers({ members: this.props.pack.members.join(",")})
@@ -32,6 +42,45 @@ export default class PackShow extends React.Component {
     }
   }
 
+  calcCountdown() {
+    let today = new Date()
+    let time = Math.abs(today - new Date(this.props.pack.startDate))
+    let days = time / (1000 * 60 * 60 * 24);
+    return Math.floor(days);
+  }
+
+  choosePic() {
+    let pics = [mountain1, mountain2, mountain3, mountain4, mountain5];
+    return pics[Math.floor(Math.random()*pics.length)]
+  }
+
+  showPack() {
+    if (this.props.history.location && (this.props.history.location.pathname.split("/").length <= 3)) {
+      return (
+        <div>
+          <div className="pack-title">
+            {this.props.pack.name}
+          </div>
+          <div className="pack-countdown">
+            <div className="cd-num">
+              {this.calcCountdown()}
+            </div>
+            <div className="cd-words">
+              <span>&nbsp;Days Left!</span>
+            </div>
+          </div>
+          <div className="pack-show">
+            <div className="pack-image">
+              <img src={this.background} alt="background" />
+            </div>
+            <div className="pack-info">
+              <p>{formatDate(this.props.pack.startDate)} - {formatDate(this.props.pack.endDate)}</p>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  }
 
   render() {
     let { pack, schedule, members } = this.props;
@@ -39,7 +88,6 @@ export default class PackShow extends React.Component {
     if (!pack) {
       return null;
     }
-    let redirect;
 
     // if (this.props.history.location && (this.props.history.location.pathname.split("/").length <= 3)) {
     //   redirect = (schedule.length) ? (
@@ -49,20 +97,12 @@ export default class PackShow extends React.Component {
     //   )
     // }
 
+    
+
     return(
       <div>
-        <div className="pack-title">
-          {pack.name}
-        </div>
-        <div className="pack-show">
-          <div className="pack-image">
-            <img src={background} alt="background" />
-          </div>
-          <div className="pack-info">
-            <p>{formatDate(pack.startDate)} - {formatDate(pack.endDate)}</p>
-          </div>
-        </div>
-
+        
+        {this.showPack()}
         <Route
           path="/packs/:packId"
           render={() => <InnerNavBar pack={pack} />}

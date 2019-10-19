@@ -9,6 +9,7 @@
   flex-direction: column;
   padding: 20px;
   font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(141deg, #fff 25%, #eee 40%, #fff 55%);
 }
 
 .pack-forms h3 {
@@ -124,13 +125,73 @@ input[type="date"]::-webkit-inner-spin-button {
   width: calc(100% - 275px);
   position: absolute;
   left: 275px;
-  top: 150px;
+  top: 175px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 50px;
+  font-size: 60px;
   text-align: center;
   color: white;
 }
 
+.pack-countdown {
+  z-index: 1;
+  width: calc(100% - 275px);
+  height: 100px;
+  position: absolute;
+  left: 275px;
+  top: 270px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 46px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0)
+}
+
+/* .pack-countdown div {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cd-num {
+  animation: showup;
+}
+
+.cd-words {
+  animation: reveal;
+}
+
+.cd-words span {
+  margin-left: -355px;
+  animation: slidein;
+}
+
+@keyframes showup {
+  0% {opacity: 0;}
+  25% {opacity: 0.25;}
+  50% {opacity: 0.5;}
+  75% {opacity: 0.75;}
+  100% {opacity: 1;}
+}
+
+@keyframes slidein {
+  0% {margin-left: -500px;}
+  20% {margin-left: -500px;}
+  35% {margin-left: 0px;}
+  100% {margin-left: 0px;}
+}
+
+@keyframes reveal {
+  0% {opacity: 0; width: 0px;}
+  20% {opacity: 1; width: 0px;}
+  30% {width: 355px;}
+  80% {opacity: 1;}
+  80% {opacity: 0; width: 355px;}
+  
+} */
 .pack-info {
   margin-top: 425px;
   font-family: 'Montserrat', sans-serif;
