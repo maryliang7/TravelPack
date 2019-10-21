@@ -1,7 +1,14 @@
-.photo-index-outer-wrapper{
+.photo-index {
   top: 80px;
   left: 270px;
   position: absolute;
+  width: calc(100% - 250px);
+}
+
+.photo-index-outer-wrapper {
+  margin-top: 10px;
+  height: calc(100vh - 180px);
+  overflow-y: scroll;
 }
 
 .photos-header {
@@ -9,16 +16,15 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 25px;
-  padding: 10px;
-  margin-left: 10px; 
+  margin: 10px;
 }
 
 .photo-upload-link {
   color: rgb(178, 195, 236);
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
-  margin: 10px;
-  margin-left: 20px;
+  /* margin: 10px; */
+  margin-left: 10px;
   width: 104px;
   border: solid 1px rgb(178, 195, 236);
   padding: 5px;
