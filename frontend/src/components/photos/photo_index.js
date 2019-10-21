@@ -15,24 +15,25 @@ class PhotoIndex extends React.Component {
     ));
   }
 
-  componentDidMount() {
-    this.state.photos = this.props.photos.map( (photo, index) => (
-      <PhotoIndexItem key={index} photo={photo} packId={this.props.pack._id} />
-    ));
-  }
+  // componentDidMount() {
+  //   console.log("MOUNT");
+  //   // this.props.fetchPhotos(this.props.props.match.params.packId);
+  // }
 
   render(){
     
 
     return (
-      <div className="photo-index-outer-wrapper">
-        <div className="photos-header">Photos</div>
-        <Link to={`/packs/${this.props.pack._id}/photos/upload`} style={{ textDecoration: 'none' }}><div className="photo-upload-link">Upload Photo</div></Link>
-
+      <section className="photo-index">
         <div>
+          <div className="photos-header">Photos</div>
+          <div className="photo-upload-link"><Link to={`/packs/${this.props.pack._id}/photos/upload`} style={{ textDecoration: 'none' }}>Upload Photo</Link></div>
+        </div>
+
+        <div className="photo-index-outer-wrapper">
           <div className="photo-index-inner-wrapper">{this.state.photos}</div>
         </div>
-      </div>
+      </section>
     );
   }
 }
