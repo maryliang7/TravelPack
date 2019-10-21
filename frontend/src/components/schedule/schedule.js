@@ -28,7 +28,7 @@ class Schedule extends React.Component{
     this.handleUpdateEvent = this.handleUpdateEvent.bind(this);
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  }
 
   handleDeleteSchedule(data) {
     this.props.deleteSchedule(data)
@@ -111,8 +111,9 @@ class Schedule extends React.Component{
   }
 
   render() {
+    
     let currentSchedule = this.props.schedules[this.props.props.match.params.scheduleId];
-    // debugger
+  
     if (!currentSchedule) {
       return (
         <div>
@@ -120,6 +121,7 @@ class Schedule extends React.Component{
         </div>
       );
     }
+
     // debugger
     return(
       <div className="schedule-and-event">
