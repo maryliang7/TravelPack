@@ -27,21 +27,29 @@
   width:100%;
 }
 
-.schedule-item{
-  height: 75px;
-  max-height: 87px;
-  font-size: 14px;
-  background-color: rgba(221, 162, 246, .2);
+.schedule-show-or-edit {
   display: flex;
-  border: 1px solid purple;
-  /* align-items: center; */
-  margin-bottom: 5px;
-  border-radius: 3px;
-  padding: 5px 0;
+  height: 100%;
+  width: 100%;
 }
 
-.schedule-item:hover {
-  background-color: rgba(221, 162, 246, .4);
+.schedule-event-item{
+  height: 80px;
+  max-height: 87px;
+  min-width: 380px;
+  font-size: 14px;
+  background-color: rgba(223, 226, 241, .2);
+  /* background-color: #FFF; */
+  display: flex;
+  border: 1px solid lightgray;
+  /* align-items: center; */
+  margin: 10px;
+  border-radius: 3px;
+  /* padding: 5px 0; */
+}
+
+.schedule-event-item:hover {
+  background-color: rgba(177, 187, 236, .4);
 }
 
 .schedule-item-el {
@@ -49,7 +57,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+
 }
 
 .schedule-item-div {
@@ -60,15 +69,19 @@
 }
 
 .event {
-  background-color: rgb(142,221,251);
-  border: 1px solid rgb(49, 150, 190);
+  background-color: rgba(232,239,249, .3);
+  border: 1px solid rgb(197, 235, 250);
   border-radius: 3px;
   margin-bottom: 5px;
   margin-left: 15px;
 }
 
+.event:hover {
+  background-color: rgba(198, 216, 241, 0.4);
+}
+
 .event-details{
-  height:75px;
+  height:80px;
   padding: 5px 0;
 }
 
@@ -87,6 +100,19 @@
   background-color: rgb(190, 236, 248);
   color:rgb(102, 102, 102);
   border-radius: 3px;
+  max-height: 87px;
+  height: 80px;
+  margin: 10px;
+}
+
+.schedule-form-container-edit {
+  font-family: 'Montserrat', 'sans-serif';
+  /* border: 1px solid rgb(142, 172, 241); */
+  background-color: rgb(190, 236, 248);
+  color:rgb(102, 102, 102);
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
 }
 
 .schedule-form-container-new {
@@ -109,10 +135,11 @@
 
 .schedule-form {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 90%;
+  align-items: center;
+  height: 100%;
+  width: 100%;
   margin: auto;
+  justify-content: space-between;
 }
 
 .schedule-title-input {
@@ -120,7 +147,7 @@
 }
 
 .title-input {
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .start-date {
@@ -154,13 +181,14 @@
 }
 
 .new-schedule-submit {
-  border: 1px solid rgb(102, 102, 102);
+  /* border: 1px solid rgb(102, 102, 102); */
   border-radius: 3px;
   margin-bottom: 5px;
 }
 
 .schedule-change-buttons {
   display: flex;
+  height: 100%;
 }
 
 .change-button {
@@ -169,6 +197,10 @@
   visibility: hidden;
 }
 
-.schedule-item:hover .change-button {
+.schedule-event-item:hover .change-button {
+  visibility: visible;
+}
+
+.schedule-form:hover .change-button {
   visibility: visible;
 }

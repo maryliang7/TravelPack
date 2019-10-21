@@ -9,7 +9,7 @@ export default class Event extends React.Component {
   render(){
 
     return (
-      <div className="event">
+      <div className="schedule-event-item event">
         <div className="event-details">
           <div className="event-detail title">{this.props.event.title}</div>
           <div className="event-detail description">{this.props.event.description}</div>

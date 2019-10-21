@@ -8,7 +8,6 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  // getEvent: (data) => dispatch(getEvent(data))
   updateEvent: (data) => dispatch(updateEvent(data)),
   deleteEvent: (data) => dispatch(deleteEvent(data))
 })
