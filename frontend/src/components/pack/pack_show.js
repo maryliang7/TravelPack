@@ -56,6 +56,7 @@ export default class PackShow extends React.Component {
 
   showPack() {
     if (this.props.history.location && (this.props.history.location.pathname.split("/").length <= 3)) {
+      // debugger
       return (
         <div>
           <div className="pack-title">
@@ -94,7 +95,7 @@ export default class PackShow extends React.Component {
               <div className="pack-info-members">
                 <span><p>Pack Members</p></span>
                 <ul>
-                  {Object.values(this.props.members).forEach(member => {
+                  {Object.values(this.props.members).map(member => {
                   return(<li>{member.firstName} {member.lastName}</li>)})}
                   {/* {Object.values(this.props.members).forEach(member => console.log(member.firstName))} */}
                 </ul>
@@ -107,7 +108,7 @@ export default class PackShow extends React.Component {
   }
 
   render() {
-    let { pack, schedule, members } = this.props;
+    let { pack, members } = this.props;
 
     if (!pack || !Object.values(members).length) {
       return null;
