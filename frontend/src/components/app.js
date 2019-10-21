@@ -29,6 +29,7 @@ const App = () => (
       <ProtectedRoute exact path="/packs/new" component={PackFormContainer} />
       <ProtectedRoute exact path="/packs/add" component={PackAddContainer} />
       <ProtectedRoute path="/packs/:packId" component={PackShowContainer} />
+      {/* <ProtectedRoute path="/packs/:packId/schedules/:scheduleId" component={ScheduleContainer} />  */}
       {/* <ProtectedRoute exact path="/packs/:packId/schedules/new" component={ScheduleFormCreateContainer} /> */}
     </Switch>
   </div>

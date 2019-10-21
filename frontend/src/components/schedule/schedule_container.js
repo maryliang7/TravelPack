@@ -4,17 +4,16 @@ import { createSchedule, getSchedules, updateSchedule, deleteSchedule } from '..
 import Schedule from './schedule';
 
 const mapStateToProps = (state, ownProps) => {
-    return{ 
-      schedules: state.entities.schedules,
-    //   events: state.entities.events
-    }
+  return{ 
+    schedules: state.entities.schedules,
+  }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    getSchedules: (packId) => dispatch(getSchedules(packId)),
-    updateSchedule: (schedule) => dispatch(updateSchedule(schedule)),
-    deleteSchedule: (id) => dispatch(deleteSchedule(id)),
-    createSchedule: data => dispatch(createSchedule(data))
+  getSchedules: (packId) => dispatch(getSchedules(packId)),
+  updateSchedule: (schedule) => dispatch(updateSchedule(schedule)),
+  deleteSchedule: (id) => dispatch(deleteSchedule(id)),
+  createSchedule: schedule => dispatch(createSchedule(schedule))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Schedule);
