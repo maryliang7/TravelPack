@@ -5,7 +5,7 @@ export default class PackAdd extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: "",
+      id: "",
       password: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -19,7 +19,7 @@ export default class PackAdd extends React.Component {
       } else {
         this.props.updatePack({ id: res.data, members: this.props.currentUser.id })
         .then(() => {
-          this.setState({  name: "", password: "" })
+          this.setState({  id: "", password: "" })
         })
         .catch(err => console.log(err))
       }
@@ -37,11 +37,11 @@ export default class PackAdd extends React.Component {
     return (
       <div className="pack-add">
         <form className="pack-add-form" onSubmit={this.handleSubmit}>
-          <h3>Join a Pack &nbsp;<i className="fas fa-users"></i></h3>
+          <h3><i className="fas fa-users"></i>&nbsp;&nbsp;Join a Pack &nbsp;<i className="fas fa-users"></i></h3>
           <input type="text"
-            value={this.state.name}
-            onChange={this.handleInput('name')}
-            placeholder="Pack Name"
+            value={this.state.id}
+            onChange={this.handleInput('id')}
+            placeholder="Pack Code"
           />
           <input type="text"
             value={this.state.password}

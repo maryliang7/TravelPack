@@ -46,6 +46,7 @@ class NavBar extends React.Component {
             </p>
           </div>
           <div className="side-packs">
+            <p>PACKS </p>
             {this.props.packs.map(pack => <Link key={pack._id} to={`/packs/${pack._id}`}><li key={pack._id}>{pack.name}</li></Link>)}
           </div>
           <div className="side-logout">

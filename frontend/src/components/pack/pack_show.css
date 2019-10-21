@@ -4,14 +4,32 @@
   left: 252px;
   width: calc(100% - 292px);
   height: calc(100vh - 37px);
+  min-width: 1000px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(141deg, #fff 25%, #eee 40%, #fff 55%);
 }
 
 .pack-forms h3 {
   margin-top: 15px;
+}
+
+.pack-forms i {
+  /* color: rgb(238, 181, 151); */
+  color: rgb(29, 29, 29);
+}
+
+
+#wolf-crop {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 75vh;
+  width: 25%;
+  min-width: 300px;
+  min-height: 600px;
 }
 
 .pack-create-form {
@@ -27,7 +45,7 @@
 }
 
 .pack-create-form h3 {
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .pack-create-form label {
@@ -83,3 +101,162 @@ input[type="date"]::-webkit-inner-spin-button {
 .pack-add-form h3 {
   margin-left: 70px;
 }
+
+.pack-show {
+  position: absolute;
+  top: 60px;
+  left: 252px;
+  padding: 10px;
+}
+
+.pack-image {
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  width: calc(100vw - 250px);
+  height: 400px;
+  min-width: 900px;
+  z-index: 0;
+}
+
+.pack-image img {
+  height: 400px;
+  object-fit: cover;
+  z-index: 0;
+}
+
+
+.pack-title {
+  z-index: 1;
+  width: calc(100% - 275px);
+  position: absolute;
+  left: 275px;
+  top: 200px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px grey;
+}
+
+.pack-countdown {
+  z-index: 1;
+  width: calc(100% - 275px);
+  height: 100px;
+  position: absolute;
+  left: 275px;
+  top: 300px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 46px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+  text-shadow: 1px 1px 2px grey;
+
+  /* -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0) */
+}
+
+/* .pack-countdown div {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cd-num {
+  animation: showup;
+}
+
+.cd-words {
+  animation: reveal;
+}
+
+.cd-words span {
+  margin-left: -355px;
+  animation: slidein;
+}
+
+@keyframes showup {
+  0% {opacity: 0;}
+  25% {opacity: 0.25;}
+  50% {opacity: 0.5;}
+  75% {opacity: 0.75;}
+  100% {opacity: 1;}
+}
+
+@keyframes slidein {
+  0% {margin-left: -500px;}
+  20% {margin-left: -500px;}
+  35% {margin-left: 0px;}
+  100% {margin-left: 0px;}
+}
+
+@keyframes reveal {
+  0% {opacity: 0; width: 0px;}
+  20% {opacity: 1; width: 0px;}
+  30% {width: 355px;}
+  80% {opacity: 1;}
+  80% {opacity: 0; width: 355px;}
+  
+} */
+.pack-info {
+  margin-top: 425px;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: row;
+  width: calc(100vw - 275px);
+  min-width: 900px;
+}
+
+.pack-info-about,
+.pack-info-add,
+.pack-info-members {
+  width: 32%;
+  margin-right: 5px;
+  padding: 10px;
+  min-height: 270px;
+}
+
+.pack-info-about,
+.pack-info-add {
+  border-right: 1px solid lightgray;
+}
+
+.pack-info-members {
+  height: 100%;
+  overflow: scroll;
+}
+
+.pack-info-about span,
+.pack-info-add span,
+.pack-info-members span {
+  text-align: center;
+  font-size: 19px;
+  color: rgb(78, 103, 161);
+  font-weight: 900;
+}
+
+.pack-info-about ul,
+.pack-info-add ul,
+.pack-info-members ul {
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+.pack-info-about li,
+.pack-info-add li,
+.pack-info-members li {
+  padding: 10px 5px;
+}
+
+.how-to-add {
+  font-size: 12px;
+  padding: 10px 5px;
+  margin-top: 20%;
+  font-style: italic;
+  color: rgb(180, 195, 232);
+  text-align: center;
+}
+
