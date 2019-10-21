@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
+import PackEditContainer from './pack_edit_container';
 import ScheduleContainer from '../schedule/schedule_container';
 import ScheduleFormCreateContainer from '../schedule/schedule_form_create_container';
 import PaymentsIndexContainer from '../payments/payments_index_container';
@@ -56,7 +57,6 @@ export default class PackShow extends React.Component {
 
   showPack() {
     if (this.props.history.location && (this.props.history.location.pathname.split("/").length <= 3)) {
-      // debugger
       return (
         <div>
           <div className="pack-title">
@@ -76,7 +76,7 @@ export default class PackShow extends React.Component {
             </div>
             <div className="pack-info">
               <div className="pack-info-about">
-                <span><p>Pack Info</p></span>
+                <span><p>Pack Info<Link to={`/packs/${this.props.pack._id}/edit`}><i className="far fa-edit"></i></Link></p></span>
                 <ul>
                   <li>Start Date: {formatDate(this.props.pack.startDate)}</li>
                   <li>End Date: {formatDate(this.props.pack.endDate)}</li>
@@ -95,9 +95,7 @@ export default class PackShow extends React.Component {
               <div className="pack-info-members">
                 <span><p>Pack Members</p></span>
                 <ul>
-                  {Object.values(this.props.members).map(member => {
-                  return(<li>{member.firstName} {member.lastName}</li>)})}
-                  {/* {Object.values(this.props.members).forEach(member => console.log(member.firstName))} */}
+                  {Object.values(this.props.members).map(member => <li key={member._id}> {member.firstName} {member.lastName} </li>)}
                 </ul>
               </div>
             </div>
@@ -114,16 +112,6 @@ export default class PackShow extends React.Component {
       return null;
     }
 
-    // if (this.props.history.location && (this.props.history.location.pathname.split("/").length <= 3)) {
-    //   redirect = (schedule.length) ? (
-    //     this.props.history.push(`/packs/${pack._id}/schedules/${schedule[0]._id}`) 
-    //   ) : (
-    //     this.props.history.push(`/packs/${pack._id}/schedules/new`) 
-    //   )
-    // }
-
-    
-
     return(
       <div>
         {this.showPack()}
@@ -134,7 +122,10 @@ export default class PackShow extends React.Component {
         {/* {<InnerNavBar />} */}
         <div>
           <Switch>
-
+            <Route
+              exact path="/packs/:packId/edit"
+              render={(props) => <PackEditContainer props={props} pack={pack} />}
+            />
             <Route
               exact path="/packs/:packId/schedules/new"
               render={(props) => <ScheduleFormCreateContainer props={props} pack={pack} members={members}/>}
