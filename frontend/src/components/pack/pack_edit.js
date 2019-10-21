@@ -7,20 +7,20 @@ export default class PackEdit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      id: this.props.pack._id,
       name: this.props.pack.name,
       password: this.props.pack.password,
       startDate: this.props.pack.startDate,
       endDate: this.props.pack.endDate
     }
     this.handleSubmit = this.handleSubmit.bind(this)
-    
   }
 
   handleSubmit(e) {
     e.preventDefault()
 
     this.props.updatePack(this.state).then(() => {
-      this.props.history.push(`/packs/${this.props.pack._id}`)
+      this.props.props.history.push(`/packs/${this.props.pack._id}`)
     });
   }
 
@@ -30,13 +30,25 @@ export default class PackEdit extends React.Component {
     });
   }
 
+  handleLeave() {
+    this.props.leavePack({pack: this.props.pack._id, user: this.props.currentUser.id}).then(() => {
+      this.props.props.history.push(`/packs`);
+    });
+  } 
+
+  handleDelete() {
+    this.props.deletePack(this.props.pack._id).then(() => {
+      this.props.props.history.push(`/packs`);
+    })
+  }
+
   render() {
     let name = this.props.currentUser.firstName + " " + this.props.currentUser.lastName
     let startD = this.state.startDate.split("T")[0];
     let endD = this.state.endDate.split("T")[0];
     const deleteButton = this.props.pack.packLeader === this.props.currentUser.id ? (
-      <button>Delete Pack</button>
-    ) : ( "" )
+      <button onClick={() => this.handleDelete()}>Delete Pack</button>
+    ) : (<button id="disabled">Delete Pack</button> )
 
 
     return(
@@ -77,9 +89,9 @@ export default class PackEdit extends React.Component {
             <input type="submit" id="form-submit" value="Save" />
           </form>
         </div>
-        <div className="edit-delete-buttons">
+        <div className="edit-buttons">
           {deleteButton}
-          <button>Leave Pack</button>
+          <button onClick={() => this.handleLeave()}>Leave Pack</button>
         </div>
       </div>
     )

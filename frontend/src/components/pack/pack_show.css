@@ -283,3 +283,25 @@ input[type="date"]::-webkit-inner-spin-button {
   text-align: center;
 }
 
+.edit-buttons {
+  position: absolute;
+  top: 550px;
+  left: 35%;
+
+}
+
+.edit-buttons button {
+  padding: 5px 7px;
+  text-align: center;
+  background-color: rgba(105, 117, 172, 0.8);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 3px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+#disabled {
+  background-color: rgba(146, 160, 221, 0.8);
+  cursor: not-allowed;
+}
