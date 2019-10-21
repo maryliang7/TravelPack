@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
-import { getUserPacks } from '../../actions/pack_actions';
+import { getUserPacks, removePacks } from '../../actions/pack_actions';
 import NavBar from './navbar';
 
 const mapStateToProps = state => {
-  // debugger
   let loggedIn = state.session.isAuthenticated;
   let currentUser = state.session.user;
   let packs = Object.values(state.entities.packs);
@@ -14,10 +14,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
-  getUserPacks: (userId) => dispatch(getUserPacks(userId))
+  getUserPacks: (userId) => dispatch(getUserPacks(userId)),
+  removePacks: () => dispatch(removePacks())
 })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NavBar);
+)(NavBar));

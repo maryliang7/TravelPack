@@ -28,6 +28,7 @@ class PhotoIndex extends React.Component {
         <div>
           <div className="photos-header">Photos</div>
           <div className="photo-upload-link"><Link to={`/packs/${this.props.pack._id}/photos/upload`} style={{ textDecoration: 'none' }}>Upload Photo</Link></div>
+
         </div>
 
         <div className="photo-index-outer-wrapper">

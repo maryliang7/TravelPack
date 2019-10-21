@@ -89,7 +89,7 @@ router.post('/register', (req, res) => {
                 payload,
                 keys.secretOrKey,
                 // Tell key to expire in one hour
-                {expiresIn: 3600},
+                {expiresIn: 360000},
                 (err, token) => {
                 res.json({
                     success: true,

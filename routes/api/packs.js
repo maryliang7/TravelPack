@@ -5,11 +5,11 @@ const validatePackInput = require('../../validation/packs')
 const Pack = require('../../models/Pack');
 const passport = require('passport');
 
-router.get('/', (req, res) => {
-  Pack.findOne({ name: req.body.name })
+router.post('/join', (req, res) => {
+  Pack.findOne({ _id: req.body.id })
     .then(pack => {
       if(req.body.password === pack.password) {
-        return res.json(pack.id)
+        return res.json(pack._id)
       } 
       return res.status(400).json({nopackfound: 'Please check the pack name and password combination' });
     })
@@ -47,7 +47,8 @@ router.put('/:id/update', (req, res) => {
             { $push: { members: req.body.members } }
           ).then(() => res.json(pack));
         } else {
-          return res.json(pack);
+          console.log('failed');
+          return res.json({ 'kevin': 'is gayyy' });
         }
 
       });
@@ -57,6 +58,7 @@ router.put('/:id/update', (req, res) => {
     );
 });
 
+
 router.delete('/:id', (req, res) => {
   Pack.findByIdAndDelete(req.params.id)
     .then(() => res.json(req.params.id))
@@ -65,7 +67,7 @@ router.delete('/:id', (req, res) => {
 
 
 router.post('/new',
-  // passport.authenticate('jwt', { session: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validatePackInput(req.body);
 
@@ -74,13 +76,12 @@ router.post('/new',
     }
 
     const newPack = new Pack({
-      // packLeader: req.user.id,
-      packLeader: req.body.packLeader,
+      packLeader: req.user.id,
       name: req.body.name,
       password: req.body.password,
       members: req.body.members,
-      // startDate: req.body.startDate,
-      // endDate: req.body.endDate
+      startDate: req.body.startDate,
+      endDate: req.body.endDate
     });
 
     newPack.save().then(pack => res.json(pack));

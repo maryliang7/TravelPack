@@ -27,7 +27,7 @@ export const logoutUser = () => ({
 
 export const receiveUsers = (users) => ({
     type: RECEIVE_USERS,
-    users
+    users: users.data
 })
 
 export const signup = user => dispatch => (

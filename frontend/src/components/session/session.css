@@ -42,7 +42,8 @@
 }
 
 .login-form-text input[type='submit'],
-.signup-form-text input[type="submit"] {
+.signup-form-text input[type="submit"],
+.demo-button {
   width: 50px;
   text-align: center;
   margin-left: 180px;
@@ -51,6 +52,19 @@
   background-color: rgba(105, 117, 172, 0.8);
   border-radius: 2px;
 }
+
+.login-buttons {
+  position: relative;
+}
+
+.demo-button {
+  position: absolute;
+  top: 0px;
+  left: -100px;
+  width: 80px;
+  padding: 8px 5px;
+}
+
 
 .login-errors {
   font-size: 10px;

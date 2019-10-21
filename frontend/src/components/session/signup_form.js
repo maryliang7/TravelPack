@@ -45,7 +45,7 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history).then(() => {
+    this.props.signup(user).then(() => {
       if (!Object.keys(this.state.errors).length){
         this.props.login({ email: user['email'], password: user['password'] })
       }

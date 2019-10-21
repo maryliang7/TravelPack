@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getPacks = data => {
-  return axios.get('/api/packs', data)
+  return axios.post('/api/packs/join', data)
 };
 
 export const getPack = id => {

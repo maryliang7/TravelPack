@@ -5,22 +5,20 @@ export default class PackForm extends React.Component {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
-      packLeader: "",
       name: "",
       password: "",
       startDate: "",
       endDate: "",
-      members:""
+      members: this.props.currentUser.id
     }
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    this.setState({
-      members: this.props.currentUser._id
-    }, () => {
-      this.props.createPack(this.state)
-    })
+
+    this.props.createPack(this.state).then(() => {
+      this.setState({name: "", password: "", startDate: "", endDate: ""})
+    });
   }
 
   handleInput(field) {
@@ -33,10 +31,10 @@ export default class PackForm extends React.Component {
   render() {
     let name = this.props.currentUser.firstName + " " + this.props.currentUser.lastName
     return(
-      <div className="pack-form">
-        <form onSubmit={this.handleSubmit}>
+      <div className="pack-create">
+        <form className="pack-create-form" onSubmit={this.handleSubmit}>
+          <h3><i className="fas fa-paw"></i>&nbsp;&nbsp;Create a New Pack &nbsp;<i className="fas fa-paw"></i></h3>
           <input type="text"
-            value={this.state.packLeader}
             placeholder={name}
             disabled
           />
@@ -50,18 +48,19 @@ export default class PackForm extends React.Component {
             onChange={this.handleInput('password')}
             placeholder="Password"
           />
-          <label> Start Date
+          <label> Start Date &nbsp;
             <input type="date"
               value={this.state.startDate}
               onChange={this.handleInput('startDate')}
             />
           </label>
-          <label> End Date
+          <label> End Date &nbsp;&nbsp;
             <input type="date"
               value={this.state.endDate}
               onChange={this.handleInput('endDate')}
             />
           </label>
+          <input type="submit" id="form-submit" value="Create" />
         </form>     
       </div>
     )
