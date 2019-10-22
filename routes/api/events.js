@@ -45,15 +45,28 @@ router.post("/", (req, res) => {
 router.put("/:eventId", (req, res) => {
   // let packId = parseUrlPack(req.baseUrl)
   // let scheduleId = parseUrlSchedule(req.baseUrl)
+  const [packId, scheduleId] = parseURL(req.baseUrl);
+  const eventId = req.params.eventId
+  console.log(packId, scheduleId, eventId)
+  console.log("------")
+  console.log(req.body)
 
-  Pack.updateOne(
-    { _id: packId, "schedules._id": scheduleId, "events._id": req.body.id },
+  Pack.findOneAndUpdate(
+    { _id: packId, "schedules._id": scheduleId, "events._id": eventId },
     { $set: {"events.$.title": req.body.title, 
             "events.$.description": req.body.description,
             "events.$.address": req.body.address,
             "events.$.cost": req.body.cost
-    }}).then(pls => res.json(pls))
-});
+    }}).then(() => {
+      // Pack.find({"schedules.events._id": eventId})
+      //   .then(asdf => res.json(asdf))
+      // });
+      Pack.find({_id: packId, "schedules._id": scheduleId, "schedules.events._id": eventId},
+        {"schedules.0.events.$": 1})
+        .then(event => res.json(event))
+        .catch(err => res.json(err))
+      });
+  });
 
 router.delete("/:eventId", (req, res) => {
   const [packId, scheduleId] = parseURL(req.baseUrl);

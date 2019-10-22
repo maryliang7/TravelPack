@@ -30,6 +30,7 @@
   width: 25%;
   min-width: 300px;
   min-height: 600px;
+  z-index: -1
 }
 
 .pack-create-form {

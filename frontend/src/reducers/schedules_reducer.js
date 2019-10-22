@@ -5,7 +5,7 @@ import { RECEIVE_EVENT, REMOVE_EVENT } from '../actions/event_actions';
 const SchedulesReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
-  
+
   switch(action.type) {
     case RECEIVE_PACK: 
       let newSched = {}
@@ -20,7 +20,6 @@ const SchedulesReducer = (state = {}, action) => {
     case RECEIVE_SCHEDULES: 
       return Object.assign({}, state, action.schedules)
     case REMOVE_SCHEDULE:
-      // let newState = Object.assign({}, state);
       delete newState[action.scheduleId];
       return newState
     case REMOVE_EVENT:

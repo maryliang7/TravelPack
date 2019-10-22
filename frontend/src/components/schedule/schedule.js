@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { deleteSchedule } from '../../actions/schedule_actions';
-import { deleteEvent } from '../../actions/event_actions';
 import ScheduleIndexItem from './schedule_index_item';
 import Event from '../event/event';
 import './schedule.css'
@@ -70,7 +68,6 @@ class Schedule extends React.Component{
     };
     
     if (this.props.createSchedule(schedule)) {
-      console.log("Schedule saved success")
       this.setState({addSchedule: false})
     }
   }
@@ -87,7 +84,6 @@ class Schedule extends React.Component{
     };
     
     if (this.props.createEvent(event)) {
-      console.log("Event saved success")
       this.setState({addEvent: false})
     }
   }
@@ -149,7 +145,7 @@ class Schedule extends React.Component{
   displayNewEventForm() {
     return(
       <div className="event-form-container"> 
-        <form className="event-form" onSubmit={this.handleEventSubmit}>
+        <form className="event-form-new" onSubmit={this.handleEventSubmit}>
           <div className="event-form-div">
             <div className="event-form-details">
               <div className="event-title-input">
@@ -199,7 +195,7 @@ class Schedule extends React.Component{
           <div className="schedule-pane-35"> &nbsp;Schedules
             <ul>
               {Object.values(this.props.schedules).map(schedule => (
-                <li className="schedule-event-item" key={schedule._id}>
+                <li className="schedule-event-item schedule" key={schedule._id}>
                   <ScheduleIndexItem
                   key={schedule._id}
                   packId={this.props.pack._id}

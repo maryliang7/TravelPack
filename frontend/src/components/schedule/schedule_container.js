@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   updateSchedule: (schedule) => dispatch(updateSchedule(schedule)),
   deleteSchedule: (id) => dispatch(deleteSchedule(id)),
   createEvent: (event) => dispatch(createEvent(event)),
-  updateEvent: (event) => dispatch(updateEvent(event)),
+  updateEvent: (data) => dispatch(updateEvent(data)),
   deleteEvent: (id) => dispatch(deleteEvent(id))
 })
 
