@@ -17,11 +17,11 @@ const EventSchema = new Schema({
         type: Number,
         required: true
     },
-    time: {
-        type: Date,
-        // required: true,
-        default: Date.now
-    },
+    // time: {
+    //     type: Date,
+    //     // required: true,
+    //     default: Date.now
+    // },
 },
     {
         timestamps: true

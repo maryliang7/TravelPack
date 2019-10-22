@@ -43,48 +43,42 @@ class ScheduleIndexItem extends React.Component {
       packId: this.props.packId,
       scheduleId: this.props.schedule._id,
     }
-    // debugger
-    this.props.updateSchedule(schedule).then(() => {
-      this.setState({showSchedule: true})
-    })
-    
-    // setTimeout(this.setState({showSchedule: true}), 100)
-    // if (this.props.updateSchedule(schedule)) {
-    //   this.setState({showSchedule: true})
-    // }
+
+    this.props.updateSchedule(schedule)
+    this.setState({showSchedule: true})
   }
 
-  displayEdit({packId, scheduleId}) {
+  displayEdit() {
     return(
       <div className="schedule-form-container-edit">
-          <form className="schedule-form" onSubmit={this.handleSubmit}>
-            <div>
-              <div className="schedule-title-input">
-                <input type="text" className="title-input" placeholder="Schedule Title" value={this.state.title}
-                  onChange={this.update('title')}/>
-              </div>
-
-              <div className="schedule-start-date-input">
-                Start Date: &nbsp;<input type="date" className="start-date" value={this.state.startDate}
-                  onChange={this.update('startDate')}/>
-              </div>
-
-              <div className="schedule-end-date-input">
-                End &nbsp;Date: &nbsp;<input type="date" className="end-date" value={this.state.endDate}
-                  onChange={this.update('endDate')}/>
-              </div>
+        <form className="schedule-form" onSubmit={this.handleSubmit}>
+          <div className="form-inputs">
+            <div className="title-input">
+              <input type="text" className="title-input" placeholder="Schedule Title" value={this.state.title}
+                onChange={this.update('title')}/>
             </div>
 
-            <div className="schedule-change-buttons">
-              <button type="submit" className="change-button" onClick={this.handleSubmit}>
-                <i className="fas fa-check"></i>
-              </button>
-
-              <button className="change-button" onClick={() => this.setState({showSchedule: true})}>
-                <i className="fas fa-times"></i>
-              </button>
+            <div className="schedule-start-date-input">
+              Start Date: &nbsp;<input type="date" className="start-date" value={this.state.startDate}
+                onChange={this.update('startDate')}/>
             </div>
-          </form>
+
+            <div className="schedule-end-date-input">
+              End &nbsp;Date: &nbsp;<input type="date" className="end-date" value={this.state.endDate}
+                onChange={this.update('endDate')}/>
+            </div>
+          </div>
+
+          <div className="schedule-change-buttons">
+            <button type="submit" className="change-button" onClick={this.handleSubmit}>
+              <i className="fas fa-check"></i>
+            </button>
+
+            <button className="change-button" onClick={() => this.setState({showSchedule: true})}>
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
+        </form>
       </div>
     )
   }
@@ -103,11 +97,11 @@ class ScheduleIndexItem extends React.Component {
           <button className="change-button" onClick={() => this.handleScheduleEditShow()}>
             <i className="far fa-edit"></i>
           </button>
-
           <button className="change-button" onClick={() => this.props.deleteSchedule({packId: this.props.packId, scheduleId: this.props.schedule._id})}>
             <i className="fas fa-trash-alt"></i>
           </button>
         </div>
+
       </div>
     )
   }

@@ -35,15 +35,15 @@ class ScheduleForm extends React.Component {
       this.props.history.push(`/packs/${this.props.pack._id}`)
       // this.props.history.push(`/packs/${this.props.pack._id}/schedules/${schedule._id}`)
     }
-
   }
 
   render() {
     return (
       <div className="schedule-form-container-new">
-        <div>
-          <form className="schedule-form" onSubmit={this.handleSubmit}>
-            <div className="schedule-title-input">
+        <div className="schedule-form">
+        <form className="schedule-form-new" onSubmit={this.handleSubmit}>
+          <div className="form-inputs">
+            <div className="title-input">
               <input type="text" className="title-input" placeholder="Schedule Title"
                 onChange={this.update('title')}/>
             </div>
@@ -60,8 +60,9 @@ class ScheduleForm extends React.Component {
                 <i className="fas fa-check"></i>
               </button>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
+          </div>
       </div>
     )
   }
