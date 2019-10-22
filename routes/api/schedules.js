@@ -51,7 +51,6 @@ router.post("/new", (req, res) => {
 
 //I can update a schedule
 router.put("/:scheduleId", (req, res) => {
-  debugger
   let packId = parseURL(req.baseUrl);
   Pack.findOneAndUpdate(
     { _id: packId, "schedules._id": req.params.scheduleId },
@@ -73,6 +72,6 @@ router.delete("/:scheduleId", (req, res) => {
     { _id: packId },
     { $pull: { schedules: {_id: req.params.scheduleId}} }
   ).then(() => res.json(req.params.scheduleId));
-})    
+})
 
 module.exports = router;

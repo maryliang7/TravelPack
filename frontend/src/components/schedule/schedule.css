@@ -1,13 +1,14 @@
-.schedule-and-event {
-  font-family: 'Montserrat', sans-serif;
-}
 
 .schedule-and-event{
+  font-family: 'Montserrat', sans-serif;
   position: absolute;
   top: 80px;
   left: 250px;
   width: calc(100% - 250px);
   display: flex;
+  height: calc(100vh - 80px);
+  overflow: scroll;
+  min-width: 900px;
 }
 
 .schedule-pane-35{
@@ -34,13 +35,13 @@
 }
 
 .schedule-event-item{
-  height: 80px;
-  max-height: 87px;
+  height: 100px;
   min-width: 380px;
   font-size: 14px;
   background-color: rgba(223, 226, 241, .2);
   /* background-color: #FFF; */
   display: flex;
+  justify-content: space-between;
   border: 1px solid lightgray;
   /* align-items: center; */
   margin: 10px;
@@ -58,22 +59,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
 }
 
 .schedule-item-div {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin: 0 7px;
 }
 
 .event {
   background-color: rgba(232,239,249, .3);
   border: 1px solid rgb(197, 235, 250);
   border-radius: 3px;
-  margin-bottom: 5px;
-  margin-left: 15px;
+  z-index: 50
 }
 
 .event:hover {
@@ -81,11 +79,11 @@
 }
 
 .event-details{
-  height:80px;
-  padding: 5px 0;
-}
-
-.event-detail {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-left: 10px;
 }
 
@@ -98,16 +96,17 @@
   font-family: 'Montserrat', 'sans-serif';
   border: 1px solid rgb(142, 172, 241);
   background-color: rgb(190, 236, 248);
-  color:rgb(102, 102, 102);
+  color:rgb(87, 84, 84);
   border-radius: 3px;
-  max-height: 87px;
-  height: 80px;
+  height: 100px;
   margin: 10px;
+  font-size: 13px;
+  min-width: 380px;
 }
 
 .schedule-form-container-edit {
   font-family: 'Montserrat', 'sans-serif';
-  /* border: 1px solid rgb(142, 172, 241); */
+  border: 1px solid rgb(142, 172, 241);
   background-color: rgb(190, 236, 248);
   color:rgb(102, 102, 102);
   border-radius: 3px;
@@ -117,6 +116,8 @@
 
 .schedule-form-container-new {
   position: absolute;
+  height: 100px;
+  width: 380px;
   top: 80px;
   left: 250px;
   margin-left: 25px;
@@ -126,6 +127,15 @@
   background-color: rgb(190, 236, 248);
   color:rgb(102, 102, 102);
   border-radius: 3px;
+}
+
+.form-inputs {
+  margin-left: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .new-schedule-submit:hover {
@@ -138,16 +148,18 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  margin: auto;
   justify-content: space-between;
-}
-
-.schedule-title-input {
-  border-bottom: 1px solid black;
+  min-width: 380px;
+  height: 100px;
 }
 
 .title-input {
-  font-size: 15px;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+.title-input {
+  font-size: 17px;
 }
 
 .start-date {
@@ -189,6 +201,7 @@
 .schedule-change-buttons {
   display: flex;
   height: 100%;
+  margin-right: 10px;
 }
 
 .change-button {
@@ -203,4 +216,70 @@
 
 .schedule-form:hover .change-button {
   visibility: visible;
+}
+
+.event-form-container {
+  width: 100%
+}
+
+.event-form {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+  background-color: rgba(120, 183, 202, 0.3);
+  border: 1px solid rgba(120, 183, 202, 0.7);
+  border-radius: 3px;
+  height: 100px;
+}
+
+.event-form-new {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 10px;
+  justify-content: space-between;
+  background-color: rgba(120, 183, 202, 0.3);
+  border: 1px solid rgba(120, 183, 202, 0.7);
+  border-radius: 3px;
+  height: 100px;
+}
+
+.event-item-div {
+  width: 100%;
+  display: flex;  
+  background-color: rgba(232,239,249, .3);
+  justify-content: space-between;
+}
+
+.event-container {
+  max-width: 725px;
+  min-width: 500px;
+}
+
+.event-form-div {
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.event-form:hover .change-button{
+  visibility: visible;
+}
+
+.event-form-new:hover .change-button{
+  visibility: visible;
+}
+
+.event-change-buttons {
+  display: flex;
+}
+
+.event-form-details {
+  width: 100%;
+}
+
+.event {
+  min-width: 700px;
 }

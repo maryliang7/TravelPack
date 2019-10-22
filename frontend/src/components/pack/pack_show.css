@@ -45,6 +45,11 @@
   position: absolute;
   right: 0;
   bottom: 0;
+  height: 75vh;
+  width: 25%;
+  min-width: 300px;
+  min-height: 600px;
+  z-index: -1;
   width: 300px;
   height: 600px;
 }
