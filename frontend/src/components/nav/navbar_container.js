@@ -4,12 +4,12 @@ import { logout } from '../../actions/session_actions';
 import { getUserPacks, removePacks } from '../../actions/pack_actions';
 import NavBar from './navbar';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   let loggedIn = state.session.isAuthenticated;
   let currentUser = state.session.user;
   let packs = Object.values(state.entities.packs);
 
-  return { loggedIn, currentUser, packs, ownProps }
+  return { loggedIn, currentUser, packs }
 };
 
 const mapDispatchToProps = (dispatch) => ({
