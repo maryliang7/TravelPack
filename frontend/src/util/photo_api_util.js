@@ -1,12 +1,11 @@
 import axios from 'axios';
 
 export const fetchPhotos = packId => {
-  console.log("PHOTO API ALL");
   return axios.get(`/api/packs/${packId}/photos/all`);
 };
 
 export const fetchPhoto = data => {
-  return axios.get(`/api/packs/${data.packId}/photos/${data.scheduleId}`);
+  return axios.get(`/api/packs/${data.packId}/photos/${data.photoId}`);
 };
 
 export const createPhoto = data => {
@@ -21,8 +20,7 @@ export const uploadPhoto = data => {
 //delete from mongodb
 export const deletePhoto = data => {
   console.log("PHOTO API DELETE");
-  console.log(data.packId);
-  console.log(data.photoId);
+  console.log(data);
   return axios.delete(`/api/packs/${data.packId}/photos/${data.photoId}`, data);
 }
 

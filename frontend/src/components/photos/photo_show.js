@@ -25,29 +25,28 @@ class PhotoIndex extends React.Component {
 
   handleDelete(e){
     e.preventDefault();
-    const photoData = merge({}, this.state);
-    this.props.deletePhoto(photoData);
+    let photoData = merge({}, this.state);
+    this.props.deletePhoto(photoData)
     // this.props.destroyPhoto(this.props.props.match.params.photoId)
-    // .then(() => this.props.props.history.push(`/packs/${this.state.packId}/photos/all`));
+    .then(() => this.props.props.history.push(`/packs/${this.state.packId}/photos/all`));
   }
 
   handleGoBack(){
     this.props.props.history.goBack();
   }
 
-  componentDidMount() {
-    // let idOfPhoto = this.props.props.match.params.photoId;
-    // let photoArr = this.props.photos;
-    // for (let i = 0; i < photoArr.length; i++){
-    //   if (photoArr[i]._id === idOfPhoto){
-    //     this.state.photo = photoArr[i];
-    //   }
-    // }
-    window.scrollTo(0, 0);
-  }
+  // componentDidMount() {
+  //   window.scrollTo(0, 0);
+  //   let photoData = merge({}, this.state);
+  //   this.props.fetchPhoto(photoData).then( ret => {
+  //     this.state.photo = ret.photo.data[0].photos[0];
+  //     this.forceUpdate();
+  //   });
+
+  // }
 
   render(){
-
+    
     return (
     <div className="photo-show-wrapper">
       <div className="inner-photo-show-wrapper">
