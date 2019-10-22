@@ -34,13 +34,13 @@
 }
 
 .schedule-event-item{
-  height: 80px;
-  max-height: 87px;
+  height: 100px;
   min-width: 380px;
   font-size: 14px;
   background-color: rgba(223, 226, 241, .2);
   /* background-color: #FFF; */
   display: flex;
+  justify-content: space-between;
   border: 1px solid lightgray;
   /* align-items: center; */
   margin: 10px;
@@ -72,8 +72,6 @@
   background-color: rgba(232,239,249, .3);
   border: 1px solid rgb(197, 235, 250);
   border-radius: 3px;
-  margin-bottom: 5px;
-  margin-left: 15px;
 }
 
 .event:hover {
@@ -81,12 +79,11 @@
 }
 
 .event-details{
-  height:80px;
-  padding: 5px 0;
-}
-
-.event-detail {
-  margin-left: 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .schedule-title{
@@ -98,16 +95,18 @@
   font-family: 'Montserrat', 'sans-serif';
   border: 1px solid rgb(142, 172, 241);
   background-color: rgb(190, 236, 248);
-  color:rgb(102, 102, 102);
+  color:rgb(87, 84, 84);
   border-radius: 3px;
   max-height: 87px;
   height: 80px;
   margin: 10px;
+  font-size: 13px;
+  min-width: 380px;
 }
 
 .schedule-form-container-edit {
   font-family: 'Montserrat', 'sans-serif';
-  /* border: 1px solid rgb(142, 172, 241); */
+  border: 1px solid rgb(142, 172, 241);
   background-color: rgb(190, 236, 248);
   color:rgb(102, 102, 102);
   border-radius: 3px;
@@ -138,8 +137,9 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  margin: auto;
-  justify-content: space-between;
+  justify-content: space-around;
+  min-width: 380px;
+  /* margin: 0 17px; */
 }
 
 .schedule-title-input {
@@ -203,4 +203,48 @@
 
 .schedule-form:hover .change-button {
   visibility: visible;
+}
+
+.event-form-container {
+  width: 100%
+}
+
+.event-form {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 10px;
+  justify-content: space-between;
+  background-color: rgba(120, 183, 202, 0.3);
+  border: 1px solid rgba(120, 183, 202, 0.7);
+  border-radius: 3px;
+  height: 100px;
+}
+
+.event-item-div {
+  width: 100%;
+  display: flex;  
+  background-color: rgba(232,239,249, .3);
+  justify-content: space-between;
+  padding: 0 17px;
+}
+
+.event-container {
+  max-width: 725px;
+  min-width: 500px;
+}
+
+.event-form-div {
+  padding: 0 17px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.event-form:hover .change-button{
+  visibility: visible;
+}
+
+.event-change-buttons {
+  display: flex;
 }

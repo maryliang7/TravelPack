@@ -5,7 +5,6 @@ export const RECEIVE_SCHEDULE = "RECEIVE_SCHEDULE";
 export const REMOVE_SCHEDULE = "REMOVE_SCHEDULE";
 
 export const receiveSchedule = (schedule) => {
-  // debugger
   return({
     type: RECEIVE_SCHEDULE,
     schedule: schedule.data
@@ -22,10 +21,12 @@ export const receiveSchedules = (schedules) => {
   })
 }
 
-export const removeSchedule = (scheduleId) => ({
-  type: REMOVE_SCHEDULE,
-  scheduleId: scheduleId.data
-})
+export const removeSchedule = (scheduleId) => {
+  return({
+    type: REMOVE_SCHEDULE,
+    scheduleId: scheduleId.data
+  })
+}
 
 export const getSchedule = (data) => (dispatch) => (
   schedAPIUtil.getSchedule(data)

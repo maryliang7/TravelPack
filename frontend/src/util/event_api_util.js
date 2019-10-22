@@ -9,13 +9,13 @@ export const getEvent = data => {
 }
 
 export const createEvent = data => {
-    return axios.post(`api/packs/${data.packId}/schedules/${data.scheduleId}/events`)
+    return axios.post(`api/packs/${data.packId}/schedules/${data.scheduleId}/events`, data)
 }
 
 export const updateEvent = data => {
-    return axios.put(`api/packs/${data.packId}/schedules/${data.scheduleId}/events/${data.eventId}`)
+    return axios.put(`api/packs/${data.packId}/schedules/${data.scheduleId}/events/${data.eventId}`, data)
 }
 
 export const deleteEvent = data => {
-    return axios.delete(`api/packs/${data.packId}/schedules/${data.scheduleId}/events/${data.eventId}`)
+  return axios.delete(`api/packs/${data.packId}/schedules/${data.scheduleId}/events/${data.eventId}`, data)
 }

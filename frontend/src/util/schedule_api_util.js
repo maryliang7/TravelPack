@@ -19,5 +19,6 @@ export const updateSchedule = data => {
 }
 
 export const deleteSchedule = data => {
+  // debugger
   return axios.delete(`api/packs/${data.packId}/schedules/${data.scheduleId}`, data)
 }

@@ -17,9 +17,14 @@ class Schedule extends React.Component{
       packId: '',
       scheduleId: '',
       addSchedule: false,
+      addEvent: false,
       title: '',
       startDate: '',
-      endDate: ''
+      endDate: '',
+      eventTitle: '',
+      eventDescription: '',
+      eventAddress: '',
+      eventCost: '0',
     }
     this.handleDeleteSchedule = this.handleDeleteSchedule.bind(this);
     this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
@@ -28,6 +33,7 @@ class Schedule extends React.Component{
     this.handleUpdateEvent = this.handleUpdateEvent.bind(this);
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEventSubmit = this.handleEventSubmit.bind(this);
   }
 
   handleDeleteSchedule(data) {
@@ -44,16 +50,6 @@ class Schedule extends React.Component{
 
   handleUpdateEvent(data) {
     this.props.updateEvent(data)
-  }
-
-  displayAddScheduleButton() {
-    return(
-      <div className="new-schedule-button">
-        <button className="new-schedule-link" onClick={() => this.setState({addSchedule: true})}>
-          <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
-          </button>
-      </div>
-    )
   }
   
   update(field) {
@@ -72,11 +68,48 @@ class Schedule extends React.Component{
     };
     
     if (this.props.createSchedule(schedule)) {
-      console.log("saved success")
+      console.log("Schedule saved success")
       this.setState({addSchedule: false})
     }
   }
+
+  handleEventSubmit(e) {
+    e.preventDefault();
+    let event = {
+      title: this.state.eventTitle,
+      description: this.state.eventDescription,
+      address: this.state.eventAddress,
+      cost: parseInt(this.state.eventCost),
+      packId: this.props.pack._id,
+      scheduleId: this.props.props.match.params.scheduleId
+    };
+    
+    if (this.props.createEvent(event)) {
+      console.log("Event saved success")
+      this.setState({addEvent: false})
+    }
+  }
   
+  displayAddScheduleButton() {
+    return(
+      <div className="new-schedule-button">
+        <button className="new-schedule-link" onClick={() => this.setState({addSchedule: true})}>
+          <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
+          </button>
+      </div>
+    )
+  }
+
+  displayAddEventButton() {
+    return(
+      <div className="new-schedule-button">
+        <button className="new-event-link" onClick={() => this.setState({addEvent: true})}>
+          <i className="far fa-calendar-plus">&nbsp;&nbsp;</i>
+          </button>
+      </div>
+    )
+  }
+
   displayNewScheduleForm() {
     return(
       <div className="schedule-form-container">
@@ -110,10 +143,46 @@ class Schedule extends React.Component{
     )
   }
 
+  displayNewEventForm() {
+    return(
+      <div className="event-form-container"> 
+        <form className="event-form" onSubmit={this.handleEventSubmit}>
+          <div className="event-form-div">
+            <div className="event-form-details">
+              <div className="event-title-input">
+                <input type="text" className="title-input" placeholder="Title"
+                  onChange={this.update('eventTitle')}/>
+              </div>
+              <div className="event-description-input">
+                Description: &nbsp;<input type="input" className="description-input" placeholder="Description"
+                  onChange={this.update('eventDescription')}/>
+              </div>
+              <div className="event-address-input">
+                Address: &nbsp;<input type="input" className="address-input" placeholder="Address"
+                  onChange={this.update('eventAddress')}/>
+              </div>
+              <div className="event-cost-input">
+                Cost: &nbsp;<input type="input" className="cost-input" placeholder="0"
+                  onChange={this.update('eventCost')}/>
+              </div>
+            </div>
+
+            <div className="event-change-buttons">
+              <button type="submit" className="change-button" onClick={this.handleEventSubmit}>
+                <i className="fas fa-check"></i>
+              </button>
+              <button className="change-button" onClick={() => this.setState({addEvent: false})}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+      </form>
+    </div>
+    )
+  }
+
   render() {
-    
     let currentSchedule = this.props.schedules[this.props.props.match.params.scheduleId];
-  
     if (!currentSchedule) {
       return (
         <div>
@@ -122,41 +191,42 @@ class Schedule extends React.Component{
       );
     }
 
-    // debugger
     return(
       <div className="schedule-and-event">
           <div className="schedule-pane-35"> &nbsp;Schedules
-            <div>
-              <ul>
-                {Object.values(this.props.schedules).map(schedule => (
-                  <li className="schedule-event-item" key={schedule._id}>
-                    <ScheduleIndexItem
-                    key={schedule._id}
-                    packId={this.props.pack._id}
-                    schedule={schedule}
-                    events={schedule.events}
-                    deleteSchedule={this.handleDeleteSchedule}
-                    updateSchedule={this.handleUpdateSchedule}
-                    />
-                  </li>
-                ))}
-                {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}                          
-              </ul>
-            </div>                   
+            <ul>
+              {Object.values(this.props.schedules).map(schedule => (
+                <li className="schedule-event-item" key={schedule._id}>
+                  <ScheduleIndexItem
+                  key={schedule._id}
+                  packId={this.props.pack._id}
+                  schedule={schedule}
+                  events={schedule.events}
+                  deleteSchedule={this.handleDeleteSchedule}
+                  updateSchedule={this.handleUpdateSchedule}
+                  />
+                </li>
+              ))}
+            </ul>                 
+            {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}                          
           </div>
         <div className="event-pane-65"> &nbsp;&nbsp;&nbsp;&nbsp;Events
           <div className="event-container">
             <ul className="event-item">
               {Object.values(currentSchedule.events).map(event => (
-                <li key={event._id}>
+                <li className="schedule-event-item event" key={event._id}>
                   <Event
                   key={event.id}
                   event={event}
-                  handleDelete={this.handleDeleteEvent}
+                  deleteEvent={this.handleDeleteEvent}
+                  updateEvent={this.handleUpdateEvent}
+                  packId={this.props.pack._id}
+                  scheduleId={currentSchedule._id}
                   />
                 </li>
               ))}
             </ul>
+            {this.state.addEvent === true ? this.displayNewEventForm() : this.displayAddEventButton()}                          
           </div>
         </div>
       </div>

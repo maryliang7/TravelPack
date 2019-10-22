@@ -44,9 +44,8 @@ class ScheduleIndexItem extends React.Component {
       scheduleId: this.props.schedule._id,
     }
     // debugger
-    this.props.updateSchedule(schedule).then(() => {
-      this.setState({showSchedule: true})
-    })
+    this.props.updateSchedule(schedule)
+    this.setState({showSchedule: true})
     
     // setTimeout(this.setState({showSchedule: true}), 100)
     // if (this.props.updateSchedule(schedule)) {
@@ -54,7 +53,7 @@ class ScheduleIndexItem extends React.Component {
     // }
   }
 
-  displayEdit({packId, scheduleId}) {
+  displayEdit() {
     return(
       <div className="schedule-form-container-edit">
           <form className="schedule-form" onSubmit={this.handleSubmit}>
@@ -103,11 +102,11 @@ class ScheduleIndexItem extends React.Component {
           <button className="change-button" onClick={() => this.handleScheduleEditShow()}>
             <i className="far fa-edit"></i>
           </button>
-
           <button className="change-button" onClick={() => this.props.deleteSchedule({packId: this.props.packId, scheduleId: this.props.schedule._id})}>
             <i className="fas fa-trash-alt"></i>
           </button>
         </div>
+
       </div>
     )
   }
