@@ -5,6 +5,8 @@ import { deleteEvent } from '../../actions/event_actions';
 import ScheduleIndexItem from './schedule_index_item';
 import Event from '../event/event';
 import './schedule.css'
+import WolfCrop from '../pack/wolf-back-crop.png';
+
 
 //packs/:packId/schedules/:scheduleId
 class Schedule extends React.Component{
@@ -230,6 +232,7 @@ class Schedule extends React.Component{
             {this.state.addEvent === true ? this.displayNewEventForm() : this.displayAddEventButton()}                          
           </div>
         </div>
+        <img id="wolf-crop" src={WolfCrop} />
       </div>
     )
   }

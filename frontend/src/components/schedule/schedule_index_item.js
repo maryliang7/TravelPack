@@ -43,17 +43,13 @@ class ScheduleIndexItem extends React.Component {
       packId: this.props.packId,
       scheduleId: this.props.schedule._id,
     }
-    // debugger
+    
     this.props.updateSchedule(schedule)
     this.setState({showSchedule: true})
-    
-    // setTimeout(this.setState({showSchedule: true}), 100)
-    // if (this.props.updateSchedule(schedule)) {
-    //   this.setState({showSchedule: true})
-    // }
   }
 
   displayEdit() {
+    debugger
     return(
       <div className="schedule-form-container-edit">
         <form className="schedule-form" onSubmit={this.handleSubmit}>
