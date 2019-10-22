@@ -1,5 +1,6 @@
 import React from 'react';
 import './payment_form.css';
+import { IoT1ClickProjects } from 'aws-sdk';
 
 class CreatePaymentForm extends React.Component {
   constructor(props) {
@@ -27,6 +28,15 @@ class CreatePaymentForm extends React.Component {
     e.preventDefault();
     const payment = Object.assign({}, this.state);
     this.props.createPayment(this.props.pack._id, payment);
+
+    this.setState({
+      title: "",
+      amount: "",
+      category: "",
+      spotterId: this.props.currentUser.id,
+      chargeeIds: []}, () => {
+        this.props.props.history.push(`/packs/${this.props.pack._id}/payments`)
+      })
   }
 
   handleCheckbox(e) {

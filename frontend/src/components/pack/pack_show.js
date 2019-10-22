@@ -140,11 +140,11 @@ export default class PackShow extends React.Component {
             />
             <Route
               exact path="/packs/:packId/payments"
-              render={() => <PaymentsIndexContainer pack={pack} payments={pack.payments} members={members}/>}
+              render={(props) => <PaymentsIndexContainer props={props} pack={pack} payments={pack.payments} members={members}/>}
             />
             <Route
               exact path="/packs/:packId/payments/new"
-              render={() => <CreatePaymentFormContainer pack={pack} members={members}/>}
+              render={(props) => <CreatePaymentFormContainer props={props} pack={pack} members={members}/>}
             />
             <Route
               path="/packs/:packId/photos/all"

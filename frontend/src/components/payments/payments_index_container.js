@@ -4,7 +4,8 @@ import { createPayment, updatePayment, deletePayment } from '../../actions/payme
 
 
 const mapStateToProps = (state) => ({
-  members: state.entities.users
+  members: state.entities.users,
+  payments: Object.values(state.entities.payments)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -12,4 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   deletePayment: (packId, paymentId) => dispatch(deletePayment(packId, paymentId))
 });
 
-export default connect(null, mapDispatchToProps)(PaymentsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentsIndex);
