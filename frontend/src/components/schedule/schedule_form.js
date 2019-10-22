@@ -40,25 +40,29 @@ class ScheduleForm extends React.Component {
   render() {
     return (
       <div className="schedule-form-container-new">
-        <form className="schedule-form" onSubmit={this.handleSubmit}>
-          <div className="schedule-title-input">
-            <input type="text" className="title-input" placeholder="Schedule Title"
-              onChange={this.update('title')}/>
-          </div>
-          <div className="schedule-start-date-input">
-            Start Date: &nbsp;<input type="date" className="start-date"
-              onChange={this.update('startDate')}/>
-          </div>
-          <div className="schedule-end-date-input">
-            End &nbsp;Date: &nbsp;<input type="date" className="end-date"
-              onChange={this.update('endDate')}/>
-          </div>
-          <div>
-          <button type="submit" className="new-schedule-submit">
-              <i className="fas fa-check"></i>
-            </button>
+        <div className="schedule-form">
+        <form className="schedule-form-new" onSubmit={this.handleSubmit}>
+          <div className="form-inputs">
+            <div className="title-input">
+              <input type="text" className="title-input" placeholder="Schedule Title"
+                onChange={this.update('title')}/>
+            </div>
+            <div className="schedule-start-date-input">
+              Start Date: &nbsp;<input type="date" className="start-date"
+                onChange={this.update('startDate')}/>
+            </div>
+            <div className="schedule-end-date-input">
+              End &nbsp;Date: &nbsp;<input type="date" className="end-date"
+                onChange={this.update('endDate')}/>
+            </div>
+            <div>
+            <button type="submit" className="new-schedule-submit">
+                <i className="fas fa-check"></i>
+              </button>
+            </div>
           </div>
         </form>
+          </div>
       </div>
     )
   }

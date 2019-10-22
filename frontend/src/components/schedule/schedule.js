@@ -114,8 +114,8 @@ class Schedule extends React.Component{
     return(
       <div className="schedule-form-container">
         <form className="schedule-form" onSubmit={this.handleSubmit}>
-          <div>
-            <div className="schedule-title-input">
+          <div className="form-inputs">
+            <div className="title-input">
               <input type="text" className="title-input" placeholder="Schedule Title"
                 onChange={this.update('title')}/>
             </div>
@@ -128,6 +128,7 @@ class Schedule extends React.Component{
                 onChange={this.update('endDate')}/>
             </div>
           </div>
+
         <div>
           <div className="schedule-change-buttons">
             <button type="submit" className="change-button" onClick={this.handleSubmit}>
