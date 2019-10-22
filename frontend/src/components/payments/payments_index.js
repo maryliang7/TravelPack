@@ -42,16 +42,16 @@ class PaymentsIndex extends React.Component {
             this.props.payments.map((payment) => {
               for (let i = 0; i < payment.chargeeIds.length; i++) {
                 return (
-                  <ul className="payments-index-item">
-                    <li key={payment.id} className="payment-title">
+                  <ul key={payment._id} className="payments-index-item">
+                    <li className="payment-title">
                       {payment.title}
                     </li>
-                    <li key={payment.id} className="payment-amount">
+                    <li className="payment-amount">
                       You paid
                       <br></br>
                       ${payment.amount}
                     </li>
-                    <li key={payment.id} className="charged-amount">
+                    <li className="charged-amount">
                       {/* {payment.chargeeIds[i]} owes you ${payment.amount / payment.chargeeIds.length} */}
                       Mary owes you 
                       <br></br>

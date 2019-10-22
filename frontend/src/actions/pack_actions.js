@@ -17,7 +17,7 @@ export const receivePack = (pack) => ({
 
 export const removePack = (packId) => ({
   type: REMOVE_PACK,
-  packId
+  packId: packId.data
 })
 
 export const removePacks = () => ({
@@ -51,6 +51,12 @@ export const createPack = (data) => (dispatch) => (
 export const updatePack = (data) => (dispatch) => (
   APIUtil.updatePack(data)
     .then(pack => dispatch(receivePack(pack)))
+    .catch(err => console.log(err))
+)
+
+export const leavePack = (data) => (dispatch) => (
+  APIUtil.leavePack(data)
+    .then(packId => dispatch(removePack(packId)))
     .catch(err => console.log(err))
 )
 

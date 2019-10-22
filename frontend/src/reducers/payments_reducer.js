@@ -1,4 +1,4 @@
-import { RECEIVE_PAYMENTS, RECEIVE_PAYMENT, REMOVE_PAYMENT } from '../actions/payment_actions';
+import { RECEIVE_PAYMENT, REMOVE_PAYMENT } from '../actions/payment_actions';
 import { RECEIVE_PACK } from '../actions/pack_actions';
 
 const PaymentsReducer = (state = {}, action) => {

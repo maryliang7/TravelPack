@@ -1,4 +1,5 @@
-.pack-forms {
+.pack-forms,
+.pack-edit {
   position: absolute;
   top: 0px;
   left: 252px;
@@ -12,8 +13,26 @@
   background: linear-gradient(141deg, #fff 25%, #eee 40%, #fff 55%);
 }
 
+.pack-edit {
+  top: 75px;
+  height: calc(100vh - 115px);
+}
+
+.pack-edit .fa-chevron-left {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 22px;
+  color: #EEB597;
+  margin: 20px 25px;
+}
+
 .pack-forms h3 {
   margin-top: 15px;
+}
+
+#edit-title {
+  margin-left: 75px;
 }
 
 .pack-forms i {
@@ -26,10 +45,8 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  height: 75vh;
-  width: 25%;
-  min-width: 300px;
-  min-height: 600px;
+  width: 300px;
+  height: 600px;
 }
 
 .pack-create-form {
@@ -104,7 +121,7 @@ input[type="date"]::-webkit-inner-spin-button {
 
 .pack-show {
   position: absolute;
-  top: 60px;
+  top: 55px;
   left: 252px;
   padding: 10px;
 }
@@ -208,6 +225,7 @@ input[type="date"]::-webkit-inner-spin-button {
   flex-direction: row;
   width: calc(100vw - 275px);
   min-width: 900px;
+  height: calc(100vh - 515px);
 }
 
 .pack-info-about,
@@ -222,6 +240,11 @@ input[type="date"]::-webkit-inner-spin-button {
 .pack-info-about,
 .pack-info-add {
   border-right: 1px solid lightgray;
+}
+
+.pack-info-about .fa-edit {
+  padding-left: 65px;
+  color: gray;
 }
 
 .pack-info-members {
@@ -260,3 +283,25 @@ input[type="date"]::-webkit-inner-spin-button {
   text-align: center;
 }
 
+.edit-buttons {
+  position: absolute;
+  top: 550px;
+  left: 35%;
+
+}
+
+.edit-buttons button {
+  padding: 5px 7px;
+  text-align: center;
+  background-color: rgba(105, 117, 172, 0.8);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 3px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+#disabled {
+  background-color: rgba(146, 160, 221, 0.8);
+  cursor: not-allowed;
+}

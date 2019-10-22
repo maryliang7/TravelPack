@@ -3,9 +3,9 @@ import PaymentsIndex from './payments_index';
 import { createPayment, updatePayment, deletePayment } from '../../actions/payment_actions';
 
 
-// const mapStateToProps = (state) => ({
-
-// });
+const mapStateToProps = (state) => ({
+  members: state.entities.users
+});
 
 const mapDispatchToProps = (dispatch) => ({
   // getPack: (id) => dispatch(getPack(id)),

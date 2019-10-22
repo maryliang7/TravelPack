@@ -42,7 +42,8 @@
   color: black;
 }
 
-.side-packs li:hover {
+.side-packs li:hover,
+.active {
   background-color: rgb(142, 172, 241);
 
 }
