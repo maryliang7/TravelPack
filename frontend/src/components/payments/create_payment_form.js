@@ -8,12 +8,13 @@ class CreatePaymentForm extends React.Component {
       title: "",
       amount: "",
       category: "",
-      spotterId: "5d8e73c9ceac02d17c6e6177",
-      chargeeIds: "5d8a7614ddeaf768f357bc0e",
+      spotterId: this.props.currentUser.id,
+      chargeeIds: [],
     };
 
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
   }
 
   handleInput(type) {
@@ -26,6 +27,21 @@ class CreatePaymentForm extends React.Component {
     e.preventDefault();
     const payment = Object.assign({}, this.state);
     this.props.createPayment(this.props.pack._id, payment);
+  }
+
+  handleCheckbox(e) {
+    e.preventDefault();
+    
+    const members = this.state.chargeeIds;
+
+    if (e.target.checked) {
+      members.push(e.target.value)
+    } else {
+      let index = members.indexOf(e.target.value)
+      members.splice(index, 1);
+    }
+
+    this.setState({ chargeeIds: members })
   }
 
   render() {
@@ -56,43 +72,32 @@ class CreatePaymentForm extends React.Component {
             value={this.state.amount}
             onChange={this.handleInput('amount')}
           />
-          {/* <label className="payment-field-label">
-            Category
-          </label> */}
-          <select className="category-dropdown">
+
+          <select className="category-dropdown" onChange={this.handleInput("category")}>
             <option value="" selected disabled>- Select a Category -</option>
-            <option value="">Transportation</option>
-            <option value="">Accommodation</option>
-            <option value="">Food</option>
-            <option value="">Drinks</option>
-            <option value="">Activity</option>
-            <option value="">Other</option>
-            {/* className="payment-input"
-            type="text"
-            // value={this.state.username}
-            // onChange={this.handleInput('full_name')} */}
+            <option value="Transportation">Transportation</option>
+            <option value="Accommodation">Accommodation</option>
+            <option value="Food">Food</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Activity">Activity</option>
+            <option value="Other">Other</option>
           </select>
+
           <div className="payment-checkbox-container">
             <label className="payment-field-label">
               Choose Pack Members to split with:
             </label>
             <div className="payment-checkbox-item">
               {
-                this.props.pack.members.map(member => {
+                Object.values(this.props.members).map(member => {
                   return (
-                    <div>
-                      <input type="checkbox" className="pack-member-checkbox" name="" value={`${member}`} />{member}
+                    <div key={member._id}>
+                      <input type="checkbox" className="pack-member-checkbox" onChange={this.handleCheckbox} value={member._id} />&nbsp;{member.firstName}&nbsp;{member.lastName}
                     </div>
                   )
                 })
               }
             </div>
-            {/* <div className="payment-checkbox-item">
-              <input type="checkbox" className="pack-member-checkbox" name="" value="" />Pack Member
-            </div>
-            <div className="payment-checkbox-item">
-              <input type="checkbox" className="pack-member-checkbox" name="" value="" />Pack Member
-            </div> */}
           </div>
           <button className="create-payment-button" onClick={this.handleSubmit}>
             <a href="">Create Expense</a>

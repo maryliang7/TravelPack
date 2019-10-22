@@ -95,7 +95,7 @@ export default class PackShow extends React.Component {
               <div className="pack-info-members">
                 <span><p>Pack Members</p></span>
                 <ul>
-                  {Object.values(this.props.members).map(member => <li key={member._id}> {member.firstName} {member.lastName} </li>)}
+                  {Object.values(this.props.members).map((member, idx) => <li key={idx}> {member.firstName} {member.lastName} </li>)}
                 </ul>
               </div>
             </div>

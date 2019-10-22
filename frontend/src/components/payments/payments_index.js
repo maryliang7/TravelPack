@@ -52,10 +52,10 @@ class PaymentsIndex extends React.Component {
                       ${payment.amount}
                     </li>
                     <li className="charged-amount">
-                      {/* {payment.chargeeIds[i]} owes you ${payment.amount / payment.chargeeIds.length} */}
-                      Mary owes you 
+                      {this.props.members[payment.chargeeIds[i]].firstName} owes you ${payment.amount / payment.chargeeIds.length}
+                      {/* Mary owes you 
                       <br></br>
-                      ${payment.amount / payment.chargeeIds.length}
+                      ${payment.amount / payment.chargeeIds.length} */}
                     </li>
                     <button onClick={() => this.deletePayment(this.props.pack._id, payment._id)}>
                       <i className="far fa-trash-alt"></i>

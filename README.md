@@ -27,6 +27,5 @@ A travel web application that allows members to join a pack and plan a vacation 
 * Packs Creation, Joining: Mary
 * Schedules CRUD: Kevin
 * Events CRUD: Kevin
-* Payments CRUD: Mohit, Mary, Kevin
+* Payments CRUD: Mary, Kevin, Mohit
 * AWS Photo Uploading: Justin
-
