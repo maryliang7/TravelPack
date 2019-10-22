@@ -20,6 +20,10 @@ export const updatePack = data => {
   return axios.put(`/api/packs/${data.id}/update`, data)
 }
 
+export const leavePack = data => {
+  return axios.put(`/api/packs/${data.pack}/leave/${data.user}`)
+}
+
 export const deletePack = id => {
   return axios.delete(`/api/packs/${id}`)
 }

@@ -46,18 +46,21 @@ router.put('/:id/update', (req, res) => {
             { _id: pack.id },
             { $push: { members: req.body.members } }
           ).then(() => res.json(pack));
-        } else {
-          console.log('failed');
-          return res.json({ 'kevin': 'is gayyy' });
         }
-
       });
+      return res.json(pack)
     })
     .catch(err =>
       res.status(404).json({ nopackfound: 'No pack found with that ID' })
     );
 });
 
+router.put('/:id/leave/:user', (req, res) => {
+  Pack.findOneAndUpdate(
+    { _id: req.params.id },
+    { $pull: { members: req.params.user }}
+  ).then( () => res.json(req.params.id));
+})
 
 router.delete('/:id', (req, res) => {
   Pack.findByIdAndDelete(req.params.id)

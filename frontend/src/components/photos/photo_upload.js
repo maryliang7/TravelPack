@@ -50,7 +50,7 @@ class PhotoUpload extends React.Component {
       this.props.uploadPhoto(formData)
       .then(
         () => {
-          console.log(formData);
+          // console.log(formData);
           this.setState({ loading: false });
           this.props.props.history.push(`/packs/${this.state.packId}/photos/all`);
         },
@@ -80,6 +80,7 @@ class PhotoUpload extends React.Component {
   }
 
   render() {
+
     let uploadButton = this.state.loading ?
     <button className="loading-button" onClick={this.handleSubmit} disabled >
       <div className="loader"></div>
@@ -88,20 +89,30 @@ class PhotoUpload extends React.Component {
       Post
     </button>;
 
+    let uploadText = this.state.photo?
+      <span>Photo Uploaded <i className="fas fa-check"></i></span> :
+      <span>Select Photo to Upload</span>
+
+    let photoPreview = this.state.photo?
+      <div className="preview-wrapper"><img src={this.state.photo} width="300px" height="200px" /></div> :
+      <div className="preview-placeholder">Photo Preview</div>
+
     return(
       <div className="photo-upload-outer-wrapper">
         <form>
 
           <div className="input-upload">
             <label htmlFor="photo-input">
-              <i class="fas fa-file-image fa-6x"></i>
+              <i className="fas fa-file-image fa-6x"></i>
             </label>
-            <div className="upload-text">Select Photo to Upload</div>
+            <div className="upload-text">{uploadText}</div>
             <input className="inputfile" id="photo-input" type="file" accept="image/png, image/jpeg" onChange={this.updatePhoto} / >
           </div>
           
           {uploadButton}
         </form>
+
+        <div className="photo-preview">{photoPreview}</div>
       </div>
     );
   }

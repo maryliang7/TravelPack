@@ -19,11 +19,7 @@ class LoginForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      // this.props.history.push('/tweets');
-    }
-
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({errors: nextProps.errors})
   }
 

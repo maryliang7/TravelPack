@@ -31,18 +31,28 @@ export const fetchPhoto = id => dispatch => (
   .catch(err => console.log(err))
 )
 
+//Upload to MongoDB
 export const createPhoto = photo => dispatch => (
   PhotoAPIUtil.createPhoto(photo)
   .then(photo => dispatch(receivePhoto(photo)))
   .catch(err => console.log(err))  
 )
 
+//Upload to AWS
 export const uploadPhoto = photo => dispatch => (
   PhotoAPIUtil.uploadPhoto(photo)
   //.then(photo => dispatch(receivePhoto(photo)))
 )
 
-export const deletePhoto = id => dispatch => (
-  PhotoAPIUtil.deletePhoto(id).then(photo => dispatch(removePhoto(photo)))
+//Delete from MongoDB
+export const deletePhoto = data => dispatch => {
+  return(
+  PhotoAPIUtil.deletePhoto(data).then(photo => dispatch(removePhoto(photo)))
   .catch(err => console.log(err))
+  )
+}
+
+//Delete from AWS
+export const destroyPhoto = id => dispatch => (
+  PhotoAPIUtil.destroyPhoto(id)
 )

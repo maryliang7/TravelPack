@@ -7,11 +7,18 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
+    this.state = {
+      active: this.parsePackId() || ""
+    }
+  }
+
+  parsePackId() {
+    let params = this.props.history.location.pathname.split("/");
+    return params[2];
   }
 
   componentDidMount() {
     if (this.props.loggedIn) {
-      // this.props.receiveCurrentUser()
       this.props.getUserPacks(this.props.currentUser.id)
     }
   }
@@ -31,6 +38,11 @@ class NavBar extends React.Component {
     this.props.logout();
   }
 
+  changeActive(id) {
+    this.setState({
+      active: id
+    })
+  }
 
   render() {
     if (!this.props.packs || !this.props.loggedIn) {
@@ -40,14 +52,17 @@ class NavBar extends React.Component {
       return (
         <div className="sidebar">
           <div className="side-header">
-            <Link to="/packs"><img src={logo} alt="logo" /></Link>
+            <Link to="/packs"><img onClick={() => this.changeActive("")} src={logo} alt="logo" /></Link>
             <p>
               {this.props.currentUser.firstName}&nbsp;{this.props.currentUser.lastName}
             </p>
           </div>
           <div className="side-packs">
             <p>PACKS </p>
-            {this.props.packs.map(pack => <Link key={pack._id} to={`/packs/${pack._id}`}><li key={pack._id}>{pack.name}</li></Link>)}
+            {this.props.packs.map(pack => <Link key={pack._id} to={`/packs/${pack._id}`}>
+              <li key={pack._id} onClick={() => this.changeActive(pack._id)} className={this.state.active === pack._id ? "active" : ""}>
+              {pack.name}</li>
+              </Link>)}
           </div>
           <div className="side-logout">
             <button onClick={this.logoutUser}>Logout</button>
