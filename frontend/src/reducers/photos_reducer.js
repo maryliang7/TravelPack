@@ -23,8 +23,6 @@ const photoReducer = (oldState = {}, action) => {
       return Object.assign({}, oldState, {[action.photo._id]: action.photo})
 
     case DELETE_PHOTO:
-      console.log("DELETE PHOTO REDUCER");
-      console.log(action);
       delete newState[action.photoId];
       return newState;
     default:

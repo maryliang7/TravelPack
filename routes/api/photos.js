@@ -15,11 +15,9 @@ const parseURL = (baseUrl) => {
 }
 
 router.get("/all", (req, res) => {
-  console.log("PHOTOS /all");
 
   let packId = parseURL(req.baseUrl);
 
-  console.log(packId);
   Pack.findOne({ _id: packId})
         .then(pack => res.json(pack.photos))
         .catch(err => res.status(404).json({ nophotofound: 'Photos not found' }));
@@ -29,7 +27,6 @@ router.get(`/:photoId`, (req, res) => {
   // Photo.find({ _id: req.body.id })
   //     .then(photo => res.json(photo))
   //     .catch(err => res.status(404).json({ nophotofound: 'No photo found' }));
-  console.log("fetch a photo");
   let packId = parseURL(req.baseUrl);
   Pack.find({_id: packId, "photos._id": req.params.photoId},
   { "photos.$": 1})

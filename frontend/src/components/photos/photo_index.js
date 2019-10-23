@@ -27,7 +27,6 @@ class PhotoIndex extends React.Component {
   // }
 
   render(){
-    console.log(this.props.photos);
     return (
       <section className="photo-index">
         <div>
