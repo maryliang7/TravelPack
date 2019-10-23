@@ -40,7 +40,6 @@
   min-width: 380px;
   font-size: 14px;
   background-color: rgba(223, 226, 241, .2);
-  /* background-color: #FFF; */
   display: flex;
   justify-content: space-between;
   border: 1px solid lightgray;
@@ -51,7 +50,7 @@
 }
 
 .schedule-event-item:hover {
-  background-color: rgba(177, 187, 236, .4);
+  background-color: rgba(185, 193, 233, 0.2);
 }
 
 .schedule-item-el {
@@ -59,7 +58,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .schedule-item-div {
@@ -89,14 +88,16 @@
 }
 
 .schedule-title{
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bolder;
+  margin-bottom: 5px;;
 }
 
 .schedule-form-container {
   font-family: 'Montserrat', 'sans-serif';
-  border: 1px solid rgb(142, 172, 241);
-  background-color: rgb(190, 236, 248);
+  border: 1px solid rgba(191, 185, 245, 0.8);
+  background-color: rgba(223, 226, 241, .2);
+  /* background-color: rgba(105, 90, 240, 0.411); */
   color:rgb(87, 84, 84);
   border-radius: 3px;
   height: 100px;
@@ -107,8 +108,8 @@
 
 .schedule-form-container-edit {
   font-family: 'Montserrat', 'sans-serif';
-  border: 1px solid rgb(142, 172, 241);
-  background-color: rgb(190, 236, 248);
+  border: 1px solid rgba(200, 232, 240, 0.8);
+  background-color: rgba(200, 232, 240, 0.3);
   color:rgb(102, 102, 102);
   border-radius: 3px;
   width: 100%;
@@ -119,13 +120,13 @@
   position: absolute;
   height: 100px;
   width: 380px;
-  top: 80px;
+  top: 100px;
   left: 250px;
-  margin-left: 25px;
+  margin-left: 35px;
   margin-top: 10px;
   font-family: 'Montserrat', 'sans-serif';
-  border: 1px solid rgb(142, 172, 241);
-  background-color: rgb(190, 236, 248);
+  border: 1px solid rgba(191, 185, 245, 0.8);
+  background-color: rgba(223, 226, 241, .2);
   color:rgb(102, 102, 102);
   border-radius: 3px;
 }
@@ -160,7 +161,7 @@
 }
 
 .title-input {
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .start-date {
@@ -240,7 +241,8 @@
   height: 100%;
   margin: 10px;
   justify-content: space-between;
-  background-color: rgba(120, 183, 202, 0.3);
+  /* background-color: rgba(223, 226, 241, .2); */
+  background-color: rgba(232,239,249, .3);
   border: 1px solid rgba(120, 183, 202, 0.7);
   border-radius: 3px;
   height: 100px;
@@ -249,7 +251,6 @@
 .event-item-div {
   width: 100%;
   display: flex;  
-  background-color: rgba(232,239,249, .3);
   justify-content: space-between;
 }
 
@@ -279,8 +280,26 @@
 
 .event-form-details {
   width: 100%;
+  font-size: 13px;
 }
 
 .event {
   min-width: 700px;
+}
+
+.schedule-date {
+  margin-top: 5px;
+}
+
+.schedule-date-input {
+  color: black;
+  font-size: 13px;
+}
+
+.start-date{
+  font-size: 12px;
+}
+
+.end-date {
+  font-size: 12px;
 }

@@ -1,13 +1,11 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { createSchedule, getSchedules, updateSchedule, deleteSchedule } from '../../actions/schedule_actions';
 import { getEvents, createEvent, updateEvent, deleteEvent } from '../../actions/event_actions';
 import Schedule from './schedule';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return{ 
-    schedules: state.entities.schedules,
+    schedules: state.entities.schedules
     // events: state.entities.schedules[ownProps.props.match.params.scheduleId].events
   }
 }

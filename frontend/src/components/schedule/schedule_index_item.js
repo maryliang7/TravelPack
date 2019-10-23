@@ -58,12 +58,12 @@ class ScheduleIndexItem extends React.Component {
                 onChange={this.update('title')}/>
             </div>
 
-            <div className="schedule-start-date-input">
+            <div className="schedule-date-input">
               Start Date: &nbsp;<input type="date" className="start-date" value={this.state.startDate}
                 onChange={this.update('startDate')}/>
             </div>
 
-            <div className="schedule-end-date-input">
+            <div className="schedule-date-input">
               End &nbsp;Date: &nbsp;<input type="date" className="end-date" value={this.state.endDate}
                 onChange={this.update('endDate')}/>
             </div>
