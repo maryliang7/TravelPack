@@ -26,7 +26,6 @@ class CreatePaymentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // debugger
     const payment = Object.assign({}, this.state);
     this.props.createPayment(this.props.pack._id, payment);
 
