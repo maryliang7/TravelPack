@@ -1,6 +1,5 @@
 import React from 'react';
 import './payment_form.css';
-import { IoT1ClickProjects } from 'aws-sdk';
 import WolfCrop from '../pack/wolf-back-crop.png';
 
 class CreatePaymentForm extends React.Component {
@@ -87,9 +86,8 @@ class CreatePaymentForm extends React.Component {
           <select className="category-dropdown" onChange={this.handleInput("category")}>
             <option value="Other">Other</option>
             <option value="Transportation">Transportation</option>
-            <option value="Accommodation">Accommodation</option>
-            <option value="Food">Food</option>
-            <option value="Drinks">Drinks</option>
+            <option value="Food/Drinks">Food/Drinks</option>
+            <option value="Shopping">Shopping</option>
             <option value="Activity">Activity</option>
           </select>
 
@@ -110,11 +108,11 @@ class CreatePaymentForm extends React.Component {
             </div>
           </div>
           <button className="create-payment-button" onClick={this.handleSubmit}>
-            <a href="">Create</a>
+            Create
           </button>
         </form>
         <div>
-          <img id="wolf-crop" src={WolfCrop} />
+          <img id="wolf-crop" src={WolfCrop} alt="" />
         </div>
       </section>
     )
