@@ -20,6 +20,7 @@
 
 .event-pane-65{
   width:65%;
+  z-index: 1;
 }
 
 .schedule-detail{
