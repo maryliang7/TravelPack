@@ -14,7 +14,6 @@ export const receiveSchedule = (schedule) => {
 
 //receiveSchedules is never used
 export const receiveSchedules = (schedules) => {
-  // debugger
   return({
   type: RECEIVE_SCHEDULES,
   schedules: schedules.data
@@ -42,7 +41,6 @@ export const getSchedules = (packId) => (dispatch) => {
 )}
 
 export const createSchedule = (data) => (dispatch) => {
-  // debugger
   return(
     schedAPIUtil.createSchedule(data)
       .then(schedule => dispatch(receiveSchedule(schedule)))
