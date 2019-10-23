@@ -1,5 +1,4 @@
 import React from 'react';
-import { Discovery } from 'aws-sdk';
 
 export default class Event extends React.Component {
   constructor(props){

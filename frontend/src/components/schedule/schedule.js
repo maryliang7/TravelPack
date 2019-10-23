@@ -240,7 +240,7 @@ class Schedule extends React.Component{
             {this.state.addEvent === true ? this.displayNewEventForm() : this.displayAddEventButton()}                          
           </div>
         </div>
-        <img id="wolf-crop" src={WolfCrop} />
+        <img id="wolf-crop" src={WolfCrop} alt="" />
       </div>
     )
   }

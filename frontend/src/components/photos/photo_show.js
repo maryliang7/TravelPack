@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import merge from 'lodash/merge';
 import './photo_show.css'
 
