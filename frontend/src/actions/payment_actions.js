@@ -6,17 +6,17 @@ export const REMOVE_PAYMENT = "REMOVE_PAYMENT";
 
 const receivePayments = (payments) => ({
   type: RECEIVE_PACK,
-  payments
+  payments: payments.data
 });
 
 const receivePayment = (payment) => ({
   type: RECEIVE_PAYMENT,
-  payment
+  payment: payment.data
 });
 
 const removePayment = (paymentId) => ({
   type: REMOVE_PAYMENT,
-  paymentId
+  paymentId: paymentId.data
 });
 
 export const getPayments = (packId, payments) => (dispatch) => APIUtil.getPayments(packId, payments)

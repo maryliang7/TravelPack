@@ -28,7 +28,7 @@ router.post("/new", (req, res) => {
   ).then(() => res.json(newPayment));
 });
 
-router.put("/update/:paymentId", (req, res) => {
+router.put("/:paymentId/update", (req, res) => {
   let parsed = parseURL(req.baseUrl);
 
   Pack.updateOne(
@@ -43,13 +43,13 @@ router.put("/update/:paymentId", (req, res) => {
     }).then((response) => res.json(response));
 });
 
-router.delete("/delete/:paymentId", (req, res) => {
+router.delete("/:paymentId/delete", (req, res) => {
   let parsed = parseURL(req.baseUrl);
 
   Pack.updateOne(
     { _id: parsed },
-    { $pull: { payments: { _id: req.body.id } } }
-  ).then((response) => res.json(response));
+    { $pull: { payments: { _id: req.params.paymentId } } }
+  ).then(() => res.json(req.params.paymentId));
 });  
 
 module.exports = router;

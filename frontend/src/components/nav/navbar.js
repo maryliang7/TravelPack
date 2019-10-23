@@ -64,7 +64,7 @@ class NavBar extends React.Component {
               {pack.name}</li>
               </Link>)}
           </div>
-          <div className="side-logout">
+          <div className="side-logout" onClick={() => this.changeActive("")}>
             <button onClick={this.logoutUser}>Logout</button>
           </div>
         </div>
