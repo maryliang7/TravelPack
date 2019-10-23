@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import ScheduleIndexItem from './schedule_index_item';
 import Event from '../event/event';
 import './schedule.css'
@@ -111,21 +111,20 @@ class Schedule extends React.Component{
       <div className="schedule-form-container">
         <form className="schedule-form" onSubmit={this.handleSubmit}>
           <div className="form-inputs">
-            <div className="title-input">
+            <div className="schedule-title-input">
               <input type="text" className="title-input" placeholder="Schedule Title"
                 onChange={this.update('title')}/>
             </div>
-            <div className="schedule-start-date-input">
+            <div className="schedule-date-input">
               Start Date: &nbsp;<input type="date" className="start-date"
                 onChange={this.update('startDate')}/>
             </div>
-            <div className="schedule-end-date-input">
+            <div className="schedule-date-input">
               End &nbsp;Date: &nbsp;<input type="date" className="end-date"
                 onChange={this.update('endDate')}/>
             </div>
           </div>
 
-        <div>
           <div className="schedule-change-buttons">
             <button type="submit" className="change-button" onClick={this.handleSubmit}>
               <i className="fas fa-check"></i>
@@ -134,7 +133,6 @@ class Schedule extends React.Component{
               <i className="fas fa-times"></i>
             </button>
           </div>
-        </div>
       </form>
     </div>
     )
@@ -178,15 +176,23 @@ class Schedule extends React.Component{
     )
   }
 
-  componentDidMount() {
-    this.props.getSchedules(this.props.pack._id)
-  }
+  // componentDidMount() {
+  //   this.props.getSchedules(this.props.pack._id)
+  // }
 
   // componentDidUpdate() {
   //   this.props.getSchedules(this.props.pack._id)
   // }
 
   render() {
+
+    if (Object.values(this.props.schedules).length === 0) {
+      return(
+        <Redirect to={`/packs/${this.props.pack._id}/schedules/new`}/>
+        // this.displayNewScheduleForm()
+      );
+    } 
+
     let currentSchedule = this.props.schedules[this.props.props.match.params.scheduleId];
     if (!currentSchedule) { //if there is no current schedule, display the new schedule form
       return (
@@ -195,7 +201,6 @@ class Schedule extends React.Component{
         // this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()
       );
     }
-    debugger
 
     return(
       <div className="schedule-and-event">
@@ -235,7 +240,7 @@ class Schedule extends React.Component{
             {this.state.addEvent === true ? this.displayNewEventForm() : this.displayAddEventButton()}                          
           </div>
         </div>
-        <img id="wolf-crop" src={WolfCrop} />
+        <img id="wolf-crop" src={WolfCrop} alt="" />
       </div>
     )
   }

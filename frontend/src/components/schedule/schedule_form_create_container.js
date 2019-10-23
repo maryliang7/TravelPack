@@ -1,10 +1,10 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import ScheduleForm from './schedule_form';
 import { createSchedule } from '../../actions/schedule_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    schedules: state.entities.schedules,
     errors: state.errors
   }
 }

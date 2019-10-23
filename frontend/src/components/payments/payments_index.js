@@ -43,8 +43,11 @@ class PaymentsIndex extends React.Component {
             this.props.payments.map((payment) => {
               return (
                 payment.chargeeIds.map((chargee, idx) => {
+                  if (payment.spotterId === chargee) {
+                    return null;
+                  }
                   return(
-                    <ul key={payment._id += idx} className="payments-index-item">
+                    <ul key={payment._id + idx} className="payments-index-item">
                       <li className="payment-title">
                         {payment.title}
                       </li>
