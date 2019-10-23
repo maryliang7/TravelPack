@@ -30,7 +30,6 @@ class ScheduleForm extends React.Component {
     };
 
     this.props.createSchedule(schedule)
-    // debugger
 
     // if (this.props.createSchedule(schedule)) {
       // return(
