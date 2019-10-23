@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getPacks = data => {
-  return axios.get('/api/packs', data)
+  return axios.post('/api/packs/join', data)
 };
 
 export const getPack = id => {
@@ -18,6 +18,10 @@ export const createPack = data => {
 
 export const updatePack = data => {
   return axios.put(`/api/packs/${data.id}/update`, data)
+}
+
+export const leavePack = data => {
+  return axios.put(`/api/packs/${data.pack}/leave/${data.user}`)
 }
 
 export const deletePack = id => {

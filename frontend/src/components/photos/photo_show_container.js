@@ -4,13 +4,14 @@ import PhotoShow from './photo_show';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    photos: ownProps.photos,
+    // photos: ownProps.photos,
+    photos: Object.values(state.entities.photos)
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchPhoto: photoId => dispatch(fetchPhoto(photoId)),
-  deletePhoto: photoId => dispatch(deletePhoto(photoId))
+  fetchPhoto: data => dispatch(fetchPhoto(data)),
+  deletePhoto: data => dispatch(deletePhoto(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoShow);

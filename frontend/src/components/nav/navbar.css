@@ -28,6 +28,13 @@
 
 .side-packs {
   margin-top: 30px;
+  color: rgb(78, 103, 161);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.side-packs p {
+  padding: 5px 10px;
 }
 
 .side-packs li {
@@ -35,7 +42,8 @@
   color: black;
 }
 
-.side-packs li:hover {
+.side-packs li:hover,
+.active {
   background-color: rgb(142, 172, 241);
 
 }

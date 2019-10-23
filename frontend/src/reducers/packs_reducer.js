@@ -8,7 +8,7 @@ const PacksReducer = (state = {}, action) => {
       return Object.assign({}, state, {[action.pack._id]: action.pack})
     case RECEIVE_USER_PACKS:
       let newPacks = {};
-      action.packs.map(pack => {
+      action.packs.forEach(pack => {
         newPacks[pack._id] = pack;
       })
       return Object.assign({}, newPacks);

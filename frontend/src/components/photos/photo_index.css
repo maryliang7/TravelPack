@@ -6,6 +6,7 @@
 }
 
 .photo-index-outer-wrapper {
+  margin-top: 10px;
   height: calc(100vh - 180px);
   overflow-y: scroll;
 }
@@ -27,6 +28,13 @@
   width: 104px;
   border: solid 1px rgb(178, 195, 236);
   padding: 5px;
+}
+
+.photo-divider {
+  border: 0.5px solid	rgb(220,220,220);
+  padding: 0px;
+  margin-top: 20px;
+  margin-right: 5%;
 }
 
 .photo-index-inner-wrapper {

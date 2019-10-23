@@ -4,12 +4,12 @@ import PhotoIndex from './photo_index';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    photos: ownProps.photos
+    photos: Object.values(state.entities.photos)
   }
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchPhotos: () => dispatch(fetchPhotos()),
+  fetchPhotos: packId => dispatch(fetchPhotos(packId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoIndex);

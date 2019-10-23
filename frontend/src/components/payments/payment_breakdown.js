@@ -11,7 +11,7 @@ const PaymentBreakdown = ({ pack, payments }) => {
           </div>
           <Link to={`/packs/${pack._id}/payments/new`}>
             <button className="create-expense-button">
-              <i class="fas fa-plus"></i> Add an Expense
+              <i className="fas fa-plus"></i> Add an Expense
               </button>
           </Link>
         </div>

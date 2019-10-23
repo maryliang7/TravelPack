@@ -13,7 +13,6 @@ const aws = require('aws-sdk');
 
 const users = require("./routes/api/users");
 const packs = require("./routes/api/packs");
-
 const events = require("./routes/api/events");
 
 const schedules = require("./routes/api/schedules");
@@ -79,10 +78,10 @@ app.use(function(err, req, res, next) {
 
 app.use("/api/users", users);
 app.use("/api/packs", packs);
-app.use("/api/packs/:packId/schedules/:scheduleId/events", events);
+// app.use("/api/packs/:packId/schedules/:scheduleId/events", events);
 // app.use("/api/packs/:packId/schedules/:scheduleId", schedules);
-app.use("/api/packs/:packId/schedules/", schedules);
-
+app.use("/api/packs/:packId/schedules", schedules);
+app.use("/api/packs/:packId/schedules/:scheduleId/events", events);
 
 app.use("/api/packs/:packId/payments", payments);
 

@@ -5,6 +5,23 @@
   left: 50%;
 }
 
+.input-upload {
+  padding-top: 50px;
+  /* padding-left: 10%; */
+  text-align: center;
+  background-color: white;
+}
+
+.fa-file-image {
+  margin-right: 30%;
+}
+
+.fa-file-image:hover {
+  color: rgb(178, 195, 236);
+  cursor: pointer;
+  margin-right: 30%;
+}
+
 .upload-button {
   font-family: sans-serif;
   font-size: 12px;
@@ -15,7 +32,6 @@
   width: 20%;
   margin-left: 36%;
   margin-right: 36%;
-
 }
 
 .loading-button {
@@ -43,7 +59,7 @@
 }
 
 .inputfile {
-	width: 0.1px;
+  width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
 	overflow: hidden;
@@ -65,4 +81,28 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   padding: 10px;
+}
+
+.photo-preview {
+  padding-top: 50px;
+  margin: 0 auto;
+}
+
+.preview-placeholder {
+  padding: 0px;
+  margin: 0;
+  width: 300px;
+  height: 200px;
+  background-color: #DCDCDC;
+  border: solid 2px rgb(178, 195, 236);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A9A9A9;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.preview-wrapper {
+  width: 300px;
+  height: 200px;
 }

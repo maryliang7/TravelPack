@@ -3,13 +3,14 @@ import PaymentsIndex from './payments_index';
 import { createPayment, updatePayment, deletePayment } from '../../actions/payment_actions';
 
 
-// const mapStateToProps = (state) => ({
-
-// });
+const mapStateToProps = (state) => ({
+  members: state.entities.users,
+  payments: Object.values(state.entities.payments)
+});
 
 const mapDispatchToProps = (dispatch) => ({
   // getPack: (id) => dispatch(getPack(id)),
   deletePayment: (packId, paymentId) => dispatch(deletePayment(packId, paymentId))
 });
 
-export default connect(null, mapDispatchToProps)(PaymentsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentsIndex);

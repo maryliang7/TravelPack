@@ -3,7 +3,8 @@ import { createPayment } from '../../actions/payment_actions';
 import CreatePaymentForm from './create_payment_form';
 
 const mapStateToProps = (state) => ({
-
+  members: state.entities.users,
+  currentUser: state.session.user
 });
 
 const mapDispatchToProps = (dispatch) => ({
