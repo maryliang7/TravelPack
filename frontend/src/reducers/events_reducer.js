@@ -16,7 +16,7 @@ const EventsReducer = (state = {}, action) => {
       return Object.assign({}, state, action.schedule.event)
     case REMOVE_EVENT:
       let newState = Object.assign({}, state);
-      delete newState[action.event];
+      delete newState[action.event.eventId];
       return newState;
     default:
       return state;

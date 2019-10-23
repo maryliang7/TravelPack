@@ -10,7 +10,6 @@ router.get("/test", (req, res) => res.json({msg: "This is the events route"}));
 //helper function
 const parseURL = baseUrl => {
   let urlArr = baseUrl.split("/");
-
   return [urlArr[3], urlArr[5]]
 };
 
@@ -43,41 +42,35 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:eventId", (req, res) => {
-  // let packId = parseUrlPack(req.baseUrl)
-  // let scheduleId = parseUrlSchedule(req.baseUrl)
   const [packId, scheduleId] = parseURL(req.baseUrl);
-  const eventId = req.params.eventId
-  console.log(packId, scheduleId, eventId)
-  console.log("------")
-  console.log(req.body)
+  const oldEventId = req.params.eventId
 
-  Pack.findOneAndUpdate(
-    { _id: packId, "schedules._id": scheduleId, "events._id": eventId },
-    { $set: {"events.$.title": req.body.title, 
-            "events.$.description": req.body.description,
-            "events.$.address": req.body.address,
-            "events.$.cost": req.body.cost
-    }}).then(() => {
-      // Pack.find({"schedules.events._id": eventId})
-      //   .then(asdf => res.json(asdf))
-      // });
-      Pack.find({_id: packId, "schedules._id": scheduleId, "schedules.events._id": eventId},
-        {"schedules.0.events.$": 1})
-        .then(event => res.json(event))
-        .catch(err => res.json(err))
-      });
-  });
+  const newEvent = new Event({
+    title: req.body.title,
+    description: req.body.description,
+    address: req.body.address,
+    cost: req.body.cost
+  })
 
-router.delete("/:eventId", (req, res) => {
-  const [packId, scheduleId] = parseURL(req.baseUrl);
-  const eventId = req.params.eventId
-  // console.log(packId)
-  // console.log(scheduleId)
-  // console.log(eventId)
   Pack.updateOne(
     { _id: packId, "schedules._id": scheduleId },
-    { $pull: { "schedules.$.events": {_id: eventId}} }
-  ).then(() => res.json({eventId, scheduleId}))
+    { $pull: { "schedules.$.events": {_id: oldEventId}} }
+  ).then(() => {
+    Pack.updateOne( 
+      { _id: packId, "schedules._id": scheduleId },
+      { $push: {"schedules.$.events": newEvent }}
+    ).then(() => res.json({newEvent, scheduleId, oldEventId}))
+  })
 });
+
+  router.delete("/:eventId", (req, res) => {
+    const [packId, scheduleId] = parseURL(req.baseUrl);
+    const eventId = req.params.eventId
+
+    Pack.updateOne(
+      { _id: packId, "schedules._id": scheduleId },
+      { $pull: { "schedules.$.events": {_id: eventId}} }
+    ).then(() => res.json({eventId, scheduleId}))
+  });
 
 module.exports = router;

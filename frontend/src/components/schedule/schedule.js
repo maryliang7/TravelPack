@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import ScheduleIndexItem from './schedule_index_item';
 import Event from '../event/event';
 import './schedule.css'
@@ -28,10 +28,8 @@ class Schedule extends React.Component{
     }
     this.handleDeleteSchedule = this.handleDeleteSchedule.bind(this);
     this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
-
     this.handleUpdateSchedule = this.handleUpdateSchedule.bind(this);
     this.handleUpdateEvent = this.handleUpdateEvent.bind(this);
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEventSubmit = this.handleEventSubmit.bind(this);
   }
@@ -180,15 +178,24 @@ class Schedule extends React.Component{
     )
   }
 
+  componentDidMount() {
+    this.props.getSchedules(this.props.pack._id)
+  }
+
+  // componentDidUpdate() {
+  //   this.props.getSchedules(this.props.pack._id)
+  // }
+
   render() {
     let currentSchedule = this.props.schedules[this.props.props.match.params.scheduleId];
-    if (!currentSchedule) {
+    if (!currentSchedule) { //if there is no current schedule, display the new schedule form
       return (
-        <div>
-          {this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()}
-        </div>
+        // <Redirect to="/new" />
+        this.displayNewScheduleForm()
+        // this.state.addSchedule === true ? this.displayNewScheduleForm() : this.displayAddScheduleButton()
       );
     }
+    debugger
 
     return(
       <div className="schedule-and-event">

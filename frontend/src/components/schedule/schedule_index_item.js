@@ -101,7 +101,6 @@ class ScheduleIndexItem extends React.Component {
             <i className="fas fa-trash-alt"></i>
           </button>
         </div>
-
       </div>
     )
   }

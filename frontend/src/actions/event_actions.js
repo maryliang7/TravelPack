@@ -19,10 +19,11 @@ const receiveEvents = (events) => {
     events: events.data
 })}
 
-const removeEvent = (event) => ({
+const removeEvent = (event) => {
+return({
   type: REMOVE_EVENT,
-  event: event.data
-})
+  event: event
+})}
 
 export const getEvent = (data) => (dispatch) => (
   eventAPIUtil.getEvent(data)
@@ -43,15 +44,19 @@ return(
     .catch(err => console.log(err)) 
 )}
 
-export const updateEvent = (data) => (dispatch) => (
+export const updateEvent = (data) => (dispatch) => {
+return(
   eventAPIUtil.updateEvent(data)
-    .then(event => dispatch(receiveEvent(event)))
+    .then(event => {
+      dispatch(removeEvent({eventId: event.data.oldEventId, scheduleId: event.data.scheduleId }))
+      dispatch(receiveEvent(event))
+    })
     .catch(err => console.log(err)) 
-)
+)}
 
 export const deleteEvent = (data) => (dispatch) => {
   return(
   eventAPIUtil.deleteEvent(data)
-    .then(event => dispatch(removeEvent(event)))
+    .then(event => dispatch(removeEvent(event.data)))
     .catch(err => console.log(err)) 
 )}
