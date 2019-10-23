@@ -30,6 +30,13 @@
   padding: 5px;
 }
 
+.photo-divider {
+  border: 0.5px solid	rgb(220,220,220);
+  padding: 0px;
+  margin-top: 20px;
+  margin-right: 5%;
+}
+
 .photo-index-inner-wrapper {
   display: flex;
   flex-wrap: wrap;

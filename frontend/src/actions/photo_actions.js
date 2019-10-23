@@ -11,22 +11,24 @@ export const receiveAllPhotos = photos => ({
 
 export const receivePhoto = photo => ({
   type: RECEIVE_PHOTO,
-  photo
+  photo: photo.data
 });
 
-export const removePhoto = photo => ({
+export const removePhoto = photoId => ({
   type: DELETE_PHOTO,
-  photoId: photo.id
+  photoId: photoId.data
 });
 
-export const fetchPhotos = (packId) => dispatch => (
+export const fetchPhotos = (packId) => dispatch => {
+  return (
   PhotoAPIUtil.fetchPhotos(packId)
   .then(photos => dispatch(receiveAllPhotos(photos)))
   .catch(err => console.log(err))
-)
+  );
+}
 
-export const fetchPhoto = id => dispatch => (
-  PhotoAPIUtil.fetchPhoto(id)
+export const fetchPhoto = data => dispatch => (
+  PhotoAPIUtil.fetchPhoto(data)
   .then(photo => dispatch(receivePhoto(photo)))
   .catch(err => console.log(err))
 )
@@ -47,7 +49,7 @@ export const uploadPhoto = photo => dispatch => (
 //Delete from MongoDB
 export const deletePhoto = data => dispatch => {
   return(
-  PhotoAPIUtil.deletePhoto(data).then(photo => dispatch(removePhoto(photo)))
+  PhotoAPIUtil.deletePhoto(data).then(photoId => dispatch(removePhoto(photoId)))
   .catch(err => console.log(err))
   )
 }
