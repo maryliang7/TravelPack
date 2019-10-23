@@ -5,9 +5,10 @@ import { getEvents, createEvent, updateEvent, deleteEvent } from '../../actions/
 import Schedule from './schedule';
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   return{ 
     schedules: state.entities.schedules,
-    events: state.entities.schedules[ownProps.props.match.params.scheduleId].events
+    // events: state.entities.schedules[ownProps.props.match.params.scheduleId].events
   }
 }
 

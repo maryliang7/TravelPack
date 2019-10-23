@@ -16,9 +16,11 @@ const SchedulesReducer = (state = {}, action) => {
       newSchedule[action.event.scheduleId].events.push(action.event.newEvent);
       return newSchedule;
     case RECEIVE_SCHEDULE:
-      return (Object.assign({}, state, {[action.schedule._id]: action.schedule}))
-    case RECEIVE_SCHEDULES: 
-      return Object.assign({}, state, action.schedules)
+      // return (Object.assign({}, state, {[action.schedule._id]: action.schedule}))
+      return (Object.assign({}, {[action.schedule._id]: action.schedule}))
+    case RECEIVE_SCHEDULES:
+      action.schedules.forEach(sched => newState[sched._id] = sched)
+      return newState;
     case REMOVE_SCHEDULE:
       delete newState[action.scheduleId];
       return newState
