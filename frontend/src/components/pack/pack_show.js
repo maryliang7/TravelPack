@@ -8,7 +8,7 @@ import CreatePaymentFormContainer from '../payments/create_payment_form_containe
 import PhotoIndexContainer from '../photos/photo_index_container';
 import PhotoUploadContainer from '../photos/photo_upload_container'; 
 import PhotoShowContainer from '../photos/photo_show_container'; 
-import PaymentBreakdown from '../payments/payment_breakdown';
+import PaymentBreakdownContainer from '../payments/payment_breakdown_container';
 import InnerNavBar from '../nav/inner_navbar';
 import mountain1 from './mountain-1.jpg';
 import mountain2 from './mountain-2.jpg';
@@ -138,7 +138,7 @@ export default class PackShow extends React.Component {
             />
             <Route
               exact path="/packs/:packId/payments/details"
-              render={() => <PaymentBreakdown pack={pack} payments={pack.payments} members={members}/>}
+              render={() => <PaymentBreakdownContainer pack={pack} />}
             />
             <Route
               exact path="/packs/:packId/payments"

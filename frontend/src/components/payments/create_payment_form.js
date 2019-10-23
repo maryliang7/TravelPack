@@ -87,9 +87,8 @@ class CreatePaymentForm extends React.Component {
           <select className="category-dropdown" onChange={this.handleInput("category")}>
             <option value="Other">Other</option>
             <option value="Transportation">Transportation</option>
-            <option value="Accommodation">Accommodation</option>
-            <option value="Food">Food</option>
-            <option value="Drinks">Drinks</option>
+            <option value="Food/Drinks">Food/Drinks</option>
+            <option value="Shopping">Shopping</option>
             <option value="Activity">Activity</option>
           </select>
 
