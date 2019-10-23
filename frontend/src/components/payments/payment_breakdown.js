@@ -42,6 +42,8 @@ export default class PaymentBreakdown extends React.Component {
         case 'Other':
           other += payment.amount
           break;
+        default:
+          break;
       }
     })
 

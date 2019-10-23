@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import ScheduleIndexItem from './schedule_index_item';
 import Event from '../event/event';
 import './schedule.css'
@@ -240,7 +240,7 @@ class Schedule extends React.Component{
             {this.state.addEvent === true ? this.displayNewEventForm() : this.displayAddEventButton()}                          
           </div>
         </div>
-        <img id="wolf-crop" src={WolfCrop} />
+        <img id="wolf-crop" src={WolfCrop} alt="" />
       </div>
     )
   }

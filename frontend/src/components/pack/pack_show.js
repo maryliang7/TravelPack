@@ -119,7 +119,6 @@ export default class PackShow extends React.Component {
           path="/packs/:packId"
           render={() => <InnerNavBar pack={pack} />}
         />
-        {/* {<InnerNavBar />} */}
         <div>
           <Switch>
             <Route
@@ -133,8 +132,6 @@ export default class PackShow extends React.Component {
             <Route
               exact path="/packs/:packId/schedules/:scheduleId"
               render={(props) => <ScheduleContainer props={props} pack={pack} />}
-              // render={(props) => <ScheduleContainer props={props} pack={pack} />}
-              // render={(props) => <ScheduleContainer props={props} pack={pack} members={members} />}
             />
             <Route
               exact path="/packs/:packId/payments/details"

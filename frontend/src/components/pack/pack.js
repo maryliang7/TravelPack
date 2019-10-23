@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 import PackAddContainer from './pack_add_container';
 import PackFormContainer from './pack_form_container';
 import WolfCrop from './wolf-back-crop.png';
@@ -13,7 +12,7 @@ export default class Pack extends React.Component {
       <div className="pack-forms">
         <PackFormContainer />
         <PackAddContainer />
-        <img id="wolf-crop" src={WolfCrop} />
+        <img id="wolf-crop" src={WolfCrop} alt="" />
       </div>
     )
   }

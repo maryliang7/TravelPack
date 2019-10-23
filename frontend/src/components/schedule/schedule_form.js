@@ -1,5 +1,4 @@
 import React from 'react';
-import { throws } from 'assert';
 import {withRouter, Redirect} from 'react-router-dom';
 
 class ScheduleForm extends React.Component {

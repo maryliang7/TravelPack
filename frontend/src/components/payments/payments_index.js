@@ -44,7 +44,7 @@ class PaymentsIndex extends React.Component {
               return (
                 payment.chargeeIds.map((chargee, idx) => {
                   if (payment.spotterId === chargee) {
-                    return;
+                    return null;
                   }
                   return(
                     <ul key={payment._id + idx} className="payments-index-item">

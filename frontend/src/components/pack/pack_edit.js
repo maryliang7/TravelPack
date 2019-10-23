@@ -53,7 +53,7 @@ export default class PackEdit extends React.Component {
 
     return(
       <div className="pack-edit">
-        <img id="wolf-crop" src={WolfCrop} />
+        <img id="wolf-crop" src={WolfCrop} alt="" />
         <Link to={`/packs/${this.props.pack._id}`}>
           <i className="fas fa-chevron-left"></i>
         </Link>
