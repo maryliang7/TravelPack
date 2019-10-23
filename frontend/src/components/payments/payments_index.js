@@ -37,32 +37,32 @@ class PaymentsIndex extends React.Component {
             </Link>
           </div>
         </div>
+
         <div className="payments-index-container">
           {
             this.props.payments.map((payment) => {
-              for (let i = 0; i < payment.chargeeIds.length; i++) {
-                return (
-                  <ul key={payment._id} className="payments-index-item">
-                    <li className="payment-title">
-                      {payment.title}
-                    </li>
-                    <li className="payment-amount">
-                      You paid
-                      <br></br>
-                      ${payment.amount}
-                    </li>
-                    <li className="charged-amount">
-                      {this.props.members[payment.chargeeIds[i]].firstName} owes you ${payment.amount / payment.chargeeIds.length}
-                      {/* Mary owes you 
-                      <br></br>
-                      ${payment.amount / payment.chargeeIds.length} */}
-                    </li>
-                    <button onClick={() => this.deletePayment(this.props.pack._id, payment._id)}>
-                      <i className="far fa-trash-alt"></i>
-                    </button>
-                  </ul>
-                )
-              }
+              return (
+                payment.chargeeIds.map((chargee, idx) => {
+                  return(
+                    <ul key={payment._id += idx} className="payments-index-item">
+                      <li className="payment-title">
+                        {payment.title}
+                      </li>
+                      <li className="payment-amount">
+                        {this.props.members[payment.spotterId].firstName} paid
+                          <br></br>
+                        ${payment.amount}
+                      </li>
+                      <li className="charged-amount">
+                        {this.props.members[chargee].firstName} owes {this.props.members[payment.spotterId].firstName} ${payment.amount / payment.chargeeIds.length}
+                      </li>
+                      <button onClick={() => this.deletePayment(this.props.pack._id, payment._id)}>
+                        <i className="far fa-trash-alt"></i>
+                      </button>
+                    </ul>
+                  )
+                })
+              )
             })
           }
         </div>

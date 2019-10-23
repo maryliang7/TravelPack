@@ -8,7 +8,7 @@ class CreatePaymentForm extends React.Component {
     this.state = {
       title: "",
       amount: "",
-      category: "",
+      category: "Other",
       spotterId: this.props.currentUser.id,
       chargeeIds: [],
     };
@@ -26,13 +26,14 @@ class CreatePaymentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // debugger
     const payment = Object.assign({}, this.state);
     this.props.createPayment(this.props.pack._id, payment);
 
     this.setState({
       title: "",
       amount: "",
-      category: "",
+      category: "Other",
       spotterId: this.props.currentUser.id,
       chargeeIds: []}, () => {
         this.props.props.history.push(`/packs/${this.props.pack._id}/payments`)
@@ -84,13 +85,12 @@ class CreatePaymentForm extends React.Component {
           />
 
           <select className="category-dropdown" onChange={this.handleInput("category")}>
-            <option value="" selected disabled>- Select a Category -</option>
+            <option value="Other">Other</option>
             <option value="Transportation">Transportation</option>
             <option value="Accommodation">Accommodation</option>
             <option value="Food">Food</option>
             <option value="Drinks">Drinks</option>
             <option value="Activity">Activity</option>
-            <option value="Other">Other</option>
           </select>
 
           <div className="payment-checkbox-container">
