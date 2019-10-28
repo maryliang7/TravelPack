@@ -46,7 +46,7 @@ export default class PackShow extends React.Component {
   calcCountdown() {
     let today = new Date()
     let time = new Date(this.props.pack.startDate) - today;
-    let days = Math.floor(time / (1000 * 60 * 60 * 24));
+    let days = Math.floor(time / (1000 * 60 * 60 * 24)) + 1;
     return (days > 0) ? days : 0;
   }
 

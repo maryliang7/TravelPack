@@ -8,6 +8,7 @@ A travel web application that allows members to join a pack and plan a vacation 
 
 * MERN: mongoDB, Express, React, Node.js
 * Amazon Web Services
+* Chart.js
 
 ## Link
 
@@ -17,15 +18,22 @@ A travel web application that allows members to join a pack and plan a vacation 
 
 ---
 
-### Log In
+### Pack Show
+![Pack Show](/readme_media/pack-show.png)
 
+>Shows Pack Information, and has links to the schedules, expenses and photo sections. Pack Code and Password are distributed to other people in order for them to join the pack as well.
+
+### Expenses
+![Pack Expenses](/readme_media/expenses.gif)
+
+> Expenses allow pack members to keep track of any debt owed to other pack members. Also has a breakdown of what the money is being spent on.
 ---
 
 ### Distribution of Tasks
 
 * User Authentication: Mary, Justin
-* Packs Creation, Joining: Mary
+* Packs CRUD: Mary
 * Schedules CRUD: Kevin
 * Events CRUD: Kevin
-* Payments CRUD: Mary, Kevin, Mohit
+* Payments CRUD: Mary, Mohit
 * AWS Photo Uploading: Justin
