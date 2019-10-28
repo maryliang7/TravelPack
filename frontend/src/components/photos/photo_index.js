@@ -30,9 +30,9 @@ class PhotoIndex extends React.Component {
     return (
       <section className="photo-index">
         <div>
-          <div className="photos-header">Photos</div>
+          {/* <div className="photos-header">Photos</div> */}
           <div className="photo-upload-link"><Link to={`/packs/${this.props.pack._id}/photos/upload`} style={{ textDecoration: 'none' }}>Upload Photo</Link></div>
-          <hr className="photo-divider" />
+          {/* <hr className="photo-divider" /> */}
         </div>
 
         <div className="photo-index-outer-wrapper">
