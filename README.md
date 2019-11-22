@@ -6,9 +6,84 @@ A travel web application that allows members to join a pack and plan a vacation 
 
 ## Technologies Used
 
-* MERN: mongoDB, Express, React, Node.js
+* MERN: mongoDB, Express, React, Node
+  + mongoDB is chosen for the database because it allows for embedded objects. Many of our objects are nested under one another therefore when we would need to make a change, we would only have to do so in one location.
+  + Express is chosen as the web framework as it is the most popular and easy to use with Node. It makes API routing quite simple and clean.
+  + React is used for the frontend development because it makes creating simple or complex components an easy task. We are able to pass  state easily to components and then design the component as needed.
+  + Node is used with Express to build the web application. It allows for easy file and packange management anywhere from development to production. We are able to load our modules from one file to another, manage our packages, and build our application.
+```
+Express routes for main objects of the application.
+
+app.use("/api/users", users);
+app.use("/api/packs", packs);
+app.use("/api/packs/:packId/schedules", schedules);
+app.use("/api/packs/:packId/schedules/:scheduleId/events", events);
+
+app.use("/api/packs/:packId/payments", payments);
+
+app.use("/api/packs/:packId/photos", photos);
+```
 * Amazon Web Services
+  + Used for hosting and sharing photos for a pack. A pack member can upload a photo to AWS and the pack will have it available to all other pack members.
+```
+Using express router to upload a new photo to AWS.
+
+router.post("/new", (req, res) => {
+  const s3FileURL = keys.AWS_Uploaded_File_URL_LINK;
+
+  const newPhoto = new Photo({
+    title: req.body.title,
+    attachedPhoto: s3FileURL + req.body.title,
+    packId: req.body.packId,
+  })
+
+  let parsed = parseURL(req.baseUrl);
+  Pack.updateOne(
+      {_id: parsed},
+      { $push: {photos: newPhoto }}
+  ).then(() => res.json(newPhoto));
+});
+```
+* Axios.js
+  + Axios is used to make HTTP requests with Node. It automatically transform data to JSON for quick and easy use.
+```
+Schedule HTTP requests using Axios.
+
+export const getSchedules = packId => {
+  return axios.get(`api/packs/${packId}/schedules`)
+}
+
+export const getSchedule = data => {
+  return axios.get(`api/packs/${data.packId}/schedules/${data.scheduleId}`)
+}
+
+export const createSchedule = data => {
+  return axios.post(`api/packs/${data.packId}/schedules/new`, data)
+}
+
+export const updateSchedule = data => {
+  return axios.put(`api/packs/${data.packId}/schedules/${data.scheduleId}`, data)
+}
+
+export const deleteSchedule = data => {
+  return axios.delete(`api/packs/${data.packId}/schedules/${data.scheduleId}`, data)
+}
+```
+  
 * Chart.js
+  + Utilizes Canvas to create simple charts detailing trip expense summary.
+  ```
+  Chart.js pie chart to display trip breakdown of expenses. Simply load the data into the dataset and voila. 
+  
+  <div className="pie-chart">
+    <Pie data={{
+      labels: this.state.labels,
+      datasets: this.state.datasets
+    }}
+    height={100}
+    />  
+  </div>
+  ```
 
 ## Link
 
